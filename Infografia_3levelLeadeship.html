@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Level Leadership de James Scouller - Como ser el GOAT de los Negocios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0265d2',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .circle-hover {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .circle-hover:hover {
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.25));
+            stroke-width: 6px;
+        }
+        .glow-active {
+            filter: drop-shadow(0 0 18px rgba(139, 92, 246, 0.6));
+        }
+        /* Custom scrollbar for quiz */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-slate-800 bg-slate-100 min-h-full py-4 sm:py-8 px-2 sm:px-6">
+
+    <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200/80">
+        
+        <!-- ENCABEZADO DE LA CLASE PREMIUM -->
+        <header class="bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 text-white p-6 sm:p-10 relative overflow-hidden">
+            <!-- Adornos de luz de fondo -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold rounded-full uppercase tracking-wider mb-3 backdrop-blur-md">
+                        <i class="fa-solid fa-crown text-amber-400 text-sm"></i>
+                        <span>Como ser el GOAT de los negocios - Habilidades de los grandes lideres</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+                        La Teoría de los 3 Niveles de Liderazgo
+                    </h1>
+                    <p class="text-slate-300 text-sm sm:text-base mt-2 max-w-2xl font-light leading-relaxed">
+                        Modelo de James Scouller (2011)<br>Descubre por qué el verdadero liderazgo en los negocios y la vida comienza desde la maestría de tu mundo interior.
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-xl p-4 rounded-2xl border border-white/15 text-center flex-shrink-0 shadow-lg min-w-[160px]">
+                    <i class="fa-solid fa-chalkboard-user text-3xl text-amber-400 mb-1"></i>
+                    <p class="text-xs text-slate-300 font-semibold uppercase tracking-wider">Nota de la Profe Fabi</p>
+                    <p class="text-xs text-white font-bold mt-0.5">¡Haz clic en el diagrama!</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="p-6 sm:p-10 border-b border-slate-100 bg-slate-50/70">
+            <div class="flex flex-col gap-6">
+                
+                <!-- Semblanza con Foto del Autor (Destacada y más grande) -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col sm:flex-row items-center sm:items-start gap-6 transition-all hover:shadow-md">
+                    <div class="relative flex-shrink-0">
+                        <img src="https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/james_scouller.jpg" 
+                             alt="Fotografía de James Scouller" 
+                             class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl object-cover border-4 border-indigo-500 shadow-lg"
+                             onerror="this.onerror=null; this.src='https://placehold.co/200x200/4f46e5/ffffff?text=James+Scouller';">
+                        <div class="absolute -bottom-2 -right-2 bg-indigo-600 text-white p-2 rounded-xl text-sm shadow-md">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                    </div>
+                    <div class="text-center sm:text-left flex-1">
+                        <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-widest block mb-1">Semblanza del Autor</span>
+                        <h3 class="text-2xl font-black text-slate-900">James Scouller</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2 font-normal">
+                            Coach ejecutivo británico y ex-CEO corporativo por más de 11 años. Estudió psicología del desarrollo para responder qué hace a un líder verdaderamente auténtico y efectivo. Tras dirigir grandes organizaciones internacionales, sistematizó su hallazgo clave: Las teorías tradicionales omitian un enfoque importante, el desarrollo personal e interior de la persona que lidera.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contexto e Innovación de la Teoría (Ubicado debajo) -->
+                <div class="bg-gradient-to-br from-indigo-900 to-slate-900 p-6 sm:p-8 rounded-3xl text-white shadow-md relative overflow-hidden flex flex-col justify-center">
+                    <div class="absolute top-0 right-0 p-8 opacity-10">
+                        <i class="fa-solid fa-brain text-8xl text-white"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-500/30 text-indigo-200 rounded-lg text-xs font-bold uppercase tracking-wider mb-3 border border-indigo-400/30">
+                            <i class="fa-solid fa-lightbulb text-amber-400 text-sm"></i> ¿Por qué revolucionó el liderazgo?
+                        </span>
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-light">
+                            A diferencia de las teorías preexistentes (centradas principalmente en <strong>comportamientos externos, rasgos hereditarios o estilos de mando</strong>), Scouller introdujo en su libro -The three levels of leadership- un modelo innovador: situó en el núcleo central la <strong>psique del líder</strong> (emociones, creencias, autoconocimiento y presencia auténtica). Sin salud e integración psicológica interna, ningún liderazgo puede sostenerse.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="p-6 sm:p-10 bg-white">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">3 level leadership de James Scouller</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1.5">Toca o pasa el cursor sobre cada nivel para desplegar su descripción</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- DIAGRAMA SVG INTERACTIVO -->
+                <div class="lg:col-span-6 flex flex-col items-center justify-center relative bg-slate-50/80 p-4 sm:p-6 rounded-3xl border border-slate-200/80 shadow-inner">
+                    <div class="w-full max-w-[540px] aspect-square relative flex items-center justify-center">
+                        <svg viewBox="0 0 460 460" class="w-full h-full drop-shadow-xl select-none">
+                            <!-- Nivel Público (Exterior) -->
+                            <circle id="circle-public" cx="230" cy="230" r="228.5" 
+                                    fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-width="3.5" stroke-dasharray="6,6"
+                                    class="circle-hover" onclick="selectLevel('publico')"/>
+                            <text x="230" y="45" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="800" class="pointer-events-none tracking-wide">
+                                LIDERAZGO PÚBLICO (Grupal)
+                            </text>
+
+                            <!-- Nivel Privado (Medio) -->
+                            <circle id="circle-private" cx="230" cy="230" r="170" 
+                                    fill="#06b6d4" fill-opacity="0.20" stroke="#0891b2" stroke-width="3.5"
+                                    class="circle-hover" onclick="selectLevel('privado')"/>
+                            <text x="230" y="115" text-anchor="middle" fill="#0e7490" font-size="12" font-weight="800" class="pointer-events-none tracking-wide">
+                                LIDERAZGO PRIVADO (1 a 1)
+                            </text>
+
+                            <!-- Nivel Personal (Núcleo / Psique) -->
+                            <circle id="circle-personal" cx="230" cy="230" r="100" 
+                                    fill="#8b5cf6" fill-opacity="0.90" stroke="#6d28d9" stroke-width="3"
+                                    class="circle-hover glow-active" onclick="selectLevel('personal')"/>
+                            <text x="230" y="226" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="800" class="pointer-events-none">
+                                PERSONAL
+                            </text>
+                            <text x="230" y="242" text-anchor="middle" fill="#ede9fe" font-size="10" font-weight="600" class="pointer-events-none">
+                                (La Psique)
+                            </text>
+                        </svg>
+                    </div>
+
+                    <!-- Selector rápido táctil para móviles -->
+                    <div class="flex flex-wrap gap-2 justify-center mt-4 sm:hidden">
+                        <button onclick="selectLevel('personal')" class="px-3.5 py-1.5 bg-purple-600 text-white font-bold rounded-xl text-xs shadow-sm">1. Personal</button>
+                        <button onclick="selectLevel('privado')" class="px-3.5 py-1.5 bg-cyan-600 text-white font-bold rounded-xl text-xs shadow-sm">2. Privado</button>
+                        <button onclick="selectLevel('publico')" class="px-3.5 py-1.5 bg-blue-600 text-white font-bold rounded-xl text-xs shadow-sm">3. Público</button>
+                    </div>
+                </div>
+
+                <!-- TARJETA DINÁMICA DE DETALLE -->
+                <div class="lg:col-span-6">
+                    <div id="detail-card" class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-purple-500 shadow-xl transition-all duration-300 min-h-[440px] flex flex-col justify-between">
+                        <!-- El contenido interactivo se carga mediante JS -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="p-6 sm:p-10 bg-slate-900 text-white border-t border-slate-800">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Guía de Aplicación Real</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">¿Cómo aplicar esta teoría en tu día a día?</h3>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1.5">Ejemplos concretos para un estudiante de preparatoria en la escuela, deporte y vida personal.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Ejemplo Personal -->
+                <div class="bg-slate-800/90 p-6 rounded-2xl border border-purple-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center font-bold text-sm border border-purple-500/30">1</span>
+                            <h4 class="text-base font-bold text-purple-300">En lo Personal</h4>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal">
+                            <strong>Manejo del estrés académico:</strong> Antes de un examen difícil o presentación, identificas tus pensamientos de duda y aplicas autorregulación emocional en vez de entrar en pánico o postergar el estudio.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-700/60 text-[11px] text-purple-400 font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved"></i> Autoliderazgo y salud de la psique
+                    </div>
+                </div>
+
+                <!-- Ejemplo Privado -->
+                <div class="bg-slate-800/90 p-6 rounded-2xl border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl"></div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center font-bold text-sm border border-cyan-500/30">2</span>
+                            <h4 class="text-base font-bold text-cyan-300">En lo Privado (1 a 1)</h4>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal">
+                            <strong>Trabajos en pareja / amistad:</strong> Escuchas con empatía activa a tu compañero de equipo que está distraído, descubres sus fortalezas e inspiras acuerdos claros en lugar de criticarlo o acusarlo con el profesor.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-700/60 text-[11px] text-cyan-400 font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-comments"></i> Conexión empática individual
+                    </div>
+                </div>
+
+                <!-- Ejemplo Público -->
+                <div class="bg-slate-800/90 p-6 rounded-2xl border border-blue-500/30 relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="w-8 h-8 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center font-bold text-sm border border-blue-500/30">3</span>
+                            <h4 class="text-base font-bold text-blue-300">En lo Público (Grupal)</h4>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed font-normal">
+                            <strong>Proyectos grupales / Clubes:</strong> Asumes el rol de avatar de la visón alineando al grupo hacia la meta común, ordenando la dinámica de trabajo con optimismo y proyectando la seguridad que el equipo necesita.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-700/60 text-[11px] text-blue-400 font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-bullhorn"></i> Encarnación de la visión común
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-6 sm:p-10 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <span class="px-3 py-1 bg-brand-100 text-brand-600 rounded-full text-xs font-extrabold uppercase tracking-widest border border-brand-500/20">
+                        Checklist del Líder GOAT (20 Preguntas)
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-3">¿En qué nivel está tu liderazgo hoy?</h3>
+                    <br>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        Marca las afirmaciones que reflejen tus conductas habituales,<br>Se honesto, el objetivo del ejercicio es que identifiques acciones concretas que puedes incorporar ya mismo para practicar tu liderazgo en los 3 niveles:
+                    </p>
+                </div>
+
+                <!-- Lista de 20 Casillas estilo lista limpia -->
+                <div id="quiz-items-container" class="space-y-2.5 max-h-[520px] overflow-y-auto pr-2 custom-scrollbar p-3 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                    
+                    <!-- Bloque 1: Personal (1 a 7) -->
+                    <div class="sticky top-0 bg-purple-50/95 backdrop-blur px-3 py-2 rounded-xl text-xs font-bold text-purple-800 uppercase tracking-wider mb-2 border border-purple-200 flex items-center justify-between">
+
+                        <span><i class="fa-solid fa-brain mr-1.5"></i> Bloque 1: Personal (Autoliderazgo)</span>
+                        <span class="text-[10px] font-normal text-purple-600">(Preguntas 1 - 7)</span>
+                    </div>
+
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-purple-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 mt-0.5 accent-indigo-600">
+                        <span><strong>1.</strong> Reconozco mis emociones cuando estoy bajo presión sin desquitarme con los demás.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-purple-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 mt-0.5 accent-indigo-600">
+                        <span><strong>2.</strong> Identifico mis pensamientos limitantes (ej. "no voy a poder") y los sustituyo por metas realistas.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-purple-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 mt-0.5 accent-indigo-600">
+                        <span><strong>3.</strong> Mantengo hábitos constantes de estudio/entrenamiento sin necesidad de supervisión externa.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-purple-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 mt-0.5 accent-indigo-600">
+                        <span><strong>4.</strong> Reflexiono críticamente sobre los exitos y los fracasos para aprender y mejorar.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-purple-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 mt-0.5 accent-indigo-600">
+                        <span><strong>5.</strong> Actúo conforme a mis valores y principios éticos aun cuando no es la opción fácil.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-purple-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 mt-0.5 accent-indigo-600">
+                        <span><strong>6.</strong> Cuidó mi descanso, nutrición y salud mental.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-purple-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 mt-0.5 accent-indigo-600">
+                        <span><strong>7.</strong> Me responsabilizo como un protagonista de lo que esta bajo mi control y no le atributo la culpa al entorno y lo que no esta bajo mi control.</span>
+                    </label>
+
+                    <!-- Bloque 2: Privado (8 a 14) -->
+                    <div class="sticky top-0 bg-cyan-50/95 backdrop-blur px-3 py-2 rounded-xl text-xs font-bold text-cyan-800 uppercase tracking-wider my-3 border border-cyan-200 flex items-center justify-between">
+                        <span><i class="fa-solid fa-handshake mr-1.5"></i> Bloque 2:Privado (Interacciones 1 a 1)</span>
+                        <span class="text-[10px] font-normal text-cyan-600">(Preguntas 8 - 14)</span>
+                    </div>
+
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-cyan-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-cyan-600 rounded focus:ring-cyan-500 mt-0.5 accent-cyan-600">
+                        <span><strong>8.</strong> Escucho activamente a un compañero sin interrumpir ni juzgar prematuramente.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-cyan-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-cyan-600 rounded focus:ring-cyan-500 mt-0.5 accent-cyan-600">
+                        <span><strong>9.</strong> Ofrezco retroalimentación constructiva y empática cara a cara en privado.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-cyan-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-cyan-600 rounded focus:ring-cyan-500 mt-0.5 accent-cyan-600">
+                        <span><strong>10.</strong> Muestro comprensión genuina cuando alguien me confía un problema personal o académico.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-cyan-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-cyan-600 rounded focus:ring-cyan-500 mt-0.5 accent-cyan-600">
+                        <span><strong>11.</strong> Acepto sugerencias de compañeros con apertura y sin ponerme a la defensiva.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-cyan-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-cyan-600 rounded focus:ring-cyan-500 mt-0.5 accent-cyan-600">
+                        <span><strong>12.</strong> Establezco acuerdos claros 1-a-1 sobre compromisos y roles en los trabajos en equipo o las amistades.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-cyan-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-cyan-600 rounded focus:ring-cyan-500 mt-0.5 accent-cyan-600">
+                        <span><strong>13.</strong> Resuelvo malentendidos de forma directa en persona en lugar de fomentar rumores.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-cyan-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-cyan-600 rounded focus:ring-cyan-500 mt-0.5 accent-cyan-600">
+                        <span><strong>14.</strong> Valoro y felicito sinceramente el talento individual y esfuerzo de los demás.</span>
+                    </label>
+
+                    <!-- Bloque 3: Público (15 a 20) -->
+                    <div class="sticky top-0 bg-blue-50/95 backdrop-blur px-3 py-2 rounded-xl text-xs font-bold text-blue-800 uppercase tracking-wider my-3 border border-blue-200 flex items-center justify-between">
+                        <span><i class="fa-solid fa-users mr-1.5"></i> Bloque 3: Público (Grupal)</span>
+                        <span class="text-[10px] font-normal text-blue-600">(Preguntas 15 - 20)</span>
+                    </div>
+
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 mt-0.5 accent-blue-600">
+                        <span><strong>15.</strong> Asumo la responsabilidad de encarnar la visión a la que el grupo va a llegar y los motivo a dar su mejor versión.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 mt-0.5 accent-blue-600">
+                        <span><strong>16.</strong> Clarifico el objetivo común de un proyecto cuando el equipo está desorientado.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 mt-0.5 accent-blue-600">
+                        <span><strong>17.</strong> Facilito reuniones efectivas ordenando participaciones para que todos se sientan incluidos.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 mt-0.5 accent-blue-600">
+                        <span><strong>18.</strong> Fomento una cultura de respeto donde no se tolera la discriminación ni la exclusión.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 mt-0.5 accent-blue-600">
+                        <span><strong>19.</strong> Mantengo el enfoque y la calma colectiva en momentos límites cercanos a entregas.</span>
+                    </label>
+                    <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/40 cursor-pointer text-xs text-slate-700 transition-colors">
+                        <input type="checkbox" onchange="updateScore()" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 mt-0.5 accent-blue-600">
+                        <span><strong>20.</strong> Ofrezco las herramientas y apoyo necesario para que mis compañeros de euipo puedan trabajar optimamente.</span>
+                    </label>
+
+                </div>
+
+                <!-- Resultado Dinámico -->
+                <div id="quiz-result" class="mt-6 p-5 rounded-2xl bg-white border border-slate-200 text-center text-xs sm:text-sm text-slate-600 font-medium shadow-md transition-all">
+                    ¡Selecciona las casillas correspondientes para diagnosticar tu nivel actual en la escala GOAT!
+                </div>
+            </div>
+        </section>
+
+        <!-- PIE DE PÁGINA DOCENTE -->
+        <footer class="bg-slate-950 p-6 text-center text-xs text-slate-400 border-t border-slate-800">
+            <p class="font-medium text-slate-300">Como ser el GOAT de los negocios - Habilidades de los grandes lideres</p>
+            <p class="text-[11px] text-slate-500 mt-1">Material educativo interactivo para preparatoria basados en el modelo de James Scouller (2011)</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const levelData = {
+            personal: {
+                title: "1. Liderazgo Personal",
+                subtitle: "El Núcleo - Autoliderazgo",
+                borderColor: "border-purple-500",
+                badgeBg: "bg-purple-100 text-purple-700 border-purple-300",
+                icon: "fa-brain text-purple-600",
+                description: "Es la base o fundamento del liderazgo; implica tu inteligencia emocional y la forma en que enfrentas los desafíos. Incluye tu autorregulación, desarrollo de competencias, autoconocimiento y la maestría sobre tu propia psique (creencias, emociones e historia individual).",
+                keyConcept: "Scouller enfatiza que el autoliderazgo (nivel personal) es el cimiento para liderear de manera exitosa a individuos (nivel privado) y a equipos (nivel público)",
+                tasks: [
+                    "Gestión de las emociones y control del estrés bajo presión",
+                    "Alineación constante con valores éticos e intenciones claras",
+                    "Superación activa de creencias limitantes y sesgos personales",
+                    "Construcción de 'presencia auténtica' cimentada en el autoconocimiento"
+                ]
+            },
+            privado: {
+                title: "2. Liderazgo Privado",
+                subtitle: "Interacciones Uno a Uno (1-on-1)",
+                borderColor: "border-cyan-500",
+                badgeBg: "bg-cyan-100 text-cyan-800 border-cyan-300",
+                icon: "fa-handshake text-cyan-600",
+                description: "Se refiere a la forma en que lideras en la relación directa e individual con otra persona. Se centra en la empatía, la construcción de acuerdos compartidos, la mentoría y la resolución constructiva de conflictos.Construye confianza genuina e individual. Al potenciar la conexión uno a uno, inspiras el talento único de cada persona y haces que cada integrante del equipo se sienta verdaderamente valorado, escuchado y motivado a dar lo mejor de sí.",
+                keyConcept: "Se duro con la tarea pero suave con la persona",
+                tasks: [
+                    "Coaching y desarrollo individual guiado por las fortalezas de la otra persona",
+                    "Acuerdos de delegación claros basados en expectativas mutuas",
+                    "Retroalimentación honesta, constructiva y respetuosa cara a cara",
+                    "Escucha activa para cimentar relaciones sólidas de confianza"
+                ]
+            },
+            publico: {
+                title: "3. Liderazgo Público",
+                subtitle: "Liderar Grupos y Equipos",
+                borderColor: "border-blue-500",
+                badgeBg: "bg-blue-100 text-blue-800 border-blue-300",
+                icon: "fa-users text-blue-600",
+                description: "Es la dimensión más visible del liderazgo. Ocurre al dirigir a dos o más personas juntas en un contexto grupal. Aquí el líder crea el entorno, la alineación y la meta que perseguirá el equipo. El líder está al servicio del equipo.",
+                keyConcept: "Exige que el líder funcione como un avatar que encarna la visión, valores y misión del equipo con su ejemplo y actitud cotidiana.",
+                tasks: [
+                    "Ejemplificar y visibilizar la visión y valores que guian las decisiones diarias",
+                    "Establecer y comunicar con claridad las metas e hitos colectivos",
+                    "Facilitar debates grupales, reuniones dinámicas y toma de decisiones participativas",
+                    "Construir espíritu de equipo, normas de respeto y cultura de alto rendimiento"
+                ]
+            }
+        };
+
+        function selectLevel(levelKey) {
+            const data = levelData[levelKey];
+            const detailCard = document.getElementById('detail-card');
+
+            detailCard.className = `bg-white rounded-3xl p-6 sm:p-8 border-2 transition-all duration-300 shadow-xl min-h-[440px] flex flex-col justify-between ${data.borderColor}`;
+
+            detailCard.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider border ${data.badgeBg} flex items-center gap-1.5">
+                            <i class="fa-solid ${data.icon}"></i> Nivel Seleccionado
+                        </span>
+                        <span class="text-xs text-slate-400 font-semibold">Modelo de Scouller</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-black text-slate-900 tracking-tight">${data.title}</h3>
+                    <p class="text-xs font-bold text-slate-500 mb-4">${data.subtitle}</p>
+
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-5">
+                        ${data.description}
+                    </p>
+
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 mb-5 shadow-sm">
+                        <p class="text-xs text-slate-900 font-extrabold flex items-center gap-1.5">
+                            <i class="fa-solid fa-key text-amber-500 text-sm"></i> Punto Clave:
+                        </p>
+                        <p class="text-xs text-slate-600 mt-1.5 italic font-normal leading-relaxed">
+                            "${data.keyConcept}"
+                        </p>
+                    </div>
+
+                    <h4 class="text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">Comportamientos Clave del Nivel:</h4>
+                    <ul class="space-y-2">
+                        ${data.tasks.map(task => `
+                            <li class="flex items-start gap-2.5 text-xs text-slate-700">
+                                <i class="fa-solid fa-circle-check text-emerald-500 text-sm mt-0.5 flex-shrink-0"></i>
+                                <span>${task}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                <div class="mt-6 pt-3 border-t border-slate-100 flex justify-between items-center text-[11px] text-slate-400 font-medium">
+                    <span>💡 Haz clic en los otros círculos para comparar</span>
+                </div>
+            `;
+
+            // Resaltado visual en los círculos
+            const pCircle = document.getElementById('circle-personal');
+            const prCircle = document.getElementById('circle-private');
+            const puCircle = document.getElementById('circle-public');
+
+            pCircle.setAttribute('fill-opacity', levelKey === 'personal' ? '1' : '0.65');
+            pCircle.classList.toggle('glow-active', levelKey === 'personal');
+
+            prCircle.setAttribute('fill-opacity', levelKey === 'privado' ? '0.45' : '0.15');
+            prCircle.classList.toggle('glow-active', levelKey === 'privado');
+
+            puCircle.setAttribute('fill-opacity', levelKey === 'publico' ? '0.30' : '0.10');
+            puCircle.classList.toggle('glow-active', levelKey === 'publico');
+        }
+
+        function updateScore() {
+            const checkboxes = document.querySelectorAll('#quiz-items-container input[type="checkbox"]:checked');
+            const total = 20;
+            const count = checkboxes.length;
+            const resultBox = document.getElementById('quiz-result');
+
+            if (count === 0) {
+                resultBox.className = "mt-6 p-5 rounded-2xl bg-white border border-slate-200 text-center text-xs sm:text-sm text-slate-600 font-medium shadow-md transition-all";
+                resultBox.innerHTML = "¡Selecciona las casillas correspondientes para diagnosticar tu nivel actual en la escala GOAT!";
+            } else if (count <= 6) {
+                resultBox.className = "mt-6 p-5 rounded-2xl bg-amber-50 border border-amber-300 text-center text-xs sm:text-sm text-amber-950 font-medium shadow-md transition-all";
+                resultBox.innerHTML = `🌱 <strong>Puntuación: ${count}/${total} — Nivel Principiante GOAT</strong><br><span class="text-xs text-amber-900 mt-1 block">Estás iniciando tu camino de liderazgo. Recuerda que según Scouller, el primer paso decisivo es dominar tu autoliderazgo personal (la psique) antes de intentar controlar el entorno externo.</span>`;
+            } else if (count <= 13) {
+                resultBox.className = "mt-6 p-5 rounded-2xl bg-cyan-50 border border-cyan-300 text-center text-xs sm:text-sm text-cyan-950 font-medium shadow-md transition-all";
+                resultBox.innerHTML = `🚀 <strong>Puntuación: ${count}/${total} — Nivel Líder en Ascenso</strong><br><span class="text-xs text-cyan-900 mt-1 block">¡Excelente balance! Muestras buen dominio de tu mundo interno e interacciones 1-a-1. Trabaja en consolidarte como el avatar inspirador que guía al equipo en el ámbito público.</span>`;
+            } else if (count <= 18) {
+                resultBox.className = "mt-6 p-5 rounded-2xl bg-indigo-50 border border-indigo-300 text-center text-xs sm:text-sm text-indigo-950 font-medium shadow-md transition-all";
+                resultBox.innerHTML = `⭐ <strong>Puntuación: ${count}/${total} — Liderazgo de Alto Impacto</strong><br><span class="text-xs text-indigo-900 mt-1 block">Dominas la gran mayoría de las competencias. Tu autoconocimiento te permite conectar genuinamente con las personas y transmitir visión y calma a los grupos.</span>`;
+            } else {
+                resultBox.className = "mt-6 p-5 rounded-2xl bg-emerald-50 border border-emerald-300 text-center text-xs sm:text-sm text-emerald-950 font-medium shadow-md transition-all";
+                resultBox.innerHTML = `🏆 <strong>Puntuación: ${count}/${total} — ¡Perfil GOAT Total!</strong><br><span class="text-xs text-emerald-900 mt-1 block">Integración magistral de los 3 niveles de James Scouller: sólida salud psicológica interna, alta empatía 1-a-1 y capacidad natural de ser el avatar de la visión grupal.</span>`;
+            }
+        }
+
+        // Cargar por defecto el nivel Personal al iniciar
+        window.onload = function() {
+            selectLevel('personal');
+        };
+    </script>
+</body>
+</html>
