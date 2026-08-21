@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Café de Leo - Reto Estratégico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdf8f5;
+            color: #4a3f35;
+        }
+        .btn-option {
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .fade-in {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6">
+
+    <!-- Membrete con Nombre de Profesora y Materia -->
+    <div class="w-full max-w-3xl mb-3 flex flex-col sm:flex-row justify-between items-center text-xs text-amber-950/90 bg-amber-100/80 backdrop-blur-xs px-4 py-2.5 rounded-2xl border border-amber-200/80 shadow-xs gap-1 sm:gap-0">
+        <span class="font-bold flex items-center gap-1.5">👩‍🏫 <span>Fabiola Chávez Romero</span></span>
+        <span class="font-semibold text-amber-900 text-center sm:text-right">Materia: Cómo ser el GOAT de los Negocios - Habilidades de los grandes líderes</span>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="max-w-3xl w-full bg-white rounded-3xl shadow-xl overflow-hidden fade-in border border-amber-100">
+        
+        <!-- Encabezado con Botón de Inicio -->
+        <div class="bg-amber-700 text-white p-6 text-center relative shadow-md">
+            <button onclick="renderIntro()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-amber-800 hover:bg-amber-900 text-amber-100 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-1 shadow hover:scale-105 active:scale-95">
+                🏠 Inicio
+            </button>
+            <h1 class="text-2xl sm:text-3xl font-extrabold flex justify-center items-center gap-2">
+                ☕ El Café de Leo 
+            </h1>
+            <p class="mt-1 text-amber-100 text-xs sm:text-sm font-medium">Reto Interactivo de estrategia, pensamiento, planeación y liderazgo Empresarial</p>
+        </div>
+
+        <!-- Barra de Progreso -->
+        <div id="progress-container" class="w-full bg-gray-200 h-2 hidden">
+            <div id="progress-bar" class="bg-amber-500 h-2 transition-all duration-300" style="width: 0%"></div>
+        </div>
+
+        <!-- Área de Contenido Dinámico -->
+        <div id="app-content" class="p-6 sm:p-8">
+            <!-- El contenido interactivo se genera mediante JavaScript -->
+        </div>
+
+    </div>
+
+    <!-- Modal para Repaso de Conceptos -->
+    <div id="modal-concepto" class="fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl relative fade-in border border-amber-100">
+            <button onclick="cerrarModalConcepto()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition">&times;</button>
+            <div id="modal-contenido"></div>
+            <div class="mt-6 text-right">
+                <button onclick="cerrarModalConcepto()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 px-6 rounded-xl text-sm transition shadow">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Principal -->
+    <script>
+        const definicionesConceptos = {
+            "Estrategia": {
+                icono: "🎯",
+                subtitulo: "El Plan Maestro",
+                definicion: "Es el conjunto de decisiones y acciones que una persona elige para lograr un objetivo y obtener el mejor resultado posible. En el entorno empresarial, las estrategias se establecen para obtener ventajas competitivas frente a otros negocios."
+            },
+            "Pensamiento estratégico": {
+                icono: "🧠",
+                subtitulo: "La forma de pensar para generar estrategias",
+                definicion: "Es la capacidad analítica que se compone de tres habilidades fundamentales:",
+                puntos: [
+                    "<b>Entender el panorama presente:</b> Analizar una situación e identificar patrones.",
+                    "<b>Anticipar el futuro:</b> Identificar oportunidades y amenazas que se aproximan.",
+                    "<b>Proponer alternativas novedosas:</b> Proponer soluciones creativas e innovadoras que se anticipen al futuro."
+                ]
+            },
+            "Planeación estratégica": {
+                icono: "📋",
+                subtitulo: "El proceso organizado de estructurar las estrategias",
+                definicion: "Es el proceso formal de pensar estratégicamente. La organización define hacia dónde quiere ir y establece lo siguiente:",
+                puntos: [
+                    "<b>Metas u Objetivos:</b> Definir objetivos específicos, medibles y con plazos definidos.",
+                    "<b>Acciones:</b> Traducir las grandes ideas en pasos concretos, claros y alcanzables.",
+                    "<b>Recursos:</b> Determinar cuánto tiempo, dinero y personas se necesitan y cómo distribuirlos eficazmente."
+                ]
+            },
+            "Liderazgo estratégico": {
+                icono: "👥",
+                subtitulo: "Dirigir, acompañar e implementar la visión",
+                definicion: "El líder dirige y administra la organización tomando decisiones estratégicas, implementando los planes y evaluando constantemente los resultados. No se queda solo en planear: implica establecer la visión que guía la organización, inspirar al equipo viviendo valores clave como la empatía y el apoyo a la comunidad, llevar el plan a la práctica, supervisarlo y modificarlo cuando sea necesario."
+            }
+        };
+
+        const conceptos = ["Estrategia", "Pensamiento estratégico", "Planeación estratégica", "Liderazgo estratégico"];
+
+        // Fase 1: Opción Múltiple (Identificación)
+        const fase1 = [
+            {
+                historia: "Leo acaba de abrir su cafetería cerca de una preparatoria. Observa que muchos alumnos pasan corriendo por las mañanas, desvelados y con prisa, por lo que no entran al local. Leo deduce que cuando empiece el invierno buscarán bebidas calientes rápidamente, así que se le ocurre una idea novedosa: abrir una 'Ventanilla Express' exclusiva para entregar pedidos pre-ordenados por WhatsApp.",
+                pregunta: "¿Qué concepto describe mejor el proceso mental que hizo Leo al observar su entorno, anticipar el frío e idear la ventanilla express?",
+                opciones: conceptos,
+                respuestaCorrecta: "Pensamiento estratégico",
+                explicacion: " Leo analizó la situación presente (alumnos con prisa), anticipó el futuro (clima frío) e ideó una solución novedosa (ventanilla por WhatsApp)."
+            },
+            {
+                historia: "Para lograr tener la ventanilla lista antes de noviembre, Leo organiza todo minuciosamente: establece la meta de construirla en 3 semanas, destina un presupuesto de $3,000 pesos, compra el material necesario y coordina con su equipo los horarios de trabajo para la instalación.",
+                pregunta: "¿Qué concepto aplica Leo al definir metas medibles, organizar las acciones concretas y distribuir el dinero y tiempo necesarios?",
+                opciones: conceptos,
+                respuestaCorrecta: "Planeación estratégica",
+                explicacion: "La Planeación Estratégica es definir hacia dónde ir estableciendo metas específicas, pasos concretos y asignación de recursos."
+            },
+            {
+                historia: "A dos cuadras hay otra cafetería que vende más barato. Para diferenciarse y lograr ventajas competitivas, Leo crea el 'Combo Prepa' y realiza una alianza especial con los clubes estudiantiles para brindarles espacio para reuniones a cambio de difusión. Este conjunto de elecciones busca asegurar el éxito y preferencia de sus clientes.",
+                pregunta: "¿Cómo se llama al conjunto de decisiones y acciones elegidas para alcanzar un objetivo y obtener una ventaja competitiva?",
+                opciones: conceptos,
+                respuestaCorrecta: "Estrategia",
+                explicacion: "Esa es su Estrategia: la elección coordinada de acciones (el combo y las alianzas) para destacar en el mercado."
+            },
+            {
+                historia: "En el día de inauguración de la ventanilla express, la máquina de café falla y se genera tensión. Como gran líder, Leo ejemplifica en todo momento los valores centrales de su cafetería: la empatía y el apoyo a la comunidad. Escucha pacientemente las inquietudes de su equipo sin buscar culpables, invita a la comunidad escolar a participar con paciencia, toma el mando con serenidad usando un equipo de respaldo, y al finalizar la jornada evalúa junto a su personal lo aprendido para seguir creciendo juntos.",
+                pregunta: "¿Qué concepto demuestra Leo al dirigir el proyecto viviendo los valores de empatía y apoyo a la comunidad, ejecutar el plan y evaluar los resultados?",
+                opciones: conceptos,
+                respuestaCorrecta: "Liderazgo estratégico",
+                explicacion: "El Liderazgo Estratégico implica guiar a la organización promoviendo sus valores centrales, ejecutar el plan, acompañar al equipo y evaluar constantemente para hacer mejoras."
+            }
+        ];
+
+        // Fase 2: Preguntas Abiertas (Aplicación)
+        const fase2 = [
+            {
+                concepto: "Pensamiento estratégico",
+                contexto: "¡El café es todo un éxito! Leo planea abrir una SEGUNDA SUCURSAL frente a un área con oficinas corporativas y un gimnasio de alto rendimiento.",
+                pregunta: "Aplicando el <b>Pensamiento estratégico</b>, ¿qué le aconsejas a Leo que observe en ese nuevo entorno y cómo podría anticiparse a las necesidades de esos nuevos clientes?"
+            },
+            {
+                concepto: "Estrategia",
+                contexto: "Leo identificó que los clientes del gimnasio buscan rapidez y opciones saludables, mientras los oficinistas buscan café gourmet y espacios para reuniones rápidas.",
+                pregunta: "Diseña una <b>Estrategia</b> para Leo. ¿Qué decisiones o propuesta de valor diferencial le sugieres para obtener una ventaja competitiva clara en esa zona?"
+            },
+            {
+                concepto: "Planeación estratégica",
+                contexto: "A Leo le fascinó tu propuesta y quiere ejecutarla para la gran apertura del nuevo local.",
+                pregunta: "Ayúdale con la <b>Planeación estratégica</b>. Define 1 meta medible, 2 acciones concretas previas a la apertura, y los recursos (tiempo, dinero, personal) necesarios."
+            },
+            {
+                concepto: "Liderazgo estratégico",
+                contexto: "Llegó el día de apertura de la segunda sucursal. La fila es enorme y el personal nuevo luce estresado y abrumado.",
+                pregunta: "Como su consejero, ¿cómo le dirías a Leo que actúe en ese momento para demostrar un verdadero <b>Liderazgo estratégico</b>, guiando a su equipo con los valores del negocio (empatía y apoyo a la comunidad)?"
+            }
+        ];
+
+        let estadoActual = 'intro';
+        let indicePregunta = 0;
+        let puntaje = 0;
+        let respuestasAlumno = [];
+
+        const appContent = document.getElementById('app-content');
+        const progressBar = document.getElementById('progress-bar');
+        const progressContainer = document.getElementById('progress-container');
+
+        function actualizarProgreso(fase, indice) {
+            progressContainer.classList.remove('hidden');
+            let total = fase1.length + fase2.length;
+            let actual = fase === 1 ? indice : fase1.length + indice;
+            let porcentaje = (actual / total) * 100;
+            progressBar.style.width = `${porcentaje}%`;
+        }
+
+        function renderIntro() {
+            progressContainer.classList.add('hidden');
+            appContent.innerHTML = `
+                <div class="text-center fade-in">
+                    <div class="text-6xl mb-3">🧑‍🍳</div>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-gray-800">¡Bienvenido al Reto de Leo!</h2>
+                    
+                    <!-- Tarjeta de Bienvenida y Rol del Jugador -->
+                    <div class="bg-amber-50/80 border border-amber-200/90 rounded-2xl p-4 sm:p-5 mb-6 text-left shadow-xs">
+                        <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-3">
+                            <b>Leo</b> es un joven emprendedor apasionado que acaba de abrir su cafetería cerca de una escuela preparatoria. Su sueño es hacer crecer su negocio, superar los retos del mercado y lograr abrir exitosamente nuevas sucursales.
+                        </p>
+                        <div class="bg-amber-100/70 rounded-xl p-3 sm:p-4 border-l-4 border-amber-600">
+                            <p class="text-amber-950 font-bold text-xs sm:text-sm uppercase tracking-wide mb-1">🎯 Tu Rol en este Juego:</p>
+                            <p class="text-amber-900 text-xs sm:text-sm leading-relaxed">
+                                Asumirás el papel del <b>Consejero Estratégico de Leo</b>. Tu misión se divide en dos fases:
+                            </p>
+                            <ul class="mt-2 space-y-1.5 text-xs sm:text-sm text-amber-950">
+                                <li class="flex items-start gap-1.5">
+                                    <span>1️⃣</span> <span><b>Identificar</b> en la primera etapa cómo Leo aplica cada uno de los 4 conceptos clave en situaciones reales.</span>
+                                </li>
+                                <li class="flex items-start gap-1.5">
+                                    <span>2️⃣</span> <span><b>Proponer y aconsejar</b> en la segunda etapa soluciones estratégicas redactadas por ti para guiar a Leo en la expansión de su cafetería.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="mb-4 text-amber-900 text-xs sm:text-sm font-semibold">
+                        💡 Haz clic en cada uno de los 4 conceptos a continuación para repasar su definición antes de aceptar el reto:
+                    </p>
+
+                    <!-- Cuadrícula de Tarjetas de Conceptos -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 text-left">
+                        ${Object.keys(definicionesConceptos).map(nombre => {
+                            const info = definicionesConceptos[nombre];
+                            return `
+                                <button onclick="mostrarModalConcepto('${nombre}')" 
+                                        class="p-4 bg-amber-50/80 hover:bg-amber-100 border border-amber-200 rounded-2xl transition-all shadow-xs hover:shadow-md flex items-center justify-between group cursor-pointer text-left">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-3xl">${info.icono}</span>
+                                        <div>
+                                            <h4 class="font-bold text-amber-950 text-sm sm:text-base group-hover:text-amber-800">${nombre}</h4>
+                                            <p class="text-xs text-amber-700 font-medium">Ver definición 🔍</p>
+                                        </div>
+                                    </div>
+                                </button>
+                            `;
+                        }).join('')}
+                    </div>
+
+                    <button onclick="iniciarFase1()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 text-base sm:text-lg cursor-pointer">
+                        ¡Comenzar el Reto! 🚀
+                    </button>
+                </div>
+            `;
+        }
+
+        window.mostrarModalConcepto = function(nombre) {
+            const info = definicionesConceptos[nombre];
+            if (!info) return;
+
+            const modal = document.getElementById('modal-concepto');
+            const contenido = document.getElementById('modal-contenido');
+
+            let puntosHTML = '';
+            if (info.puntos) {
+                puntosHTML = `
+                    <ul class="mt-3 space-y-2 text-xs sm:text-sm text-gray-700 bg-amber-50/70 p-3 rounded-xl border border-amber-200/60">
+                        ${info.puntos.map(p => `<li class="flex items-start gap-2"><span class="text-amber-600 font-bold">•</span><span>${p}</span></li>`).join('')}
+                    </ul>
+                `;
+            }
+
+            contenido.innerHTML = `
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="text-4xl">${info.icono}</span>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-amber-950">${nombre}</h3>
+                        <p class="text-xs font-semibold text-amber-600 uppercase tracking-wide">${info.subtitulo}</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">${info.definicion}</p>
+                ${puntosHTML}
+            `;
+
+            modal.classList.remove('hidden');
+        };
+
+        window.cerrarModalConcepto = function() {
+            const modal = document.getElementById('modal-concepto');
+            if (modal) modal.classList.add('hidden');
+        };
+
+        function iniciarFase1() {
+            estadoActual = 'fase1';
+            indicePregunta = 0;
+            puntaje = 0;
+            renderPreguntaFase1();
+        }
+
+        function renderPreguntaFase1() {
+            actualizarProgreso(1, indicePregunta);
+            const p = fase1[indicePregunta];
+            let opcionesHTML = p.opciones.map(op => 
+                `<button onclick="verificarRespuesta('${op}')" class="btn-option w-full text-left bg-amber-50/60 hover:bg-amber-100 border border-amber-200 text-amber-950 font-medium py-3 px-5 rounded-2xl mb-3 cursor-pointer">
+                    ${op}
+                </button>`
+            ).join('');
+
+            appContent.innerHTML = `
+                <div class="fade-in">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full uppercase font-bold tracking-wide">Parte 1: Identificación (${indicePregunta + 1}/4)</span>
+                    </div>
+                    <div class="bg-amber-50/50 border-l-4 border-amber-500 p-4 mb-6 rounded-r-2xl text-gray-700 text-sm sm:text-base leading-relaxed italic">
+                        "${p.historia}"
+                    </div>
+                    <h3 class="text-base sm:text-lg font-bold mb-4 text-gray-800">${p.pregunta}</h3>
+                    <div id="opciones-container">
+                        ${opcionesHTML}
+                    </div>
+                    <div id="feedback-container" class="hidden mt-6 p-4 rounded-2xl border text-sm leading-relaxed"></div>
+                    <button id="btn-next" onclick="siguienteFase1()" class="hidden mt-6 bg-amber-800 hover:bg-amber-900 text-white font-bold py-2.5 px-6 rounded-xl ml-auto block shadow transition cursor-pointer">
+                        Siguiente ➡️
+                    </button>
+                </div>
+            `;
+        }
+
+        window.verificarRespuesta = function(respuesta) {
+            const p = fase1[indicePregunta];
+            const feedbackContainer = document.getElementById('feedback-container');
+            const botones = document.querySelectorAll('.btn-option');
+            const btnNext = document.getElementById('btn-next');
+
+            botones.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('opacity-60', 'cursor-not-allowed');
+                if (btn.innerText.trim() === p.respuestaCorrecta) {
+                    btn.classList.replace('bg-amber-50/60', 'bg-emerald-100');
+                    btn.classList.replace('border-amber-200', 'border-emerald-400');
+                    btn.classList.add('text-emerald-950', 'font-bold');
+                } else if (btn.innerText.trim() === respuesta && respuesta !== p.respuestaCorrecta) {
+                    btn.classList.replace('bg-amber-50/60', 'bg-rose-100');
+                    btn.classList.replace('border-amber-200', 'border-rose-400');
+                }
+            });
+
+            feedbackContainer.classList.remove('hidden');
+            if (respuesta === p.respuestaCorrecta) {
+                puntaje++;
+                feedbackContainer.classList.add('bg-emerald-50', 'border-emerald-200', 'text-emerald-900');
+                feedbackContainer.innerHTML = `<strong>¡Excelente! 🌟</strong> ${p.explicacion}`;
+            } else {
+                feedbackContainer.classList.add('bg-rose-50', 'border-rose-200', 'text-rose-900');
+                feedbackContainer.innerHTML = `<strong>Respuesta incorrecta.</strong> La opción adecuada es <b>${p.respuestaCorrecta}</b>.<br>${p.explicacion}`;
+            }
+
+            btnNext.classList.remove('hidden');
+        }
+
+        window.siguienteFase1 = function() {
+            indicePregunta++;
+            if (indicePregunta < fase1.length) {
+                renderPreguntaFase1();
+            } else {
+                iniciarTransicionFase2();
+            }
+        }
+
+        function iniciarTransicionFase2() {
+            appContent.innerHTML = `
+                <div class="text-center fade-in py-4">
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-800">¡Fase 1 Completada! 🎉</h2>
+                    <p class="text-lg mb-4 text-gray-700">Obtuviste <span class="font-extrabold text-amber-700 text-xl">${puntaje} de 4</span> acertadas.</p>
+                    <p class="mb-6 text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+                        Ahora que sabes identificar los conceptos, es momento de ponerte en el papel de <b>Consejero Estratégico de Leo</b> para la apertura de su segunda sucursal.
+                    </p>
+                    <button onclick="iniciarFase2()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 text-base cursor-pointer">
+                        Iniciar Fase de Consejería 📝
+                    </button>
+                </div>
+            `;
+        }
+
+        function iniciarFase2() {
+            estadoActual = 'fase2';
+            indicePregunta = 0;
+            respuestasAlumno = [];
+            renderPreguntaFase2();
+        }
+
+        function renderPreguntaFase2() {
+            actualizarProgreso(2, indicePregunta);
+            const p = fase2[indicePregunta];
+
+            appContent.innerHTML = `
+                <div class="fade-in">
+                    <span class="inline-block bg-indigo-100 text-indigo-900 text-xs px-3 py-1 rounded-full uppercase font-bold tracking-wide mb-4">Parte 2: Consejería (${indicePregunta + 1}/4)</span>
+                    <div class="mb-6">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Tu consejo aplicando: <span class="text-amber-700">${p.concepto}</span></h3>
+                        <p class="text-gray-600 bg-gray-50 p-3.5 rounded-xl border-l-4 border-amber-500 text-xs sm:text-sm mb-4 leading-relaxed">${p.contexto}</p>
+                        <p class="font-semibold text-sm sm:text-base text-gray-800 leading-snug">${p.pregunta}</p>
+                    </div>
+                    
+                    <textarea id="respuesta-alumno" rows="4" class="w-full p-4 border border-amber-200 rounded-2xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none resize-none text-sm leading-relaxed" placeholder="Escribe aquí tu consejo estratégico para Leo..."></textarea>
+                    
+                    <div id="error-msg" class="text-rose-600 text-xs font-semibold hidden mt-2">⚠️ Por favor, redacta una propuesta antes de continuar.</div>
+                    
+                    <div class="flex justify-end mt-6">
+                        <button onclick="guardarYContinuarFase2()" class="bg-amber-800 hover:bg-amber-900 text-white font-bold py-2.5 px-6 rounded-xl shadow transition cursor-pointer text-sm">
+                            ${indicePregunta === fase2.length - 1 ? 'Finalizar Reto 🚀' : 'Siguiente Consejo ➡️'}
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.guardarYContinuarFase2 = function() {
+            const textarea = document.getElementById('respuesta-alumno');
+            const texto = textarea.value.trim();
+            const errorMsg = document.getElementById('error-msg');
+
+            if (texto === "") {
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            respuestasAlumno.push({
+                concepto: fase2[indicePregunta].concepto,
+                respuesta: texto
+            });
+
+            indicePregunta++;
+            if (indicePregunta < fase2.length) {
+                renderPreguntaFase2();
+            } else {
+                renderOutro();
+            }
+        }
+
+        function renderOutro() {
+            progressContainer.classList.add('hidden');
+            appContent.innerHTML = `
+                <div class="text-center fade-in">
+                    <div class="text-6xl mb-3">🏆</div>
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-emerald-700">¡Reto Completado con Éxito!</h2>
+                    
+                    <!-- Resumen del Puntaje de la Fase 1 -->
+                    <div class="inline-flex items-center gap-2 bg-amber-100/90 border border-amber-300 text-amber-950 font-bold px-4 py-2 rounded-2xl mb-4 text-xs sm:text-sm shadow-2xs">
+                        <span>🎯</span>
+                        <span>Respuestas correctas en Fase 1 (Identificación): <span class="text-amber-800 text-sm sm:text-base font-extrabold">${puntaje} / 4</span></span>
+                    </div>
+
+                    <p class="mb-6 text-gray-600 text-sm sm:text-base leading-relaxed">
+                        Has ayudado a Leo a proyectar el crecimiento de su cafetería aplicando los 4 pilares de la estrategia.
+                    </p>
+                    
+                    <!-- Informe Estratégico (Fase 2) -->
+                    <div class="text-left bg-amber-50/70 p-5 sm:p-6 rounded-2xl border border-amber-200/80 mb-5 max-h-72 overflow-y-auto space-y-4">
+                        <h4 class="font-bold text-amber-950 border-b border-amber-200 pb-2 text-sm sm:text-base flex justify-between items-center">
+                            <span>📋 Tu Informe Estratégico para Leo:</span>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-200/60 px-2.5 py-0.5 rounded-lg">Fase 2</span>
+                        </h4>
+                        ${respuestasAlumno.map(r => `
+                            <div class="bg-white p-3.5 rounded-xl border border-amber-100 shadow-2xs">
+                                <span class="font-bold text-xs text-amber-800 uppercase tracking-wide block mb-1">${r.concepto}</span>
+                                <p class="text-gray-800 text-xs sm:text-sm leading-relaxed">${r.respuesta}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <!-- Indicación de Evidencia para Canvas -->
+                    <div class="bg-indigo-50 border border-indigo-200 text-indigo-950 rounded-2xl p-4 mb-6 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shadow-2xs">
+                        <span class="text-lg">📸</span>
+                        <span>Por favor, toma una <b>captura de pantalla</b> de esta ventana como evidencia para entregarla en <b>Canvas</b>.</span>
+                    </div>
+
+                    <button onclick="renderIntro()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 px-6 rounded-xl text-sm transition shadow cursor-pointer">
+                        🔄 Volver a jugar
+                    </button>
+                </div>
+            `;
+        }
+
+        window.onload = function() {
+            renderIntro();
+        };
+    </script>
+</body>
+</html>
