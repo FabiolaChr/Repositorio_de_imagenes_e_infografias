@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión, Visión y Valores - El ADN Estratégico de una Organización</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1E3A8A',
+                            cyan: '#06B6D4',
+                            amber: '#F59E0B',
+                            emerald: '#10B981',
+                            rose: '#F43F5E',
+                            purple: '#8B5CF6',
+                            dark: '#0F172A',
+                            card: '#1E293B'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-cyan': '0 0 25px -5px rgba(6, 182, 212, 0.4)',
+                        'glow-amber': '0 0 25px -5px rgba(245, 158, 11, 0.4)',
+                        'glow-rose': '0 0 25px -5px rgba(244, 63, 94, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom animations & interactions */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+        @keyframes floatPlane {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        @keyframes dashLine {
+            to { stroke-dashoffset: -40; }
+        }
+        .animate-float {
+            animation: floatPlane 5s ease-in-out infinite;
+        }
+        .animate-dash {
+            stroke-dasharray: 8;
+            animation: dashLine 2s linear infinite;
+        }
+        .glass-panel {
+            background: rgba(11, 48, 60, 0.82);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(20, 184, 166, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-[#05232d] text-slate-100 font-sans antialiased min-h-screen selection:bg-teal-400 selection:text-slate-900">
+
+    <!-- TOP HEADER BANNER -->
+    <header class="w-full bg-gradient-to-r from-amber-500 via-teal-600 to-emerald-500 text-slate-950 py-3 px-4 shadow-lg text-center font-bold text-xs sm:text-sm md:text-base tracking-wide flex flex-wrap justify-center items-center gap-2 border-b border-teal-400/30">
+        <span class="inline-flex items-center gap-1.5 bg-slate-950/20 px-3 py-1 rounded-full text-slate-950 font-black">
+            👑 "Como ser el GOAT de los negocios - Habilidades de los grandes lideres."
+        </span>
+        <span class="text-slate-950 font-extrabold opacity-90">| Profesora Fabiola Chávez Romero 2026</span>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8 sm:py-12 space-y-16">
+
+        <!-- MAIN TITLE & INTRO SECTION -->
+        <section class="text-center space-y-6 max-w-4xl mx-auto pt-2">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-teal-200 to-cyan-400">
+                MISIÓN, VISIÓN Y VALORES
+            </h1>
+            
+            <p class="text-xl sm:text-2xl font-bold text-amber-400 tracking-wide uppercase">
+                El ADN estratégico de una organización
+            </p>
+
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl text-slate-200 text-base sm:text-lg leading-relaxed text-left sm:text-center shadow-2xl relative overflow-hidden group">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <p>
+                    Una empresa no solo necesita saber qué vende. Para crecer de manera estratégica necesita saber por qué existe, hacia dónde quiere ir y bajo qué principios tomará decisiones, es decir requiere una <strong class="text-cyan-300 font-semibold">MISIÓN</strong>, una <strong class="text-amber-300 font-semibold">VISIÓN</strong> y <strong class="text-rose-300 font-semibold">VALORES</strong>.
+                </p>
+                <p class="mt-4 text-slate-300 text-sm sm:text-base">
+                    Estos tres elementos forman parte de la identidad de la organización y sirven como brújula para que el líder estratégico y la organización prosperen ante los retos del mercado.
+                </p>
+            </div>
+        </section>
+
+        <!-- AIRLINE ANALOGY GRAPHIC SECTION -->
+        <section class="glass-panel p-6 sm:p-10 rounded-3xl border border-teal-500/30 shadow-2xl space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center justify-center gap-2">
+                    <span>✈️</span> Usemos como ejemplo una aerolínea
+                </h2>
+                <p class="text-teal-200 text-sm max-w-2xl mx-auto">
+                    Imagina que lideras una aerolínea en pleno vuelo. Cada concepto estratégico guía un aspecto fundamental del trayecto.
+                </p>
+                <div class="inline-flex items-center gap-2 text-amber-300 bg-amber-950/70 px-4 py-1.5 rounded-full border border-amber-500/40 text-xs sm:text-sm font-bold animate-pulse mt-2">
+                </div>
+            </div>
+
+            <!-- SVG AIRPLANE NAVIGATION GRAPHIC WITH CLICKABLE NODES -->
+            <div class="w-full bg-[#03181f]/90 rounded-2xl p-4 sm:p-8 border border-teal-800/60 relative overflow-hidden">
+                <svg class="w-full h-64 sm:h-80 relative z-10" viewBox="0 0 900 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background Grid Lines -->
+                    <path d="M0 80 H900 M0 160 H900 M0 240 H900" stroke="#083845" stroke-width="1"/>
+                    <path d="M50 0 V320 M300 0 V320 M450 0 V320 M600 0 V320 M650 0 V10" stroke="#083845" stroke-width="1"/>
+
+                    <!-- Flight Path Arc -->
+                    <path d="M 50 230 Q 400 125 650 10" stroke="url(#flightGradient)" stroke-width="4" fill="none" stroke-linecap="round" class="animate-dash"/>
+                    
+                    <defs>
+                        <linearGradient id="flightGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#06B6D4" />
+                            <stop offset="50%" stop-color="#F59E0B" />
+                            <stop offset="100%" stop-color="#10B981" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Present Point (Misión) - Clickable -->
+                    <g transform="translate(50, 230)" onclick="flyTo('mision')" class="cursor-pointer group">
+                        <circle r="22" fill="#06B6D4" fill-opacity="0.25" class="animate-ping"/>
+                        <circle r="14" fill="#06B6D4" stroke="#ffffff" stroke-width="2.5" class="group-hover:scale-125 transition-transform"/>
+                        <text x="20" y="55" text-anchor="middle" fill="#38BDF8" font-size="25" font-weight="extrabold">🎯 MISIÓN </text>
+                        <text x="-40" y="85" text-anchor="left" fill="#94A3B8" font-size="12" font-weight="bold">Es el propósito en el presente de la tripulación.</text>
+                        <text x="-40" y="105" text-anchor="left" fill="#94A3B8" font-size="12">¿Qué valor generamos al cliente?</text>
+                        <text x="-40" y="125" text-anchor="left" fill="#94A3B8" font-size="12">Nuestra misión es llevarte a tu destino a tiempo, cómodo y seguro.</text>
+                    </g>
+
+                    <!-- Navigation Rules (Visión) - Clickable -->
+                    <g transform="translate(400, 125)" onclick="flyTo('vision')" class="cursor-pointer group">
+                        <circle r="22" fill="#F59E0B" fill-opacity="0.25" class="animate-ping"/>
+                        <circle r="14" fill="#F59E0B" stroke="#ffffff" stroke-width="2.5" class="group-hover:scale-125 transition-transform"/>                        
+                        <text x="20" y="55" text-anchor="middle" fill="#F59E0B" font-size="25" font-weight="extrabold">🔭 VISIÓN</text>
+                        <text x="-40" y="85" text-anchor="left" fill="#94A3B8" font-size="12" font-weight="bold">Es el propósito a largo plazo.</text>
+                        <text x="-40" y="105" text-anchor="left" fill="#94A3B8" font-size="12">¿Hacia dónde queremos llegar como tripulación? </text>
+                        <text x="-40" y="125" text-anchor="left" fill="#94A3B8" font-size="12">Nuestra visión es compartirnos en la aerolínea más puntual y confiable en el mundo.</text>
+                    </g>
+
+                    <!-- Future Destination Point (Valores) - Clickable -->
+                    <g transform="translate(650, 10)" onclick="flyTo('valores')" class="cursor-pointer group">
+                        <circle r="24" fill="#FF0000" fill-opacity="0.25" class="animate-pulse"/>
+                        <circle r="15" fill="#FF0000" stroke="#ffffff" stroke-width="2.5" class="group-hover:scale-125 transition-transform"/>
+                        <text x="20" y="55" text-anchor="middle" fill="#FB7185" font-size="25" font-weight="extrabold">❤️ VALORES </text>
+                        <text x="-40" y="85" text-anchor="left" fill="#94A3B8" font-size="12" font-weight="bold">Son las reglas de navegación. </text>
+                        <text x="-40" y="105" text-anchor="left" fill="#94A3B8" font-size="12">¿Cómo vamos a comportarnos durante el viaje? </text>
+                        <text x="-40" y="125" text-anchor="left" fill="#94A3B8" font-size="12">Puntualidad, empatía, calidad.</text>
+                    </g>
+
+                    <!-- DETAILED SVG AIRPLANE WITH SMOOTH TRANSITION INTERACTION -->
+                    <g id="airplane-group" transform="translate(120, 230) rotate(-25)" style="transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);" class="cursor-pointer">
+                        <g class="animate-float">
+                            <path d="M-10 25 L40 30 L10 40 L-20 32 Z" fill="#000000" opacity="0.3"/>
+                            <path d="M -40 0 C -20 -12 20 -12 50 0 C 20 12 -20 12 -40 0 Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
+                            <path d="M 25 -4 C 32 -4 40 -1 45 0 C 40 2 32 3 25 2 Z" fill="#38BDF8"/>
+                            <path d="M -5 0 L -25 35 L -10 35 L 15 0 Z" fill="#0284C7"/>
+                            <path d="M -5 -2 L -20 -28 L -8 -28 L 15 -2 Z" fill="#0369A1"/>
+                            <path d="M -32 -2 L -42 -22 L -28 -22 L -24 -2 Z" fill="#F43F5E"/>
+                            <rect x="-2" y="10" width="14" height="6" rx="3" fill="#64748B"/>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+        <!-- STACKED FULL DETAILS SECTION (3 BOXES ONE BELOW ANOTHER) -->
+        <section class="space-y-8">
+        
+
+            <!-- BOX 1: MISIÓN -->
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl border-2 border-cyan-500/50 shadow-2xl space-y-5 bg-gradient-to-br from-[#062935] via-[#041d26] to-[#021319] relative overflow-hidden">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-cyan-800/60 pb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center text-2xl font-black border border-cyan-500/40">
+                            🎯
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-cyan-300">MISIÓN</h3>
+                            <p class="text-sm font-bold text-cyan-100">¿Por qué existimos?</p>
+                        </div>
+                    </div>
+                    <span class="bg-cyan-950 text-cyan-300 border border-cyan-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                        La misión mira el PRESENTE
+                    </span>
+                </div>
+
+                <div class="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed">
+                    <p>
+                        La misión define el propósito actual de la organización: <strong>qué hace, para quién lo hace y qué valor aporta.</strong>
+                    </p>
+                    <p class="bg-[#021820] p-4 rounded-xl border border-cyan-900/80 text-cyan-100 font-medium flex items-center gap-2">
+                        <span>🧭</span> <span><strong>Sirve como brújula</strong> para tomar las decisiones del día a día.</span>
+                    </p>
+
+                    <div class="space-y-2 pt-1">
+                        <h4 class="font-extrabold text-white text-base">Una buena misión debe ser:</h4>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                            <li class="bg-[#03202b] border border-cyan-800/70 p-3 rounded-xl flex items-center gap-2.5 text-slate-200 font-medium">
+                                <span class="text-cyan-400 font-black text-base">✓</span> Clara y concreta
+                            </li>
+                            <li class="bg-[#03202b] border border-cyan-800/70 p-3 rounded-xl flex items-center gap-2.5 text-slate-200 font-medium">
+                                <span class="text-cyan-400 font-black text-base">✓</span> Orientada al propósito
+                            </li>
+                            <li class="bg-[#03202b] border border-cyan-800/70 p-3 rounded-xl flex items-center gap-2.5 text-slate-200 font-medium">
+                                <span class="text-cyan-400 font-black text-base">✓</span> Enfocada en las personas a quienes sirve
+                            </li>
+                            <li class="bg-[#03202b] border border-cyan-800/70 p-3 rounded-xl flex items-center gap-2.5 text-slate-200 font-medium">
+                                <span class="text-cyan-400 font-black text-base">✓</span> Relevante para la organización actual
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-[#03202a] to-[#083c4d] border-l-4 border-cyan-400 p-4 rounded-r-xl shadow-inner mt-4">
+                        <span class="text-xs font-black text-cyan-300 uppercase tracking-wider block mb-1">📌 Ejemplo:</span>
+                        <p class="italic font-semibold text-slate-100 text-sm sm:text-base">
+                            "Materializar las ideas del cliente a través de soluciones de diseño gráfico y animación."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOX 2: VISIÓN -->
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl border-2 border-amber-500/50 shadow-2xl space-y-5 bg-gradient-to-br from-[#062935] via-[#041d26] to-[#021319] relative overflow-hidden">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-amber-800/60 pb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-300 flex items-center justify-center text-2xl font-black border border-amber-500/40">
+                            🔭
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-amber-300">VISIÓN</h3>
+                            <p class="text-sm font-bold text-amber-100">¿Hacia dónde queremos llegar? <span class="italic font-normal opacity-90">“Es más romántica”</span></p>
+                        </div>
+                    </div>
+                    <span class="bg-amber-950 text-amber-300 border border-amber-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                        La visión mira el FUTURO
+                    </span>
+                </div>
+
+                <div class="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed">
+                    <p>
+                        La visión describe el futuro que la organización quiere construir. Representa una <strong>aspiración de largo plazo</strong> y ayuda a establecer una dirección común.
+                    </p>
+                    <p class="bg-[#021820] p-4 rounded-xl border border-amber-900/80 text-amber-100 font-medium flex items-center gap-2">
+                        <span>🛡️</span> <span><strong>Es importante</strong> para ser resiliente como organización.</span>
+                    </p>
+
+                    <div class="space-y-2 pt-1">
+                        <h4 class="font-extrabold text-white text-base">Una buena visión debe ser:</h4>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+                            <li class="bg-[#03202b] border border-amber-800/70 p-3 rounded-xl flex items-center gap-2.5 text-slate-200 font-medium">
+                                <span class="text-amber-400 font-black text-base">✓</span> Inspiradora
+                            </li>
+                            <li class="bg-[#03202b] border border-amber-800/70 p-3 rounded-xl flex items-center gap-2.5 text-slate-200 font-medium">
+                                <span class="text-amber-400 font-black text-base">✓</span> Ambiciosa pero posible
+                            </li>
+                            <li class="bg-[#03202b] border border-amber-800/70 p-3 rounded-xl flex items-center gap-2.5 text-slate-200 font-medium">
+                                <span class="text-amber-400 font-black text-base">✓</span> Orientada al futuro
+                            </li>
+                            <li class="bg-[#03202b] border border-amber-800/70 p-3 rounded-xl flex items-center gap-2.5 text-slate-200 font-medium">
+                                <span class="text-amber-400 font-black text-base">✓</span> Capaz de alinear a las personas
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-[#03202a] to-[#083c4d] border-l-4 border-amber-400 p-4 rounded-r-xl shadow-inner mt-4">
+                        <span class="text-xs font-black text-amber-300 uppercase tracking-wider block mb-1">📌 Ejemplo:</span>
+                        <p class="italic font-semibold text-slate-100 text-sm sm:text-base">
+                            "Ser la agencia de branding empresarial orientada a pequeños negocios más confiable de México."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOX 3: VALORES -->
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl border-2 border-rose-500/50 shadow-2xl space-y-5 bg-gradient-to-br from-[#062935] via-[#041d26] to-[#021319] relative overflow-hidden">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-rose-800/60 pb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-300 flex items-center justify-center text-2xl font-black border border-rose-500/40">
+                            ❤️
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-rose-300">VALORES</h3>
+                            <p class="text-sm font-bold text-rose-100">¿Cómo queremos actuar? ¿Qué principios guían nuestras decisiones?</p>
+                        </div>
+                    </div>
+                    <span class="bg-rose-950 text-rose-300 border border-rose-700 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Los valores guían nuestras DECISIONES
+                    </span>
+                </div>
+
+                <div class="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed">
+                    <p>
+                        Los valores son los principios que orientan el comportamiento y las decisiones cotidianas de una organización. <strong>No son simplemente palabras bonitas en una pared.</strong> Deben reflejarse en acciones, decisiones y comportamientos.
+                    </p>
+                    <p class="bg-[#021820] p-4 rounded-xl border border-rose-900/80 text-rose-100 font-medium flex items-center gap-2">
+                        <span>🌟</span> <span><strong>Moldean</strong> el clima organizacional y cómo se trata al cliente.</span>
+                    </p>
+
+                    <div class="space-y-2 pt-1">
+                        <h4 class="font-extrabold text-white text-base">Algunos ejemplos:</h4>
+                        <div class="flex flex-wrap gap-2 text-xs sm:text-sm">
+                            <span class="bg-rose-950/90 border border-rose-700 text-rose-200 px-3.5 py-1.5 rounded-full font-bold">Integridad</span>
+                            <span class="bg-rose-950/90 border border-rose-700 text-rose-200 px-3.5 py-1.5 rounded-full font-bold">Innovación</span>
+                            <span class="bg-rose-950/90 border border-rose-700 text-rose-200 px-3.5 py-1.5 rounded-full font-bold">Inclusión</span>
+                            <span class="bg-rose-950/90 border border-rose-700 text-rose-200 px-3.5 py-1.5 rounded-full font-bold">Responsabilidad</span>
+                            <span class="bg-rose-950/90 border border-rose-700 text-rose-200 px-3.5 py-1.5 rounded-full font-bold">Respeto</span>
+                            <span class="bg-rose-950/90 border border-rose-700 text-rose-200 px-3.5 py-1.5 rounded-full font-bold">Transparencia</span>
+                            <span class="bg-rose-950/90 border border-rose-700 text-rose-200 px-3.5 py-1.5 rounded-full font-bold">Sostenibilidad</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-[#03202a] to-[#083c4d] border-l-4 border-rose-400 p-4 rounded-r-xl shadow-inner mt-4">
+                        <span class="text-xs font-black text-rose-300 uppercase tracking-wider block mb-1">📌 Por ejemplo:</span>
+                        <p class="italic font-semibold text-slate-100 text-sm sm:text-base">
+                            Si una empresa declara empatía y creatividad como valores debe buscar entender las necesidades de su cliente y proponer soluciones novedosas, incluso cuando parezca que el cliente pide algo imposible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY IS IT IMPORTANT SECTION -->
+        <section class="glass-panel p-8 sm:p-10 rounded-3xl border border-teal-500/30 shadow-2xl space-y-8">
+            <div class="text-center space-y-2">
+                <h2 class="text-3xl sm:text-4xl font-black text-amber-400 flex items-center justify-center gap-2">
+                    💡 ¿POR QUÉ ES IMPORTANTE DEFINIRLOS?
+                </h2>
+                <p class="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto">
+                    Definir claramente este trío estratégico proporciona ventajas críticas para la salud y el crecimiento organizacional:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- POINT 1 -->
+                <div class="bg-[#042028]/90 p-6 rounded-2xl border border-teal-800/80 hover:border-amber-400/60 transition-all space-y-3 group shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition-transform border border-amber-500/30">
+                        🧭
+                    </div>
+                    <h3 class="text-xl font-bold text-white">1. DEFINIR LA DIRECCIÓN</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Definen qué queremos lograr y hacia dónde vamos, ayudando a establecer prioridades claras y objetivos medibles a corto y largo plazo.
+                    </p>
+                </div>
+
+                <!-- POINT 2 -->
+                <div class="bg-[#042028]/90 p-6 rounded-2xl border border-teal-800/80 hover:border-cyan-400/60 transition-all space-y-3 group shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition-transform border border-cyan-500/30">
+                        ⚖️
+                    </div>
+                    <h3 class="text-xl font-bold text-white">2. TOMAR DECISIONES COTIDIANAS</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Sirven como criterio práctico para decidir qué hacer, qué no hacer y qué oportunidades de negocio son realmente coherentes con la organización.
+                    </p>
+                </div>
+
+                <!-- POINT 3 -->
+                <div class="bg-[#042028]/90 p-6 rounded-2xl border border-teal-800/80 hover:border-rose-400/60 transition-all space-y-3 group shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/20 text-rose-300 flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition-transform border border-rose-500/30">
+                        👥
+                    </div>
+                    <h3 class="text-xl font-bold text-white">3. INSPIRAR Y UNIR</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Ayudan a que las personas y las diferentes áreas trabajen juntas hacia un mismo propósito, construyendo una sólida identidad compartida.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOSING SECTION -->
+        <section class="relative bg-gradient-to-r from-amber-500 via-teal-600 to-emerald-600 p-8 sm:p-10 rounded-3xl text-slate-950 shadow-2xl overflow-hidden border border-amber-300/40">
+            <div class="absolute -right-10 -top-10 opacity-15 text-9xl font-black">GOAT</div>
+            <div class="relative z-10 max-w-3xl space-y-3">
+                <span class="inline-block bg-slate-950/20 text-slate-950 px-3.5 py-1 rounded-full text-xs font-black tracking-widest uppercase">
+                    Reflexión para el Líder Estratégico
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-black tracking-tight">CIERRE</h3>
+                <p class="text-lg sm:text-xl font-semibold leading-relaxed">
+                    Como líder estratégico, una labor muy importante es que tengas muy claro la misión, visión y valores de la organización que encabezas para que puedas guiar a tu equipo al éxito.
+                </p>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE MATCHING EXERCISE -->
+        <section id="ejercicio-practico" class="glass-panel p-6 sm:p-10 rounded-3xl border border-teal-500/40 shadow-2xl space-y-8">
+            <div class="text-center space-y-3">
+                <span class="bg-teal-950 text-teal-300 text-xs font-bold px-4 py-1.5 rounded-full border border-teal-700 uppercase tracking-widest">
+                    🎓 Ejercicio Práctico para Alumnos
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Relaciona la Misión, Visión y Valores de 5 Empresas Exitosas
+                </h2>
+                <p class="text-slate-200 text-sm sm:text-base max-w-3xl mx-auto">
+                    Selecciona para cada empresa el bloque estratégico correcto correspondiente a la Misión, Visión o Valores indicados. Haz clic en <strong>"Verificar Respuestas"</strong> para evaluar tu aprendizaje.
+                </p>
+            </div>
+
+            <!-- Quiz Score Indicator -->
+            <div class="flex flex-wrap items-center justify-between gap-4 bg-[#042028]/90 p-4 rounded-2xl border border-teal-800">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">🏆</span>
+                    <div>
+                        <p class="text-xs text-slate-300 uppercase font-bold">Progreso del Ejercicio</p>
+                        <p id="score-text" class="text-lg font-black text-amber-300">0 / 5 Aciertos</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="resetExercise()" class="bg-[#072d38] hover:bg-[#0b3e4d] text-slate-200 text-xs font-bold px-4 py-2 rounded-xl transition-colors border border-teal-700">
+                        🔄 Reiniciar
+                    </button>
+                    <button onclick="checkAnswers()" class="bg-teal-400 hover:bg-teal-300 text-slate-950 font-black text-sm px-6 py-2.5 rounded-xl shadow-lg transition-transform active:scale-95">
+                        ✅ Verificar Respuestas
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Questions Grid -->
+            <div class="space-y-6">
+
+                <!-- QUESTION 1: STARBUCKS -->
+                <div class="quiz-item bg-[#042028]/90 p-5 sm:p-6 rounded-2xl border border-teal-800/80 space-y-4" data-company="starbucks">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold text-lg border border-emerald-500/30">
+                            ☕
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-extrabold text-white">1. STARBUCKS</h4>
+                            <p class="text-xs text-slate-300">Empresa global de restauración y café de especialidad</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-200">
+                            ¿Cuál es la <strong>MISIÓN</strong> de Starbucks?
+                        </label>
+                        <select id="q1-select" class="w-full bg-[#03171e] text-slate-200 border border-teal-700 rounded-xl p-3 text-sm focus:outline-none focus:border-cyan-400">
+                            <option value="">-- Selecciona la Misión correcta --</option>
+                            <option value="incorrect1">"Organizar la información del mundo y hacerla accesible."</option>
+                            <option value="correct">"Inspirar y nutrir el espíritu humano: una persona, una taza y un vecindario a la vez."</option>
+                            <option value="incorrect2">"Crear los vehículos eléctricos más rápidos y económicos del mercado."</option>
+                        </select>
+                    </div>
+                    <div id="q1-feedback" class="hidden text-xs font-bold p-3 rounded-xl"></div>
+                </div>
+
+                <!-- QUESTION 2: NIKE -->
+                <div class="quiz-item bg-[#042028]/90 p-5 sm:p-6 rounded-2xl border border-teal-800/80 space-y-4" data-company="nike">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-300 flex items-center justify-center font-bold text-lg border border-cyan-500/30">
+                            👟
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-extrabold text-white">2. NIKE</h4>
+                            <p class="text-xs text-slate-300">Marca líder mundial en indumentaria y calzado deportivo</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-200">
+                            ¿Cuál es la <strong>MISIÓN</strong> corporativa de Nike?
+                        </label>
+                        <select id="q2-select" class="w-full bg-[#03171e] text-slate-200 border border-teal-700 rounded-xl p-3 text-sm focus:outline-none focus:border-cyan-400">
+                            <option value="">-- Selecciona la Misión correcta --</option>
+                            <option value="correct">"Brindar inspiración e innovación a cada atleta en el mundo."</option>
+                            <option value="incorrect1">"Ser el almacén en línea con la entrega de ropa más rápida."</option>
+                            <option value="incorrect2">"Vender los tenis más caros de la industria."</option>
+                        </select>
+                    </div>
+                    <div id="q2-feedback" class="hidden text-xs font-bold p-3 rounded-xl"></div>
+                </div>
+
+                <!-- QUESTION 3: TESLA -->
+                <div class="quiz-item bg-[#042028]/90 p-5 sm:p-6 rounded-2xl border border-teal-800/80 space-y-4" data-company="tesla">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-rose-500/20 text-rose-300 flex items-center justify-center font-bold text-lg border border-rose-500/30">
+                            ⚡
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-extrabold text-white">3. TESLA</h4>
+                            <p class="text-xs text-slate-300">Pionero en movilidad eléctrica y energía renovable</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-200">
+                            ¿Cuál es la <strong>VISIÓN</strong> a largo plazo de Tesla?
+                        </label>
+                        <select id="q3-select" class="w-full bg-[#03171e] text-slate-200 border border-teal-700 rounded-xl p-3 text-sm focus:outline-none focus:border-cyan-400">
+                            <option value="">-- Selecciona la Visión correcta --</option>
+                            <option value="incorrect1">"Ser la cadena de gasolina más grande del planeta."</option>
+                            <option value="correct">"Crear la empresa de carros más atractiva del siglo XXI al conducir el mundo hacia la transición de carros eléctricos."</option>
+                            <option value="incorrect2">"Fabricar motores V8 de alta velocidad."</option>
+                        </select>
+                    </div>
+                    <div id="q3-feedback" class="hidden text-xs font-bold p-3 rounded-xl"></div>
+                </div>
+
+                <!-- QUESTION 4: APPLE -->
+                <div class="quiz-item bg-[#042028]/90 p-5 sm:p-6 rounded-2xl border border-teal-800/80 space-y-4" data-company="apple">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold text-lg border border-amber-500/30">
+                            🍏
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-extrabold text-white">4. APPLE</h4>
+                            <p class="text-xs text-slate-300">Gigante tecnológico de innovación en hardware y software</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-200">
+                            ¿Qué combinación destaca como los <strong>VALORES</strong> clave de Apple?
+                        </label>
+                        <select id="q4-select" class="w-full bg-[#03171e] text-slate-200 border border-teal-700 rounded-xl p-3 text-sm focus:outline-none focus:border-cyan-400">
+                            <option value="">-- Selecciona los Valores correctos --</option>
+                            <option value="incorrect1">"Tradición antigua, procesos lentos y secretismo cerrado."</option>
+                            <option value="correct">"Innovación, accesibilidad digital, inclusión y diversidad, excelencia y cuidado del medio ambiente."</option>
+                            <option value="incorrect2">"Bajos costos de producción e imitación rápida de la competencia."</option>
+                        </select>
+                    </div>
+                    <div id="q4-feedback" class="hidden text-xs font-bold p-3 rounded-xl"></div>
+                </div>
+
+                <!-- QUESTION 5: GOOGLE -->
+                <div class="quiz-item bg-[#042028]/90 p-5 sm:p-6 rounded-2xl border border-teal-800/80 space-y-4" data-company="google">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-300 flex items-center justify-center font-bold text-lg border border-purple-500/30">
+                            🔍
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-extrabold text-white">5. GOOGLE (ALPHABET)</h4>
+                            <p class="text-xs text-slate-300">Líder global en servicios de datos e inteligencia</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs font-semibold text-slate-200">
+                            ¿Cuál es la <strong>MISIÓN</strong> icónica de Google?
+                        </label>
+                        <select id="q5-select" class="w-full bg-[#03171e] text-slate-200 border border-teal-700 rounded-xl p-3 text-sm focus:outline-none focus:border-cyan-400">
+                            <option value="">-- Selecciona la Misión correcta --</option>
+                            <option value="correct">"Organizar la información del mundo y hacerla universalmente accesible y útil."</option>
+                            <option value="incorrect1">"Vender publicidad física en periódicos."</option>
+                            <option value="incorrect2">"Construir la red social más exclusiva para pocos usuarios."</option>
+                        </select>
+                    </div>
+                    <div id="q5-feedback" class="hidden text-xs font-bold p-3 rounded-xl"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- REFERENCES FOOTER SECTION -->
+        <footer class="glass-panel p-6 sm:p-8 rounded-3xl border border-teal-800 text-xs text-slate-300 space-y-4">
+            <div class="flex items-center gap-2 text-teal-200 font-bold text-sm">
+                <span>📚</span>
+                <span>Información recuperada de:</span>
+            </div>
+            <ul class="space-y-2 pl-4 list-disc text-slate-300 leading-relaxed font-mono">
+                <li>
+                    Escala. (2026). <em>Misión, visión y valores: 20 ejemplos de empresas exitosas</em>. Recuperado de 
+                    <a href="https://escala.com/mision-vision-y-valores-20-ejemplos-de-empresas-exitosas/" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:underline break-all">
+                        https://escala.com/mision-vision-y-valores-20-ejemplos-de-empresas-exitosas/
+                    </a>
+                </li>
+                <li>
+                    Santander Open Academy. (2026). <em>Misión, visión y valores de una empresa: qué son y ejemplos</em>. Recuperado de 
+                    <a href="https://www.santanderopenacademy.com/es/blog/mision-vision-y-valores.html" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:underline break-all">
+                        https://www.santanderopenacademy.com/es/blog/mision-vision-y-valores.html
+                    </a>
+                </li>
+            </ul>
+            <div class="pt-4 border-t border-teal-900/80 text-center text-teal-200/80 text-[11px]">
+               Profesora Fabiola Chávez Romero · 2026 ·
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- INTERACTION LOGIC JAVASCRIPT -->
+    <script>
+        // Interactive flight navigation function
+        function flyTo(target) {
+            const plane = document.getElementById('airplane-group');
+            if (!plane) return;
+
+            let transformStr = '';
+            if (target === 'mision') {
+                transformStr = 'translate(50, 230) rotate(-25)';
+            } else if (target === 'vision') {
+                transformStr = 'translate(430, 125) rotate(-5)';
+            } else if (target === 'valores') {
+                transformStr = 'translate(650, 10) rotate(-20)';
+            }
+
+            plane.setAttribute('transform', transformStr);
+        }
+
+        // Toggle Deep Dive Modals
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                if (modal.classList.contains('hidden')) {
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                ['modal-mision', 'modal-vision', 'modal-valores'].forEach(id => {
+                    const m = document.getElementById(id);
+                    if (m && !m.classList.contains('hidden')) {
+                        m.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+
+        // Quiz Check Answers Logic
+        function checkAnswers() {
+            let score = 0;
+            const total = 5;
+
+            const answers = [
+                { id: 'q1', select: 'q1-select', feedback: 'q1-feedback', name: 'Starbucks' },
+                { id: 'q2', select: 'q2-select', feedback: 'q2-feedback', name: 'Nike' },
+                { id: 'q3', select: 'q3-select', feedback: 'q3-feedback', name: 'Tesla' },
+                { id: 'q4', select: 'q4-select', feedback: 'q4-feedback', name: 'Apple' },
+                { id: 'q5', select: 'q5-select', feedback: 'q5-feedback', name: 'Google' }
+            ];
+
+            answers.forEach((q, index) => {
+                const selectElem = document.getElementById(q.select);
+                const feedbackElem = document.getElementById(q.feedback);
+                const userVal = selectElem.value;
+
+                feedbackElem.classList.remove('hidden', 'bg-emerald-950', 'text-emerald-300', 'border-emerald-800', 'bg-rose-950', 'text-rose-300', 'border-rose-800', 'bg-amber-950', 'text-amber-300');
+                feedbackElem.classList.add('border');
+
+                if (userVal === 'correct') {
+                    score++;
+                    feedbackElem.classList.add('bg-emerald-950', 'text-emerald-300', 'border-emerald-800');
+                    feedbackElem.innerHTML = `✅ ¡Correcto! Has identificado adecuadamente la declaración estratégica de ${q.name}.`;
+                } else if (userVal === '') {
+                    feedbackElem.classList.add('bg-amber-950', 'text-amber-300', 'border-amber-800');
+                    feedbackElem.innerHTML = `⚠️ Por favor selecciona una opción para ${q.name}.`;
+                } else {
+                    feedbackElem.classList.add('bg-rose-950', 'text-rose-300', 'border-rose-800');
+                    feedbackElem.innerHTML = `❌ Respuesta incorrecta. Vuelve a revisar los conceptos de ${q.name} en la sección interactiva.`;
+                }
+            });
+
+            const scoreDisplay = document.getElementById('score-text');
+            scoreDisplay.textContent = `${score} / ${total} Aciertos`;
+
+            if (score === total) {
+                scoreDisplay.className = "text-lg font-black text-emerald-400 animate-pulse";
+            } else {
+                scoreDisplay.className = "text-lg font-black text-amber-400";
+            }
+        }
+
+        // Reset Quiz Logic
+        function resetExercise() {
+            for (let i = 1; i <= 5; i++) {
+                const selectElem = document.getElementById(`q${i}-select`);
+                const feedbackElem = document.getElementById(`q${i}-feedback`);
+                if (selectElem) selectElem.value = '';
+                if (feedbackElem) {
+                    feedbackElem.classList.add('hidden');
+                    feedbackElem.innerHTML = '';
+                }
+            }
+            const scoreDisplay = document.getElementById('score-text');
+            scoreDisplay.textContent = '0 / 5 Aciertos';
+            scoreDisplay.className = "text-lg font-black text-amber-400";
+        }
+    </script>
+</body>
+</html>
