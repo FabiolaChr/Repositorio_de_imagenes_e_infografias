@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decisiones de un líder estratégico y el contexto empresarial</title>
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crema: '#FAF7F2',
+                        cremaDark: '#F2EBE1',
+                        naranja: '#FF8C38',
+                        naranjaHover: '#E57726',
+                        naranjaSoft: '#FFF4EB',
+                        texto: '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FAF7F2;
+            color: #333333;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        /* Ajustes para pantalla de cierre óptima para screenshot */
+        @media print {
+            .no-print { display: none !important; }
+            .print-container { width: 100% !important; max-width: none !important; padding: 0 !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-2 md:p-6">
+
+    <!-- Header / Banner de Presentación -->
+    <header class="max-w-6xl w-full mx-auto bg-white rounded-2xl shadow-sm border border-orange-100 p-4 md:p-6 mb-4">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+                <span class="inline-block bg-orange-100 text-naranja font-semibold text-xs px-3 py-1 rounded-full mb-2">🚦 Actividad Interactiva</span>
+                <h1 class="text-xl md:text-2xl font-bold text-gray-800">Decisiones de un líder estratégico y el contexto empresarial</h1>
+                <p class="text-sm text-gray-600 mt-1">🏪 Mini caso: “La papelería de Doña Soco que está perdiendo clientes”</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal Interactiva -->
+    <main class="max-w-6xl w-full mx-auto flex-grow flex flex-col">
+
+        <!-- STEP 0: Presentación y Registro de Integrantes -->
+        <section id="step-0" class="step-card bg-white rounded-2xl shadow-sm border border-orange-100 p-6 md:p-8 flex-grow flex flex-col justify-between">
+            <div class="space-y-6">
+                <div class="bg-naranjaSoft border-l-4 border-naranja p-4 rounded-r-xl">
+                    <h2 class="font-bold text-naranja text-lg flex items-center gap-2">🎯 Objetivo de aprendizaje</h2>
+                    <p class="text-gray-700 text-sm mt-1">Reconocer la importancia de analizar el entorno y comprender el problema de una empresa antes de tomar decisiones y proponer estrategias.</p>
+                </div>
+
+                <div class="bg-crema p-4 rounded-xl text-sm text-gray-700">
+                    <h3 class="font-bold text-gray-800 mb-1 flex items-center gap-2">💡 La idea</h3>
+                    <p>Presentarles un mini caso empresarial con un problema aparentemente sencillo. Primero deberán tomar una decisión con información limitada. Después reciben información adicional del entorno y tienen la oportunidad de cambiar su decisión.</p>
+                </div>
+
+                <div class="border-t border-gray-100 pt-4">
+                    <h3 class="font-bold text-gray-800 text-base mb-2">👥 Registro del Equipo</h3>
+                    <p class="text-sm text-gray-600 mb-3">Para empezar escriban los nombres de los integrantes del equipo:</p>
+                    <textarea id="input-integrantes" rows="3" class="w-full p-3 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja focus:border-naranja outline-none transition" placeholder="Ej. Ana Pérez, Carlos Gómez, María Rodríguez..."></textarea>
+                    <p id="error-step-0" class="text-red-500 text-xs mt-1 hidden">⚠️ Por favor escribe los nombres de los integrantes para continuar.</p>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button onclick="nextStep(1)" class="bg-naranja hover:bg-naranjaHover text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2 shadow-sm">
+                    Comenzar Actividad 🚀
+                </button>
+            </div>
+        </section>
+
+        <!-- STEP 1: Situación Inicial y Primera Decisión -->
+        <section id="step-1" class="step-card hidden bg-white rounded-2xl shadow-sm border border-orange-100 p-6 md:p-8 flex-grow flex flex-col justify-between">
+            <div class="space-y-6">
+                <!-- Situación Inicial -->
+                <div class="bg-orange-50/60 p-5 rounded-2xl border border-orange-100">
+                    <h2 class="font-bold text-gray-800 text-lg mb-2 flex items-center gap-2">📍 Situación inicial</h2>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        <span class="font-semibold text-naranja">UrbanBox</span> es una pequeña tienda que vende productos de papelería, tecnología y artículos para estudiantes cerca de una universidad.<br>
+                        Durante los últimos meses, sus ventas han disminuido.<br>
+                        La dueña está preocupada y le pide a su equipo de liderazgo compuesto por <span id="display-integrantes-1" class="font-semibold text-gray-900">[Integrantes]</span> que proponga una solución.<br>
+                        El equipo tiene presupuesto limitado y solamente puede implementar <span class="font-semibold underline decoration-naranja">una estrategia</span> durante los próximos tres meses.
+                    </p>
+                </div>
+
+                <!-- Opciones de Primera Decisión -->
+                <div>
+                    <h3 class="font-bold text-gray-800 text-base mb-1">🧐 Primera decisión</h3>
+                    <p class="text-xs text-gray-500 mb-4">Sin investigar más, el equipo debe elegir UNA de estas opciones:</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="opciones-primera-decision">
+                        <label class="flex items-start p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-naranjaSoft transition">
+                            <input type="radio" name="primera_opcion" value="A. 📢 Publicidad: Invertir en redes sociales y promociones para atraer más clientes." class="mt-1 text-naranja focus:ring-naranja">
+                            <span class="ml-3 text-sm text-gray-700"><strong>A. 📢 Publicidad:</strong> Invertir en redes sociales y promociones para atraer más clientes.</span>
+                        </label>
+                        <label class="flex items-start p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-naranjaSoft transition">
+                            <input type="radio" name="primera_opcion" value="B. 💰 Bajar precios: Reducir los precios de los productos más vendidos para competir con otras tiendas." class="mt-1 text-naranja focus:ring-naranja">
+                            <span class="ml-3 text-sm text-gray-700"><strong>B. 💰 Bajar precios:</strong> Reducir los precios de los productos más vendidos para competir con otras tiendas.</span>
+                        </label>
+                        <label class="flex items-start p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-naranjaSoft transition">
+                            <input type="radio" name="primera_opcion" value="C. 🛒 Vender en línea: Crear una tienda en línea para facilitar las compras." class="mt-1 text-naranja focus:ring-naranja">
+                            <span class="ml-3 text-sm text-gray-700"><strong>C. 🛒 Vender en línea:</strong> Crear una tienda en línea para facilitar las compras.</span>
+                        </label>
+                        <label class="flex items-start p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-naranjaSoft transition">
+                            <input type="radio" name="primera_opcion" value="D. 🎁 Crear nuevos productos: Incorporar productos personalizados y diferentes a los de la competencia." class="mt-1 text-naranja focus:ring-naranja">
+                            <span class="ml-3 text-sm text-gray-700"><strong>D. 🎁 Crear nuevos productos:</strong> Incorporar productos personalizados y diferentes a los de la competencia.</span>
+                        </label>
+                        <label class="flex items-start p-3 rounded-xl border border-gray-200 cursor-pointer hover:bg-naranjaSoft transition md:col-span-2">
+                            <input type="radio" name="primera_opcion" value="E. 👥 Mejorar la experiencia: Capacitar al personal y mejorar la atención al cliente." class="mt-1 text-naranja focus:ring-naranja">
+                            <span class="ml-3 text-sm text-gray-700"><strong>E. 👥 Mejorar la experiencia:</strong> Capacitar al personal y mejorar la atención al cliente.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Preguntas de Reflexión Parte 1 -->
+                <div class="space-y-4 pt-2">
+                    <p class="font-bold text-sm text-gray-800">Redacten como equipo su plan respondiendo:</p>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">¿Por qué elegimos esa opción?</label>
+                        <textarea id="p1-porque" rows="2" class="w-full p-2.5 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Expliquen las razones de su elección..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">¿Qué riesgos conlleva esta decisión?</label>
+                        <textarea id="p1-riesgos" rows="2" class="w-full p-2.5 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Mencionen posibles riesgos..."></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">¿Qué creen que está provocando la disminución de ventas?</label>
+                        <textarea id="p1-causa" rows="2" class="w-full p-2.5 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Su hipótesis inicial sobre las causas..."></textarea>
+                    </div>
+                </div>
+                <p id="error-step-1" class="text-red-500 text-xs hidden">⚠️ Completa la selección y responde todas las preguntas para avanzar.</p>
+            </div>
+
+            <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-4">
+                <button onclick="nextStep(0)" class="text-gray-500 hover:text-gray-800 text-sm font-medium">← Regresar</button>
+                <button onclick="validateStep1()" class="bg-naranja hover:bg-naranjaHover text-white font-semibold px-6 py-2.5 rounded-xl transition flex items-center gap-2">
+                    Siguiente: Indagar el contexto 🔎
+                </button>
+            </div>
+        </section>
+
+        <!-- STEP 2: Indagación del Contexto e Insights -->
+        <section id="step-2" class="step-card hidden bg-white rounded-2xl shadow-sm border border-orange-100 p-6 md:p-8 flex-grow flex flex-col justify-between">
+            <div class="space-y-6">
+                <div>
+                    <h2 class="font-bold text-gray-800 text-lg flex items-center gap-2">🔎 Un paso atrás. “Indaguemos el contexto empresarial”</h2>
+                    <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+                        Después de discutir la decisión, el equipo decidió que es riesgoso ejecutar un plan sin fundamentarlo con datos del contexto empresarial. Por ello realizaron una investigación del entorno interno y externo de UrbanBox usando herramientas de análisis como FODA o PESTEL. Después de este proceso llegaron a los siguientes “insights”:
+                    </p>
+                </div>
+
+                <!-- Insights FODA Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-emerald-50/70 border border-emerald-200 p-4 rounded-xl">
+                        <div class="flex items-center gap-2 font-bold text-emerald-800 text-sm mb-1">
+                            <span>🟢</span> 1. Fortaleza - Lo que hacemos bien
+                        </div>
+                        <p class="text-xs text-emerald-950 leading-relaxed">UrbanBox tiene una excelente relación con sus clientes actuales. Muchos estudiantes regresar porque conocen al personal y confían en sus recomendaciones.</p>
+                    </div>
+
+                    <div class="bg-rose-50/70 border border-rose-200 p-4 rounded-xl">
+                        <div class="flex items-center gap-2 font-bold text-rose-800 text-sm mb-1">
+                            <span>🔴</span> 2. Debilidades - Lo que necesitamos mejorar
+                        </div>
+                        <p class="text-xs text-rose-950 leading-relaxed">La tienda no cuenta con una plataforma para vender en línea y sus clientes tienen que acudir físicamente al establecimiento para realizar sus compras.</p>
+                    </div>
+
+                    <div class="bg-sky-50/70 border border-sky-200 p-4 rounded-xl">
+                        <div class="flex items-center gap-2 font-bold text-sky-800 text-sm mb-1">
+                            <span>🔵</span> 3. Oportunidades - Lo que está cambiando afuera
+                        </div>
+                        <p class="text-xs text-sky-950 leading-relaxed">Cada vez más estudiantes compran desde su celular, comparan precios y valoran servicios como entrega rápida y pedidos en línea.</p>
+                    </div>
+
+                    <div class="bg-amber-50/70 border border-amber-200 p-4 rounded-xl">
+                        <div class="flex items-center gap-2 font-bold text-amber-800 text-sm mb-1">
+                            <span>🟠</span> 4. Amenazas - Lo que podría afectarnos
+                        </div>
+                        <p class="text-xs text-amber-950 leading-relaxed">Una gran cadena de tiendas abrió a 500 metros de UrbanBox. Tiene precios similares, una amplia variedad de productos y servicio de entrega el mismo día.</p>
+                    </div>
+                </div>
+
+                <div class="bg-orange-100/50 p-4 rounded-xl text-center border border-orange-200">
+                    <p class="text-naranja font-bold text-sm">💡 “¡Con esa información, yo ya no haría lo mismo!”</p>
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-4">
+                <button onclick="nextStep(1)" class="text-gray-500 hover:text-gray-800 text-sm font-medium">← Regresar</button>
+                <button onclick="nextStep(3)" class="bg-naranja hover:bg-naranjaHover text-white font-semibold px-6 py-2.5 rounded-xl transition flex items-center gap-2">
+                    Tomar Segunda Decisión 🔄
+                </button>
+            </div>
+        </section>
+
+        <!-- STEP 3: Segunda Decisión basada en datos -->
+        <section id="step-3" class="step-card hidden bg-white rounded-2xl shadow-sm border border-orange-100 p-6 md:p-8 flex-grow flex flex-col justify-between">
+            <div class="space-y-5">
+                <div>
+                    <h2 class="font-bold text-gray-800 text-lg flex items-center gap-2">🔄 Segunda decisión</h2>
+                    <p class="text-sm font-semibold text-naranja italic mt-1">“Con esta nueva información, ¿mantendrían su estrategia o cambiarían de decisión?”</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">¿Mantienen o cambian su estrategia?</label>
+                        <select id="p2-mantienen-cambian" class="w-full p-2.5 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none bg-white">
+                            <option value="">-- Seleccionar respuesta --</option>
+                            <option value="Mantienen la estrategia inicial">Mantienen la estrategia inicial</option>
+                            <option value="Cambian de estrategia">Cambian de estrategia</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Estrategia final a ejecutar:</label>
+                        <textarea id="p2-estrategia-final" rows="2" class="w-full p-2.5 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Escriban cuál será su estrategia definitiva..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">¿Qué información nueva influyó en su decisión?</label>
+                        <textarea id="p2-info-nueva" rows="2" class="w-full p-2.5 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Detallen qué datos del entorno interno/externo influyeron..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">¿Qué problema creen ahora que realmente enfrenta UrbanBox?</label>
+                        <textarea id="p2-problema-real" rows="2" class="w-full p-2.5 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Redacten el diagnóstico real del problema..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">¿Qué información adicional necesitarían antes de implementar esta estrategia?</label>
+                        <textarea id="p2-info-adicional" rows="2" class="w-full p-2.5 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Mencionen qué datos adicionales requerirían..."></textarea>
+                    </div>
+                </div>
+
+                <p id="error-step-3" class="text-red-500 text-xs hidden">⚠️ Por favor completa todos los campos para continuar.</p>
+            </div>
+
+            <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-4">
+                <button onclick="nextStep(2)" class="text-gray-500 hover:text-gray-800 text-sm font-medium">← Regresar</button>
+                <button onclick="validateStep3()" class="bg-naranja hover:bg-naranjaHover text-white font-semibold px-6 py-2.5 rounded-xl transition flex items-center gap-2">
+                    Reflexión Final 🧠
+                </button>
+            </div>
+        </section>
+
+        <!-- STEP 4: Cierre y Reflexión Final -->
+        <section id="step-4" class="step-card hidden bg-white rounded-2xl shadow-sm border border-orange-100 p-6 md:p-8 flex-grow flex flex-col justify-between">
+            <div class="space-y-5">
+                <!-- Contexto de Cierre -->
+                <div class="bg-crema p-4 rounded-xl border border-orange-100 text-xs text-gray-700 space-y-2 leading-relaxed">
+                    <h2 class="font-bold text-gray-800 text-sm flex items-center gap-2">🧠 Cierre: “¿Qué cambió?”</h2>
+                    <p>El equipo decidió ejecutar la estrategia que consideró más adecuada, fundamentándola en la investigación que realizó sobre el contexto interno y externo de UrbanBox.</p>
+                    <p>Durante los siguientes meses, la estrategia comenzó a dar resultados. De manera gradual, las ventas y las ganancias de la papelería aumentaron y Doña Soco recuperó parte de los clientes que había perdido.</p>
+                    <p>Sin embargo, Doña Soco sabe que el trabajo de un líder estratégico no termina cuando una estrategia funciona. El mercado continúa cambiando, los clientes modifican sus hábitos, aparecen nuevos competidores y surgen nuevas oportunidades.</p>
+                    <p>Por eso, Doña Soco decide continuar observando lo que sucede dentro y fuera de su empresa, evaluando los resultados de sus decisiones y anticipándose a los cambios que puedan afectar a UrbanBox.</p>
+                    <p class="font-semibold text-naranja">Ella entendió que para tomar decisiones estratégicas es importante indagar sobre el contexto interno y externo de la empresa para maximizar las posibilidades de éxito y no ir a ciegas.</p>
+                </div>
+
+                <!-- Preguntas de Reflexión Final -->
+                <div>
+                    <h3 class="font-bold text-gray-800 text-sm mb-1 flex items-center gap-2">💭 Ahora es momento de reflexionar</h3>
+                    <p class="text-xs text-gray-500 mb-3">Como equipo, redacten una conclusión de 3 a 5 líneas que responda:</p>
+
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">¿Por qué es importante que un líder conozca y analice el contexto de una empresa antes de tomar decisiones?</label>
+                            <textarea id="ref-1" rows="2" class="w-full p-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Redacten su respuesta..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">¿Por qué debe mantenerse atento a los cambios del entorno después de implementar una estrategia?</label>
+                            <textarea id="ref-2" rows="2" class="w-full p-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Redacten su respuesta..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">¿De qué manera puedo obtener información del entorno? ¿Conozco alguna herramienta o modelo formal?</label>
+                            <textarea id="ref-3" rows="2" class="w-full p-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Mencionen métodos y herramientas (ej. FODA, PESTEL)..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Investiga muy brevemente qué es la herramienta FODA:</label>
+                            <textarea id="ref-foda" rows="2" class="w-full p-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Explicación breve de la herramienta FODA..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Investiga qué es PESTEL:</label>
+                            <textarea id="ref-pestel" rows="2" class="w-full p-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Explicación breve del análisis PESTEL..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Investiga las 5 fuerzas de PORTER:</label>
+                            <textarea id="ref-porter" rows="2" class="w-full p-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Explicación breve de las 5 fuerzas de Porter..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Fuentes consultadas:</label>
+                            <textarea id="ref-fuentes" rows="2" class="w-full p-2 text-sm rounded-xl border border-gray-300 focus:ring-2 focus:ring-naranja outline-none" placeholder="Lista de fuentes, libros o enlaces consultados..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <p id="error-step-4" class="text-red-500 text-xs hidden">⚠️ Por favor completa las reflexiones e investigaciones para generar la pantalla de cierre.</p>
+            </div>
+
+            <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-4">
+                <button onclick="nextStep(3)" class="text-gray-500 hover:text-gray-800 text-sm font-medium">← Regresar</button>
+                <button onclick="generateFinalSummary()" class="bg-naranja hover:bg-naranjaHover text-white font-semibold px-6 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm">
+                    Finalizar y Ver Resumen 📊
+                </button>
+            </div>
+        </section>
+
+        <!-- STEP 5: Pantalla de Cierre (Dashboard Resumen para Screenshot en Canvas) -->
+        <section id="step-5" class="step-card hidden print-container bg-white rounded-2xl shadow-md border-2 border-naranja p-4 md:p-6">
+            <!-- Encabezado de la entregable -->
+            <div class="border-b-2 border-orange-200 pb-3 mb-4 flex flex-wrap justify-between items-center gap-2 bg-naranjaSoft p-4 rounded-xl">
+                <div>
+                    <span class="text-xs uppercase tracking-wider font-bold text-naranja">Reporte de Entrega Canvas</span>
+                    <h2 class="text-lg md:text-xl font-bold text-gray-800">Decisiones de un líder estratégico y el contexto empresarial</h2>
+                    <p class="text-xs text-gray-600 mt-0.5">🏪 UrbanBox - Papelería de Doña Soco</p>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-gray-500 block">Equipo:</span>
+                    <span id="summary-integrantes" class="text-sm font-bold text-gray-800 block">[Integrantes]</span>
+                </div>
+            </div>
+
+            <!-- Notice para el alumno -->
+            <div class="no-print bg-amber-50 border border-amber-300 p-3 rounded-xl text-xs text-amber-900 mb-4 flex items-center gap-2">
+                <span class="text-base">📸</span>
+                <span><strong>Instrucción de entrega:</strong> Toma una captura de pantalla de esta pantalla de cierre y una persona por equipo debe entregarla en Canvas.</span>
+            </div>
+
+            <!-- Grid Compacto de Resultados (Diseñado para mínimo scroll) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                
+                <!-- Bloque 1: Primera Decisión -->
+                <div class="bg-crema p-3 rounded-xl border border-gray-200 space-y-2">
+                    <h3 class="font-bold text-naranja text-xs border-b border-orange-200 pb-1 flex items-center gap-1">
+                        🧐 1. Primera Decisión (Sin Investigación)
+                    </h3>
+                    <div>
+                        <strong class="text-gray-800 block">Estrategia elegida:</strong>
+                        <span id="sum-p1-opcion" class="text-gray-700 font-medium"></span>
+                    </div>
+                    <div>
+                        <strong class="text-gray-800 block">¿Por qué?:</strong>
+                        <p id="sum-p1-porque" class="text-gray-600 bg-white p-2 rounded border border-gray-100 mt-0.5"></p>
+                    </div>
+                    <div>
+                        <strong class="text-gray-800 block">Riesgos considerados:</strong>
+                        <p id="sum-p1-riesgos" class="text-gray-600 bg-white p-2 rounded border border-gray-100 mt-0.5"></p>
+                    </div>
+                    <div>
+                        <strong class="text-gray-800 block">Hipótesis inicial de causa:</strong>
+                        <p id="sum-p1-causa" class="text-gray-600 bg-white p-2 rounded border border-gray-100 mt-0.5"></p>
+                    </div>
+                </div>
+
+                <!-- Bloque 2: Segunda Decisión con Contexto -->
+                <div class="bg-crema p-3 rounded-xl border border-gray-200 space-y-2">
+                    <h3 class="font-bold text-naranja text-xs border-b border-orange-200 pb-1 flex items-center gap-1">
+                        🔄 2. Segunda Decisión (Con Información de Entorno)
+                    </h3>
+                    <div class="flex justify-between items-center bg-white p-1.5 rounded border border-gray-100">
+                        <strong class="text-gray-800">Postura:</strong>
+                        <span id="sum-p2-postura" class="font-semibold text-naranja"></span>
+                    </div>
+                    <div>
+                        <strong class="text-gray-800 block">Estrategia final a ejecutar:</strong>
+                        <p id="sum-p2-estrategia" class="text-gray-600 bg-white p-2 rounded border border-gray-100 mt-0.5 font-medium text-gray-800"></p>
+                    </div>
+                    <div>
+                        <strong class="text-gray-800 block">Nueva información influyente:</strong>
+                        <p id="sum-p2-info" class="text-gray-600 bg-white p-2 rounded border border-gray-100 mt-0.5"></p>
+                    </div>
+                    <div>
+                        <strong class="text-gray-800 block">Problema real diagnosticado:</strong>
+                        <p id="sum-p2-problema" class="text-gray-600 bg-white p-2 rounded border border-gray-100 mt-0.5"></p>
+                    </div>
+                    <div>
+                        <strong class="text-gray-800 block">Información adicional requerida:</strong>
+                        <p id="sum-p2-adicional" class="text-gray-600 bg-white p-2 rounded border border-gray-100 mt-0.5"></p>
+                    </div>
+                </div>
+
+                <!-- Bloque 3: Conclusiones y Reflexiones -->
+                <div class="md:col-span-2 bg-crema p-3 rounded-xl border border-gray-200 space-y-2">
+                    <h3 class="font-bold text-naranja text-xs border-b border-orange-200 pb-1 flex items-center gap-1">
+                        💭 3. Reflexiones del Equipo
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <div class="bg-white p-2.5 rounded border border-gray-100">
+                            <strong class="text-gray-800 block text-[11px] mb-1">Importancia del análisis de contexto:</strong>
+                            <p id="sum-ref-1" class="text-gray-600 text-[11px] leading-snug"></p>
+                        </div>
+                        <div class="bg-white p-2.5 rounded border border-gray-100">
+                            <strong class="text-gray-800 block text-[11px] mb-1">Atención continua al entorno:</strong>
+                            <p id="sum-ref-2" class="text-gray-600 text-[11px] leading-snug"></p>
+                        </div>
+                        <div class="bg-white p-2.5 rounded border border-gray-100">
+                            <strong class="text-gray-800 block text-[11px] mb-1">Obtención de información y modelos:</strong>
+                            <p id="sum-ref-3" class="text-gray-600 text-[11px] leading-snug"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque 4: Investigación y Fuentes -->
+                <div class="md:col-span-2 bg-crema p-3 rounded-xl border border-gray-200 space-y-2">
+                    <h3 class="font-bold text-naranja text-xs border-b border-orange-200 pb-1 flex items-center gap-1">
+                        📚 4. Investigación de Herramientas y Fuentes Consultadas
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div class="bg-white p-2.5 rounded border border-gray-100">
+                            <strong class="text-gray-800 block text-[11px] mb-1">FODA:</strong>
+                            <p id="sum-ref-foda" class="text-gray-600 text-[11px] leading-snug"></p>
+                        </div>
+                        <div class="bg-white p-2.5 rounded border border-gray-100">
+                            <strong class="text-gray-800 block text-[11px] mb-1">PESTEL:</strong>
+                            <p id="sum-ref-pestel" class="text-gray-600 text-[11px] leading-snug"></p>
+                        </div>
+                        <div class="bg-white p-2.5 rounded border border-gray-100">
+                            <strong class="text-gray-800 block text-[11px] mb-1">5 Fuerzas de Porter:</strong>
+                            <p id="sum-ref-porter" class="text-gray-600 text-[11px] leading-snug"></p>
+                        </div>
+                        <div class="bg-white p-2.5 rounded border border-gray-100">
+                            <strong class="text-gray-800 block text-[11px] mb-1">Fuentes consultadas:</strong>
+                            <p id="sum-ref-fuentes" class="text-gray-600 text-[11px] leading-snug font-mono"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acciones de edición -->
+            <div class="no-print mt-4 flex justify-between items-center pt-2">
+                <button onclick="nextStep(4)" class="text-xs text-gray-500 hover:text-gray-800 font-medium">✏️ Modificar mis respuestas</button>
+                <button onclick="window.print()" class="bg-gray-800 hover:bg-black text-white text-xs px-4 py-2 rounded-lg transition">🖨️ Imprimir / Guardar PDF</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer / Créditos Obligatorios -->
+    <footer class="max-w-6xl w-full mx-auto text-center mt-6 pt-4 border-t border-gray-200 text-xs text-gray-500">
+        <p class="font-medium text-gray-700">Profesora Fabiola Chávez Romero 2026</p>
+        <p class="text-[10px] text-gray-400 mt-0.5">Actividad académica interactiva - Entorno empresarial y toma de decisiones</p>
+    </footer>
+
+    <!-- Lógica JavaScript de la Actividad -->
+    <script>
+        // Estado del juego
+        const state = {
+            integrantes: '',
+            primeraOpcion: '',
+            p1Porque: '',
+            p1Riesgos: '',
+            p1Causa: '',
+            p2MantienenCambian: '',
+            p2EstrategiaFinal: '',
+            p2InfoNueva: '',
+            p2ProblemaReal: '',
+            p2InfoAdicional: '',
+            ref1: '',
+            ref2: '',
+            ref3: '',
+            refFoda: '',
+            refPestel: '',
+            refPorter: '',
+            refFuentes: ''
+        };
+
+        // Navegación entre pasos
+        function nextStep(stepIndex) {
+            document.querySelectorAll('.step-card').forEach(card => card.classList.add('hidden'));
+            const target = document.getElementById(`step-${stepIndex}`);
+            if (target) {
+                target.classList.remove('hidden');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Validación Step 0
+        function validateStep0() {
+            const input = document.getElementById('input-integrantes').value.trim();
+            if (!input) {
+                document.getElementById('error-step-0').classList.remove('hidden');
+                return false;
+            }
+            document.getElementById('error-step-0').classList.add('hidden');
+            state.integrantes = input;
+            document.getElementById('display-integrantes-1').innerText = state.integrantes;
+            return true;
+        }
+
+        // Validación Step 1
+        function validateStep1() {
+            const radio = document.querySelector('input[name="primera_opcion"]:checked');
+            const porque = document.getElementById('p1-porque').value.trim();
+            const riesgos = document.getElementById('p1-riesgos').value.trim();
+            const causa = document.getElementById('p1-causa').value.trim();
+
+            if (!radio || !porque || !riesgos || !causa) {
+                document.getElementById('error-step-1').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('error-step-1').classList.add('hidden');
+            state.primeraOpcion = radio.value;
+            state.p1Porque = porque;
+            state.p1Riesgos = riesgos;
+            state.p1Causa = causa;
+
+            nextStep(2);
+        }
+
+        // Validación Step 3
+        function validateStep3() {
+            const postura = document.getElementById('p2-mantienen-cambian').value;
+            const estratFinal = document.getElementById('p2-estrategia-final').value.trim();
+            const infoNueva = document.getElementById('p2-info-nueva').value.trim();
+            const probReal = document.getElementById('p2-problema-real').value.trim();
+            const infoAdicional = document.getElementById('p2-info-adicional').value.trim();
+
+            if (!postura || !estratFinal || !infoNueva || !probReal || !infoAdicional) {
+                document.getElementById('error-step-3').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('error-step-3').classList.add('hidden');
+            state.p2MantienenCambian = postura;
+            state.p2EstrategiaFinal = estratFinal;
+            state.p2InfoNueva = infoNueva;
+            state.p2ProblemaReal = probReal;
+            state.p2InfoAdicional = infoAdicional;
+
+            nextStep(4);
+        }
+
+        // Generar Pantalla de Resumen Final (Step 5)
+        function generateFinalSummary() {
+            const r1 = document.getElementById('ref-1').value.trim();
+            const r2 = document.getElementById('ref-2').value.trim();
+            const r3 = document.getElementById('ref-3').value.trim();
+            const rFoda = document.getElementById('ref-foda').value.trim();
+            const rPestel = document.getElementById('ref-pestel').value.trim();
+            const rPorter = document.getElementById('ref-porter').value.trim();
+            const rFuentes = document.getElementById('ref-fuentes').value.trim();
+
+            if (!r1 || !r2 || !r3 || !rFoda || !rPestel || !rPorter || !rFuentes) {
+                document.getElementById('error-step-4').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('error-step-4').classList.add('hidden');
+            state.ref1 = r1;
+            state.ref2 = r2;
+            state.ref3 = r3;
+            state.refFoda = rFoda;
+            state.refPestel = rPestel;
+            state.refPorter = rPorter;
+            state.refFuentes = rFuentes;
+
+            // Inyectar datos en el resumen final
+            document.getElementById('summary-integrantes').innerText = state.integrantes;
+            document.getElementById('sum-p1-opcion').innerText = state.primeraOpcion;
+            document.getElementById('sum-p1-porque').innerText = state.p1Porque;
+            document.getElementById('sum-p1-riesgos').innerText = state.p1Riesgos;
+            document.getElementById('sum-p1-causa').innerText = state.p1Causa;
+
+            document.getElementById('sum-p2-postura').innerText = state.p2MantienenCambian;
+            document.getElementById('sum-p2-estrategia').innerText = state.p2EstrategiaFinal;
+            document.getElementById('sum-p2-info').innerText = state.p2InfoNueva;
+            document.getElementById('sum-p2-problema').innerText = state.p2ProblemaReal;
+            document.getElementById('sum-p2-adicional').innerText = state.p2InfoAdicional;
+
+            document.getElementById('sum-ref-1').innerText = state.ref1;
+            document.getElementById('sum-ref-2').innerText = state.ref2;
+            document.getElementById('sum-ref-3').innerText = state.ref3;
+
+            document.getElementById('sum-ref-foda').innerText = state.refFoda;
+            document.getElementById('sum-ref-pestel').innerText = state.refPestel;
+            document.getElementById('sum-ref-porter').innerText = state.refPorter;
+            document.getElementById('sum-ref-fuentes').innerText = state.refFuentes;
+
+            nextStep(5);
+        }
+
+        // Sobrescribir botón inicial con validación
+        const origNextStep = nextStep;
+        window.nextStep = function(stepIndex) {
+            if (stepIndex === 1 && !validateStep0()) {
+                return;
+            }
+            origNextStep(stepIndex);
+        };
+    </script>
+</body>
+</html>
