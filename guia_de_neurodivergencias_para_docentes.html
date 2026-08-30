@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Neurodivergencias en el Aula: Dislexia, Discalculia y Disgrafia</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        dyslexia: {
+                            light: '#eef2ff',
+                            border: '#818cf8',
+                            badge: '#4f46e5',
+                            bg: '#312e81'
+                        },
+                        dyscalculia: {
+                            light: '#fdf4ff',
+                            border: '#c084fc',
+                            badge: '#9333ea',
+                            bg: '#581c87'
+                        },
+                        dysgraphia: {
+                            light: '#f0fdf4',
+                            border: '#4ade80',
+                            badge: '#16a34a',
+                            bg: '#14532d'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .gradient-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+        .card-shadow-hover:hover {
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+        .transition-all-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; }
+            .print-full-width { width: 100% !important; max-width: 100% !important; }
+            .print-break-inside-avoid { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="gradient-header text-white sticky top-0 z-50 border-b border-slate-800 shadow-lg no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="p-2.5 bg-blue-600/30 rounded-xl border border-blue-400/30 backdrop-blur-md">
+                        <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+                            Guía de Neurodivergencias en el Aula: Dislexia, Discalculia y Disgrafia
+                            <span class="text-xs bg-blue-500/20 text-blue-300 font-medium px-2.5 py-0.5 rounded-full border border-blue-400/30">Manual Docente DUA</span>
+                        </h1>
+                        <p class="text-xs sm:text-sm text-slate-400">Fabiola Chávez Romero. Hecha con apoyo de Gemini</p>
+                    </div>
+                </div>
+                <nav class="flex flex-wrap items-center gap-2">
+                    <a href="#infografia" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">Infografía</a>
+                    <a href="#rigor" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">Rigor Académico</a>
+                    <a href="#manual" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors">Manual de Estrategias</a>
+                    <a href="#herramientas" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-colors">Herramientas</a>
+                    <button onclick="window.print()" class="px-3 py-1.5 rounded-lg text-xs sm:text-sm font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        Imprimir
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden">
+            <!-- Background Decorative Grid SVG -->
+            <svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <defs>
+                    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+            </svg>
+
+            <div class="relative z-10 grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Divulgación Especializada para Profesores
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                        Neurodiversidad en el Aula Secundaria y Superior
+                    </h2>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                        Las dificultades específicas del aprendizaje (<strong class="text-indigo-200">Dislexia, Discalculia y Disgrafia</strong>) no son limitaciones del intelecto ni falta de esfuerzo. Son diferencias en el procesamiento neurocognitivo de la información. La labor docente no consiste en reducir las exigencias del conocimiento, sino en eliminar las <strong>barreras de acceso</strong> a través de ajustes razonables.
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-4 text-xs sm:text-sm font-medium text-slate-300">
+                        <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-xl border border-slate-700">
+                            <span class="w-3 h-3 rounded-full bg-indigo-400"></span>
+                            <span><strong>Dislexia:</strong> Procesamiento Léxico</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-xl border border-slate-700">
+                            <span class="w-3 h-3 rounded-full bg-purple-400"></span>
+                            <span><strong>Discalculia:</strong> Cognición Numérica</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-xl border border-slate-700">
+                            <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                            <span><strong>Disgrafia:</strong> Grafomotricidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero SVG Graphic -->
+                <div class="flex justify-center">
+                    <div class="w-64 h-64 relative bg-indigo-900/40 rounded-2xl border border-indigo-500/30 p-4 flex items-center justify-center shadow-inner">
+                        <svg class="w-full h-full text-indigo-400" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Outer Brain Outline -->
+                            <path d="M100 25C60 25 35 55 35 95C35 125 50 145 70 160C80 167.5 90 175 100 175C110 175 120 167.5 130 160C150 145 165 125 165 95C165 55 140 25 100 25Z" stroke="currentColor" stroke-width="3" stroke-dasharray="4 2" opacity="0.4"/>
+                            <!-- Neural Hubs & Connections -->
+                            <circle cx="70" cy="70" r="10" fill="#818cf8" />
+                            <circle cx="130" cy="70" r="10" fill="#c084fc" />
+                            <circle cx="100" cy="130" r="10" fill="#4ade80" />
+                            <!-- Connections -->
+                            <path d="M70 70 L130 70 L100 130 Z" stroke="#38bdf8" stroke-width="2" />
+                            <path d="M70 70 Q 100 40 130 70" stroke="#a78bfa" stroke-width="2" stroke-dasharray="3 3"/>
+                            <!-- Neural Icons inside -->
+                            <!-- Text A -->
+                            <text x="70" y="74" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="bold">Aa</text>
+                            <!-- Number 123 -->
+                            <text x="130" y="74" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="bold">123</text>
+                            <!-- Pen icon -->
+                            <path d="M96 126 L104 134 M100 124 L100 136" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                            <!-- Center Sparkle -->
+                            <polygon points="100,85 103,94 112,97 103,100 100,109 97,100 88,97 97,94" fill="#fbbf24"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infografía Section -->
+        <section id="infografia" class="space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">Sección 01</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Que es dislexia, discalculia y disgrafia</h3>
+                <p class="text-slate-600 text-sm sm:text-base">Comprensión clínica y pedagógica breve para una detección e intervención informada.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- CARD 1: DISLEXIA -->
+                <div class="bg-white rounded-2xl border-t-4 border-t-indigo-600 border border-slate-200 card-shadow card-shadow-hover p-6 flex flex-col justify-between transition-all-custom">
+                    <div>
+                        <!-- Header & SVG Icon -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 font-semibold text-xs rounded-full">Procesamiento Léxico</span>
+                            <div class="p-3 bg-indigo-50 rounded-xl">
+                                <svg class="w-8 h-8 text-indigo-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Book & Scrambled Letters SVG -->
+                                    <path d="M12 16C12 13.7909 13.7909 12 16 12H30C31.1046 12 32 12.8954 32 14V50C32 48.8954 31.1046 48 30 48H16C13.7909 48 12 49.7909 12 52V16Z" fill="#E0E7FF" stroke="#4F46E5" stroke-width="3"/>
+                                    <path d="M52 16C52 13.7909 50.2091 12 48 12H34C32.8954 12 32 12.8954 32 14V50C32 48.8954 32.8954 48 34 48H48C50.2091 48 52 49.7909 52 52V16Z" fill="#EEF2FF" stroke="#4F46E5" stroke-width="3"/>
+                                    <path d="M18 22H26 M18 28H24 M18 34H26" stroke="#4F46E5" stroke-width="2.5" stroke-linecap="round"/>
+                                    <!-- Dynamic Floating Letters -->
+                                    <text x="38" y="25" fill="#4F46E5" font-size="10" font-weight="bold">b</text>
+                                    <path d="M42 22 L48 28" stroke="#818CF8" stroke-width="1.5" stroke-dasharray="2 2"/>
+                                    <text x="46" y="35" fill="#4F46E5" font-size="10" font-weight="bold">d</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Dislexia</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            Dificultad neurobiológica en el <strong>procesamiento fonológico</strong>. Afecta la precisión, fluidez y velocidad en la decodificación lectora y la ortografía, sin comprometer el intelecto.
+                        </p>
+
+                        <div class="space-y-3 border-t border-slate-100 pt-3">
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5 text-indigo-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                    Manifestaciones Frecuentes:
+                                </h5>
+                                <ul class="text-xs text-slate-600 list-disc list-inside mt-1 space-y-1">
+                                    <li>Lectura pausada, silábica o con omisiones.</li>
+                                    <li>Cansancio mental rápido al leer textos largos.</li>
+                                    <li>Confusión episódica de letras espejo (b/d, p/q).</li>
+                                    <li>Excelente comprensión en formato oral o auditivo.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-indigo-50/70 p-3 rounded-xl border border-indigo-100 text-xs">
+                                <span class="font-bold text-indigo-900 block mb-0.5">Mito vs. Realidad</span>
+                                <p class="text-indigo-800"><strong>Mito:</strong> "Ven las letras al revés". <br><strong>Realidad:</strong> El cerebro procesa el fonema (sonido) y la grafía (letra) con mayor lentitud.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: DISCALCULIA -->
+                <div class="bg-white rounded-2xl border-t-4 border-t-purple-600 border border-slate-200 card-shadow card-shadow-hover p-6 flex flex-col justify-between transition-all-custom">
+                    <div>
+                        <!-- Header & SVG Icon -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 font-semibold text-xs rounded-full">Cognición Numérica</span>
+                            <div class="p-3 bg-purple-50 rounded-xl">
+                                <svg class="w-8 h-8 text-purple-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Abacus / Math Grid SVG -->
+                                    <rect x="12" y="12" width="40" height="40" rx="6" fill="#F3E8FF" stroke="#9333EA" stroke-width="3"/>
+                                    <line x1="22" y1="12" x2="22" y2="52" stroke="#C084FC" stroke-width="2"/>
+                                    <line x1="42" y1="12" x2="42" y2="52" stroke="#C084FC" stroke-width="2"/>
+                                    <!-- Beads -->
+                                    <circle cx="22" cy="24" r="4" fill="#9333EA"/>
+                                    <circle cx="22" cy="40" r="4" fill="#9333EA"/>
+                                    <circle cx="42" cy="30" r="4" fill="#9333EA"/>
+                                    <!-- Math Symbols -->
+                                    <path d="M30 22 H34 M32 20 V24 M30 40 H34" stroke="#7E22CE" stroke-width="2.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Discalculia</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            Alteración específica en la adquisición de las habilidades matemáticas y el <strong>sentido numérico intuitivo</strong>, afectando la estimación y el cálculo.
+                        </p>
+
+                        <div class="space-y-3 border-t border-slate-100 pt-3">
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5 text-purple-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                    Manifestaciones Frecuentes:
+                                </h5>
+                                <ul class="text-xs text-slate-600 list-disc list-inside mt-1 space-y-1">
+                                    <li>Dificultad para estimar cantidades o juzgar magnitudes.</li>
+                                    <li>Uso continuado del conteo digital en etapas avanzadas.</li>
+                                    <li>Problemas en secuenciación lógica y aprendizaje de tablas.</li>
+                                    <li>Desorientación espacio-temporal o al interpretar gráficos.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-purple-50/70 p-3 rounded-xl border border-purple-100 text-xs">
+                                <span class="font-bold text-purple-900 block mb-0.5">Mito vs. Realidad</span>
+                                <p class="text-purple-800"><strong>Mito:</strong> "No se esfuerza en matemáticas". <br><strong>Realidad:</strong> El cerebro carece de la representación visoespacial automática del número.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: DISGRAFIA -->
+                <div class="bg-white rounded-2xl border-t-4 border-t-emerald-600 border border-slate-200 card-shadow card-shadow-hover p-6 flex flex-col justify-between transition-all-custom">
+                    <div>
+                        <!-- Header & SVG Icon -->
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 font-semibold text-xs rounded-full">Grafomotricidad</span>
+                            <div class="p-3 bg-emerald-50 rounded-xl">
+                                <svg class="w-8 h-8 text-emerald-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Pencil & Handwriting Line SVG -->
+                                    <path d="M16 48 L44 20 L50 26 L22 54 Z" fill="#DCFCE7" stroke="#16A34A" stroke-width="3"/>
+                                    <path d="M16 48 L12 56 L22 54 Z" fill="#16A34A"/>
+                                    <!-- Line stroke -->
+                                    <path d="M12 56 C 24 50, 32 60, 52 52" stroke="#4ADE80" stroke-width="3" stroke-linecap="round"/>
+                                    <circle cx="50" cy="26" r="3" fill="#16A34A"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h4 class="text-2xl font-bold text-slate-900 mb-2">Disgrafia</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm mb-4 leading-relaxed">
+                            Dificultad en la <strong>coordinación visomotora</strong> y la mecánica del trazado de la escritura, o en la estructuración de la expresión escrita manuscrita.
+                        </p>
+
+                        <div class="space-y-3 border-t border-slate-100 pt-3">
+                            <div>
+                                <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                                    Manifestaciones Frecuentes:
+                                </h5>
+                                <ul class="text-xs text-slate-600 list-disc list-inside mt-1 space-y-1">
+                                    <li>Trazo irregular, presión excesiva o calambres en la mano.</li>
+                                    <li>Incapacidad para mantener la alineación o márgenes.</li>
+                                    <li>Ritmo extremadamente lento en toma de apuntes.</li>
+                                    <li>Gran disparidad entre la expresión oral y la manuscrita.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-emerald-50/70 p-3 rounded-xl border border-emerald-100 text-xs">
+                                <span class="font-bold text-emerald-900 block mb-0.5">Mito vs. Realidad</span>
+                                <p class="text-emerald-800"><strong>Mito:</strong> "Escribe mal por desorden o flojera". <br><strong>Realidad:</strong> Existe una desconexión en el circuito motor automático de la grafía.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Core Educational Principle: Rigor vs Adaptación -->
+        <section id="rigor" class="bg-white rounded-3xl border border-slate-200 card-shadow p-6 sm:p-8">
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="text-center space-y-2">
+                    <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold uppercase tracking-wide">Principio Clave Docente</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">El Rigor Académico y los Ajustes Razonables</h3>
+                    <p class="text-slate-600 text-sm sm:text-base">
+                        Apoyar a un estudiante con neurodivergencia <strong>NO significa rebajar el estándar del aprendizaje ni regalar calificaciones</strong>. Consiste en separar la evaluación del <em>mecanismo de acceso</em> de la evaluación del <em>conocimiento conceptual</em>.
+                    </p>
+                </div>
+
+                <!-- Comparison Table / Cards -->
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <!-- Modificar el Acceso (SÍ) -->
+                    <div class="bg-emerald-50/60 border border-emerald-200 rounded-2xl p-5 space-y-3">
+                        <div class="flex items-center gap-2 text-emerald-800 font-bold text-base">
+                            <div class="p-1.5 bg-emerald-600 text-white rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span>Lo que SÍ hacemos (Ajuste de Acceso)</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-emerald-900 space-y-2 list-disc list-inside">
+                            <li>Permitir software de dictado por voz o procesador de textos para evaluar ideas complejas (Disgrafia).</li>
+                            <li>Brindar tiempo adicional para procesar la lectura de un examen largo (Dislexia).</li>
+                            <li>Permitir el uso de calculadora gráfica para concentrarse en el razonamiento del problema físico/matemático (Discalculia).</li>
+                            <li>Ofrecer exámenes con tipografía clara y espacio ampliado.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Reducir el Estándar (NO) -->
+                    <div class="bg-rose-50/60 border border-rose-200 rounded-2xl p-5 space-y-3">
+                        <div class="flex items-center gap-2 text-rose-800 font-bold text-base">
+                            <div class="p-1.5 bg-rose-600 text-white rounded-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            </div>
+                            <span>Lo que NO hacemos (Bajar la Exigencia)</span>
+                        </div>
+                        <ul class="text-xs sm:text-sm text-rose-900 space-y-2 list-disc list-inside">
+                            <li>Eximir al alumno de demostrar la comprensión de los objetivos conceptuales de la asignatura.</li>
+                            <li>Aprobar trabajos sin argumentos sólidos o sin rigor lógico.</li>
+                            <li>Reducir el nivel de abstracción de las preguntas de análisis crítico.</li>
+                            <li>Ignorar los criterios de evaluación conceptual de la rúbrica oficial.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="p-4 bg-slate-900 text-slate-200 rounded-xl text-center text-xs sm:text-sm italic border-l-4 border-l-blue-500">
+                    "Un puente de accesibilidad permite que el alumno llegue a la cima de la montaña académica utilizando sus fortalezas cognitivas, en lugar de ser descalificado por la condición del camino."
+                </div>
+            </div>
+        </section>
+
+        <!-- Manual de Estrategias Docentes -->
+        <section id="manual" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-200 pb-4 gap-4">
+                <div>
+                    <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">Sección 02</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Manual de Estrategias Docentes para la Clase</h3>
+                    <p class="text-slate-600 text-sm">Medidas concretas de aplicación inmediata en el aula de clases.</p>
+                </div>
+
+                <!-- Interactive Filters -->
+                <div class="flex flex-wrap gap-2 no-print" id="filter-buttons">
+                    <button onclick="filterStrategies('all')" class="filter-btn active px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-indigo-600 text-white shadow-sm" data-target="all">
+                        Todas
+                    </button>
+                    <button onclick="filterStrategies('dislexia')" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-indigo-50" data-target="dislexia">
+                        Dislexia
+                    </button>
+                    <button onclick="filterStrategies('discalculia')" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-purple-50" data-target="discalculia">
+                        Discalculia
+                    </button>
+                    <button onclick="filterStrategies('disgrafia')" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-emerald-50" data-target="disgrafia">
+                        Disgrafia
+                    </button>
+                    <button onclick="filterStrategies('evaluacion')" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-white border border-slate-300 text-slate-700 hover:bg-amber-50" data-target="evaluacion">
+                        Evaluaciones
+                    </button>
+                </div>
+            </div>
+
+            <!-- Strategy Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="strategy-cards">
+
+                <!-- Strategy 1: Dislexia - Lectura y Exámenes -->
+                <div class="strategy-card strategy-dislexia strategy-evaluacion bg-white rounded-2xl border border-slate-200 p-5 card-shadow space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800">Dislexia</span>
+                        <span class="text-xs text-slate-400 font-medium">Formato & Lectura</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Ajustes de Lectura y Fuentes Tipográficas</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Los bloques monolíticos de texto con letras con serifas o fuentes muy comprimidas aumentan la carga de fatiga visual y desaceleran la comprensión.
+                    </p>
+                    <div class="bg-indigo-50/50 p-3 rounded-xl border border-indigo-100 space-y-1.5 text-xs text-slate-700">
+                        <div class="font-bold text-indigo-900">Tips de Aplicación:</div>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Usar tipografías Palo Seco (Sans-serif) como <strong>Arial, Calibri o Inter</strong> a mínimo 12pt.</li>
+                            <li>Aumentar el interlineado a 1.5 y separar párrafos con espacios claros.</li>
+                            <li>Imprimir exámenes o textos en papel mate de tono crema o beige (evitar el blanco brillante cegador).</li>
+                            <li>Permitir guías físicas de lectura (reglas de lectura) o lectores de pantalla (Text-to-Speech).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Strategy 2: Dislexia - Evaluaciones Orales -->
+                <div class="strategy-card strategy-dislexia strategy-evaluacion bg-white rounded-2xl border border-slate-200 p-5 card-shadow space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800">Dislexia</span>
+                        <span class="text-xs text-slate-400 font-medium">Evaluación</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Modalidades Flexibles de Respuesta</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Evaluaciones únicamente escritas miden la capacidad de codificación ortográfica del alumno, no su dominio del contenido conceptual.
+                    </p>
+                    <div class="bg-indigo-50/50 p-3 rounded-xl border border-indigo-100 space-y-1.5 text-xs text-slate-700">
+                        <div class="font-bold text-indigo-900">Tips de Aplicación:</div>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Permitir defensas orales complementarias para aclarar respuestas ambiguas por escrito.</li>
+                            <li>Ofrecer exámenes estructurados (opción múltiple, emparejamiento, diagramas a completar).</li>
+                            <li>Asignar +25% a +50% de tiempo adicional en exámenes de lectura densa.</li>
+                            <li>No penalizar faltas de ortografía en asignaturas que no sean de Lengua/Gramática.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Strategy 3: Discalculia - Representación Visuoespacial -->
+                <div class="strategy-card strategy-discalculia bg-white rounded-2xl border border-slate-200 p-5 card-shadow space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800">Discalculia</span>
+                        <span class="text-xs text-slate-400 font-medium">Enseñanza Concreta</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Líneas Numéricas y Apoyos Concretos</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Los alumnos con discalculia sufren al intentar retener algoritmos abstractos en la memoria de trabajo sin una referencia visual directa.
+                    </p>
+                    <div class="bg-purple-50/50 p-3 rounded-xl border border-purple-100 space-y-1.5 text-xs text-slate-700">
+                        <div class="font-bold text-purple-900">Tips de Aplicación:</div>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Proporcionar <strong>líneas de números graduadas</strong> e impresas en el escritorio.</li>
+                            <li>Usar código de colores para distinguir operacionalmente unidades, decenas y centenas.</li>
+                            <li>Permitir tablas de apoyo con fórmulas matemáticas y constantes básicas expuestas.</li>
+                            <li>Visualizar problemas mediante esquemas de bloques o metáforas concretas.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Strategy 4: Discalculia - Calculadora & Razonamiento -->
+                <div class="strategy-card strategy-discalculia strategy-evaluacion bg-white rounded-2xl border border-slate-200 p-5 card-shadow space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-800">Discalculia</span>
+                        <span class="text-xs text-slate-400 font-medium">Evaluación y Cálculo</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Uso Estratégico de Calculadora</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Superar el estigma de la calculadora permite evaluar si el estudiante domina la lógica de resolución del problema o solo falla en el cálculo aritmético básico.
+                    </p>
+                    <div class="bg-purple-50/50 p-3 rounded-xl border border-purple-100 space-y-1.5 text-xs text-slate-700">
+                        <div class="font-bold text-purple-900">Tips de Aplicación:</div>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Permitir uso de calculadora en pruebas de física, química y matemáticas aplicadas.</li>
+                            <li>Desglosar la calificación: otorgar 70% del puntaje al planteamiento y 30% al resultado final.</li>
+                            <li>Fragmentar ejercicios de múltiples pasos en consignas individuales encadenadas.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Strategy 5: Disgrafia - Tecnología Asistiva -->
+                <div class="strategy-card strategy-disgrafia bg-white rounded-2xl border border-slate-200 p-5 card-shadow space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Disgrafia</span>
+                        <span class="text-xs text-slate-400 font-medium">Tecnología en Aula</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Procesador de Texto y Dictado</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        El acto motor de escribir consume el 90% de los recursos atencionales del estudiante con disgrafia, impidiéndole desarrollar ideas complejas.
+                    </p>
+                    <div class="bg-emerald-50/50 p-3 rounded-xl border border-emerald-100 space-y-1.5 text-xs text-slate-700">
+                        <div class="font-bold text-emerald-900">Tips de Aplicación:</div>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Autorizar la toma de notas con laptop/tablet o grabaciones de voz de la clase.</li>
+                            <li>Facilitar el material diapositivo o resúmenes antes de la sesión para evitar el copiado del pizarrón.</li>
+                            <li>Permitir herramientas de Dictado por Voz (Voice-to-Text) para ensayos y trabajos de investigación.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Strategy 6: Disgrafia - Formatos de Respuesta -->
+                <div class="strategy-card strategy-disgrafia strategy-evaluacion bg-white rounded-2xl border border-slate-200 p-5 card-shadow space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">Disgrafia</span>
+                        <span class="text-xs text-slate-400 font-medium">Evaluación Escrita</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Pautas de Papel y Evaluación Alternativa</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Los cuadernos o exámenes con reglados ajustados generan sobreesfuerzo y frustración en estudiantes con retos de motricidad fina.
+                    </p>
+                    <div class="bg-emerald-50/50 p-3 rounded-xl border border-emerald-100 space-y-1.5 text-xs text-slate-700">
+                        <div class="font-bold text-emerald-900">Tips de Aplicación:</div>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Proporcionar papel con cuadrícula grande o pauta especial (Pauta Seyes / Montessori).</li>
+                            <li>En exámenes, proporcionar espacio del doble de tamaño para respuestas escritas a mano.</li>
+                            <li>Aceptar mapas mentales, esquemas o presentaciones visuales como sustituto a redacciones extensas.</li>
+                            <li>No penalizar el tamaño irregular de letra o tachaduras en trabajos manuscritos.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Interactive Tools Section -->
+        <section id="herramientas" class="grid lg:grid-cols-2 gap-8 no-print">
+
+            <!-- Tool 1: Checklist de Diseño Universal para el Aprendizaje (DUA) -->
+            <div class="bg-white rounded-3xl border border-slate-200 card-shadow p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2.5 bg-blue-100 text-blue-700 rounded-xl">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-900">Lista de Cotejo de Accesibilidad en Clase</h4>
+                            <p class="text-xs text-slate-500">Evalúa la inclusión de tu planificación docente</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 text-xs sm:text-sm" id="checklist-container">
+                        <label class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer border border-transparent hover:border-slate-200 transition-colors">
+                            <input type="checkbox" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4 check-item" onchange="updateProgress()">
+                            <span class="text-slate-700">Presento la información en múltiples formatos (Texto + Audio/Visual).</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer border border-transparent hover:border-slate-200 transition-colors">
+                            <input type="checkbox" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4 check-item" onchange="updateProgress()">
+                            <span class="text-slate-700">Mis exámenes impresos utilizan fuentes Sans-serif y espacio 1.5.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer border border-transparent hover:border-slate-200 transition-colors">
+                            <input type="checkbox" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4 check-item" onchange="updateProgress()">
+                            <span class="text-slate-700">Separo las evaluaciones en razonamiento teórico y precisión algorítmica.</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer border border-transparent hover:border-slate-200 transition-colors">
+                            <input type="checkbox" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4 check-item" onchange="updateProgress()">
+                            <span class="text-slate-700">Permito herramientas tecnológicas asistivas (Dictado, Calculadora, Laptops).</span>
+                        </label>
+                        <label class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer border border-transparent hover:border-slate-200 transition-colors">
+                            <input type="checkbox" class="mt-0.5 rounded text-blue-600 focus:ring-blue-500 w-4 h-4 check-item" onchange="updateProgress()">
+                            <span class="text-slate-700">Tengo establecidos tiempos adicionales (+25-50%) acordados con orientación.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="mt-6 pt-4 border-t border-slate-100">
+                    <div class="flex justify-between items-center text-xs font-semibold text-slate-700 mb-1">
+                        <span>Nivel de Accesibilidad de la Clase</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                        <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool 2: Generador de Ficha de Acomodaciones Razonables -->
+            <div class="bg-white rounded-3xl border border-slate-200 card-shadow p-6 flex flex-col justify-between">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2.5 bg-indigo-100 text-indigo-700 rounded-xl">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-900">Generador de Ficha Individual de Adaptación</h4>
+                            <p class="text-xs text-slate-500">Crea un registro rápido de medidas para un estudiante</p>
+                        </div>
+                    </div>
+
+                    <form id="accommodation-form" class="space-y-3 text-xs sm:text-sm" onsubmit="generatePlan(event)">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Iniciales o ID del Estudiante:</label>
+                            <input type="text" id="student-id" placeholder="Ej: A.M.G." required class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Neurodivergencia Diagnosticada / Identificada:</label>
+                            <select id="student-condition" class="w-full px-3 py-2 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white">
+                                <option value="Dislexia">Dislexia</option>
+                                <option value="Discalculia">Discalculia</option>
+                                <option value="Disgrafia">Disgrafia</option>
+                                <option value="Perfil Mixto">Perfil Mixto</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Ajustes Principales a Aplicar:</label>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <label class="flex items-center gap-1.5"><input type="checkbox" value="Tiempo Adicional (+25%)" class="plan-opt"> Tiempo adicional</label>
+                                <label class="flex items-center gap-1.5"><input type="checkbox" value="Uso de Calculadora" class="plan-opt"> Calculadora</label>
+                                <label class="flex items-center gap-1.5"><input type="checkbox" value="Examen con letra Sans-serif 14pt" class="plan-opt"> Tipografía 14pt</label>
+                                <label class="flex items-center gap-1.5"><input type="checkbox" value="Lector de Pantalla / Examen Oral" class="plan-opt"> Examen oral/Lector</label>
+                                <label class="flex items-center gap-1.5"><input type="checkbox" value="Procesador de Texto / Dictado" class="plan-opt"> Dictado / PC</label>
+                                <label class="flex items-center gap-1.5"><input type="checkbox" value="No penalizar ortografía/grafía" class="plan-opt"> No penalizar trazo</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition-colors shadow-sm">
+                            Generar Ficha Resumen
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Output Preview Box for Plan (Hidden by default, shown after form submit) -->
+        <div id="plan-modal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl relative border border-slate-200">
+                <div class="flex justify-between items-center border-b pb-3">
+                    <h4 class="text-lg font-bold text-slate-900">Ficha Pedagógica de Acomodación</h4>
+                    <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 font-bold text-xl">&times;</button>
+                </div>
+                <div id="plan-content" class="space-y-3 text-xs sm:text-sm text-slate-700">
+                    <!-- Dynamic content inserted by JS -->
+                </div>
+                <div class="flex justify-end gap-3 pt-3 border-t">
+                    <button onclick="closeModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-medium text-xs">Cerrar</button>
+                    <button onclick="window.print()" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-medium text-xs flex items-center gap-1.5">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        Imprimir Ficha
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="font-bold text-slate-200">Manual Docente de Neurodivergencias</span>
+                <span>— Diseñado para la Educación Inclusiva con Rigor Académico</span>
+            </div>
+            <div class="text-slate-500">
+                Basado en los principios del Diseño Universal para el Aprendizaje (DUA).
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive Filter Strategy Cards
+        function filterStrategies(category) {
+            const cards = document.querySelectorAll('.strategy-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Toggle button states
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-target') === category) {
+                    btn.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+                    btn.classList.remove('bg-white', 'text-slate-700');
+                } else {
+                    btn.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+                    btn.classList.add('bg-white', 'text-slate-700');
+                }
+            });
+
+            // Filter logic
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    if (card.classList.contains('strategy-' + category)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        // Interactive Checklist Progress
+        function updateProgress() {
+            const total = document.querySelectorAll('.check-item').length;
+            const checked = document.querySelectorAll('.check-item:checked').length;
+            const percentage = Math.round((checked / total) * 100);
+
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercent = document.getElementById('progress-percent');
+
+            progressBar.style.width = percentage + '%';
+            progressPercent.textContent = percentage + '%';
+
+            if (percentage === 100) {
+                progressBar.classList.remove('bg-blue-600');
+                progressBar.classList.add('bg-emerald-500');
+            } else {
+                progressBar.classList.remove('bg-emerald-500');
+                progressBar.classList.add('bg-blue-600');
+            }
+        }
+
+        // Form Generator Plan
+        function generatePlan(e) {
+            e.preventDefault();
+            const studentId = document.getElementById('student-id').value;
+            const condition = document.getElementById('student-condition').value;
+            const checkedOptions = Array.from(document.querySelectorAll('.plan-opt:checked')).map(cb => cb.value);
+
+            let optionsListHtml = checkedOptions.length > 0 
+                ? checkedOptions.map(opt => `<li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> ${opt}</li>`).join('')
+                : '<li class="text-slate-400 italic">No se seleccionaron ajustes específicos.</li>';
+
+            const modalContent = `
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                    <p><strong>Estudiante (ID):</strong> <span class="text-indigo-600">${studentId}</span></p>
+                    <p><strong>Diagnóstico / Perfil:</strong> <span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded font-semibold text-xs">${condition}</span></p>
+                    <p><strong>Fecha de Emisión:</strong> ${new Date().toLocaleDateString('es-ES')}</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-800 mb-2">Acomodaciones de Acceso Acordadas:</h5>
+                    <ul class="space-y-1 text-xs sm:text-sm bg-white p-3 rounded-xl border border-slate-200">
+                        ${optionsListHtml}
+                    </ul>
+                </div>
+                <div class="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900">
+                    <strong>Nota para la Evaluación:</strong> Estas medidas son ajustes razonables de acceso y no disminuyen los objetivos ni la profundidad conceptual de la materia.
+                </div>
+            `;
+
+            document.getElementById('plan-content').innerHTML = modalContent;
+            document.getElementById('plan-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('plan-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
