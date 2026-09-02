@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas de Análisis Estratégico - Infografía Interactiva</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#0f172a'
+                        },
+                        goat: {
+                            gold: '#f59e0b',
+                            accent: '#8b5cf6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .tab-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tab-btn.active {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .vertical-text-left {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+        .vertical-text-right {
+            writing-mode: vertical-rl;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+
+    <!-- HEADER HERO SECTION -->
+    <header class="bg-gradient-to-r from-slate-900 via-brand-900 to-indigo-950 text-white relative overflow-hidden shadow-xl">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_50%)]"></div>
+        <div class="max-w-6xl mx-auto px-4 py-8 md:py-12 relative z-10">
+            <!-- Course Metadata Badges -->
+            <div class="flex flex-wrap items-center gap-2 mb-4">
+                <span class="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    Cómo ser el GOAT de los negocios - Habilidades de los grandes líderes
+                </span>
+                <span class="bg-brand-500/20 text-brand-300 text-xs font-medium px-3 py-1 rounded-full border border-brand-500/30">
+                    Profesora: Fabiola Chávez Romero
+                </span>
+            </div>
+
+            <!-- Title & Visual SVG -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div class="md:col-span-8">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
+                        Herramientas de Análisis Estratégico
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+                        Aprende a usar métodos para obtener información clave útil para diagnosticar el entorno empresarial y tomar decisiones estratégicas fundamentadas.
+                    </p>
+                </div>
+                <div class="md:col-span-4 flex justify-center md:justify-end">
+                    <!-- Hero SVG Banner Graphic -->
+                    <svg class="w-36 h-36 md:w-44 md:h-44 text-brand-500 drop-shadow-2xl" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="90" fill="#1E293B" stroke="#3B82F6" stroke-width="4" stroke-dasharray="8 8" />
+                        <circle cx="100" cy="100" r="65" fill="#1E3A8A" opacity="0.6" />
+                        <path d="M70 130L90 105L110 115L140 70" stroke="#60A5FA" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="140" cy="70" r="6" fill="#F59E0B" />
+                        <path d="M65 140H135" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+                        <rect x="75" y="110" width="12" height="30" rx="3" fill="#3B82F6" />
+                        <rect x="95" y="95" width="12" height="45" rx="3" fill="#60A5FA" />
+                        <rect x="115" y="80" width="12" height="60" rx="3" fill="#F59E0B" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-10">
+
+        <!-- INTRO SECTION: ¿Qué es una herramienta de análisis estratégico? -->
+        <section class="glass-card rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+            <div class="flex items-start gap-4 mb-4">
+                <div class="p-3 bg-brand-100 text-brand-600 rounded-xl shrink-0">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">¿Qué es una herramienta de análisis estratégico?</h2>
+                    <p class="text-slate-700 leading-relaxed text-base mb-3">
+                        Una herramienta de análisis estratégico es un método que ayuda a una organización y a sus líderes a recopilar, organizar e interpretar información relevante para comprender su situación actual y tomar mejores decisiones sobre su futuro. Estas herramientas permiten analizar diferentes aspectos de una organización, como sus recursos y capacidades, el comportamiento de sus clientes, la competencia, las tendencias del entorno o los posibles riesgos y oportunidades.
+                    </p>
+                    <p class="text-slate-700 font-medium leading-relaxed bg-brand-50/80 p-4 rounded-xl border-l-4 border-brand-500 text-brand-900">
+                        Son metodologías que ayudan al líder a entender mejor dónde está la organización, qué está ocurriendo a su alrededor y qué alternativas puede considerar para avanzar.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABLE SECTION: Principales herramientas -->
+        <section class="space-y-4">
+            <div class="flex items-center gap-3">
+                <div class="w-2 h-7 bg-brand-600 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-slate-900">Principales herramientas de análisis estratégico</h2>
+            </div>
+
+            <div class="overflow-x-auto bg-white rounded-2xl shadow-sm border border-slate-200">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-900 text-white text-sm font-semibold uppercase tracking-wider">
+                            <th class="py-4 px-6 rounded-tl-2xl">Herramienta</th>
+                            <th class="py-4 px-6">¿Qué analiza?</th>
+                            <th class="py-4 px-6 rounded-tr-2xl">Pregunta que ayuda a responder</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-sm sm:text-base text-slate-700">
+                        <tr class="hover:bg-brand-50/50 transition-colors bg-blue-50/30">
+                            <td class="py-4 px-6 font-bold text-brand-700 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+                                FODA
+                            </td>
+                            <td class="py-4 px-6 font-medium">Situación interna y externa</td>
+                            <td class="py-4 px-6 italic">¿Cuáles son nuestras fortalezas, debilidades, oportunidades y amenazas?</td>
+                        </tr>
+                        <tr class="hover:bg-brand-50/50 transition-colors bg-purple-50/30">
+                            <td class="py-4 px-6 font-bold text-purple-700 flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                                PESTEL
+                            </td>
+                            <td class="py-4 px-6 font-medium">Macroentorno</td>
+                            <td class="py-4 px-6 italic">¿Qué cambios políticos, económicos, sociales, tecnológicos, ambientales y legales pueden afectarnos?</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-4 px-6 font-bold text-slate-900">5 Fuerzas de Porter</td>
+                            <td class="py-4 px-6">Competencia de una industria</td>
+                            <td class="py-4 px-6 text-slate-600">¿Qué tan atractivo y competitivo es nuestro mercado?</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-4 px-6 font-bold text-slate-900">Matriz BCG</td>
+                            <td class="py-4 px-6">Portafolio de productos o negocios</td>
+                            <td class="py-4 px-6 text-slate-600">¿En cuáles productos o unidades deberíamos invertir, mantener o retirar recursos?</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-4 px-6 font-bold text-slate-900">Benchmarking</td>
+                            <td class="py-4 px-6">Comparación con competidores o referentes</td>
+                            <td class="py-4 px-6 text-slate-600">¿En qué somos mejores o peores que otros y qué podemos aprender de ellos?</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-4 px-6 font-bold text-slate-900">Business Model Canvas</td>
+                            <td class="py-4 px-6">Modelo de negocio</td>
+                            <td class="py-4 px-6 text-slate-600">¿Cómo crea, entrega y captura valor nuestro negocio?</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="py-4 px-6 font-bold text-slate-900">Cadena de valor de Porter</td>
+                            <td class="py-4 px-6">Actividades internas</td>
+                            <td class="py-4 px-6 text-slate-600">¿En qué actividades generamos valor y dónde podemos mejorar?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE CONTROLS SECTION -->
+        <section id="interactive-buttons" class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl text-center space-y-6 scroll-mt-6">
+            <div class="max-w-2xl mx-auto space-y-2">
+                <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full uppercase tracking-wider border border-amber-500/30">
+                    Sección Interactiva
+                </span>
+                <p class="text-base sm:text-lg text-slate-200 leading-relaxed">
+                    Profundicemos en las herramientas FODA y PESTEL. Haz clic en cada botón para obtener más información o explora un ejemplo real. Cuando termines realiza el POP QUIZ para estudiar.
+                </p>
+            </div>
+
+            <!-- FOUR MAIN BUTTONS -->
+            <div class="flex flex-wrap justify-center items-center gap-4 pt-2">
+                <!-- FODA Button -->
+                <button onclick="showSection('foda')" id="btn-foda" class="tab-btn active px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg flex items-center gap-2.5 border border-blue-400/30 hover:brightness-110">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                    FODA
+                </button>
+
+                <!-- PESTEL Button -->
+                <button onclick="showSection('pestel')" id="btn-pestel" class="tab-btn px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-slate-800 text-slate-300 hover:text-white shadow-md flex items-center gap-2.5 border border-slate-700 hover:bg-slate-700">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                    PESTEL
+                </button>
+
+                <!-- Ejemplo Empresa Real Button -->
+                <button onclick="showSection('example')" id="btn-example" class="tab-btn px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-slate-800 text-slate-300 hover:text-white shadow-md flex items-center gap-2.5 border border-slate-700 hover:bg-slate-700">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V10m0 0V5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4"/></svg>
+                    Ejemplo con empresa real
+                </button>
+
+                <!-- POP QUIZ Button -->
+                <button onclick="showSection('quiz')" id="btn-quiz" class="tab-btn px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-amber-500 text-slate-900 hover:bg-amber-400 shadow-md flex items-center gap-2.5 border border-amber-300">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                    POP QUIZ
+                </button>
+            </div>
+        </section>
+
+        <!-- DYNAMIC CONTENT DISPLAY BOX -->
+        <div id="content-container" class="scroll-mt-8">
+
+            <!-- ==================== FODA CONTENT ==================== -->
+            <article id="section-foda" class="fade-in space-y-8 bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-slate-200">
+                <!-- Header -->
+                <div class="border-b border-slate-100 pb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
+                            Herramienta 01
+                        </span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 mt-2">¿Qué es el análisis FODA?</h2>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-2 bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-lg">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Diagnóstico Estratégico
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Definition & Acronym explanation -->
+                <div class="space-y-4">
+                    <p class="text-lg text-slate-700 leading-relaxed">
+                        El análisis FODA es una herramienta de diagnóstico estratégico que permite identificar los factores internos y externos que pueden influir en el éxito de un negocio.
+                    </p>
+                    <p class="text-slate-700 leading-relaxed text-base bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 font-semibold">FODA es un acrónimo</strong> compuesto por las palabras <strong class="text-emerald-700">Fortalezas</strong>, <strong class="text-sky-700">Oportunidades</strong>, <strong class="text-amber-700">Debilidades</strong> y <strong class="text-rose-700">Amenazas</strong>. Se organiza en forma de <strong class="text-slate-900 font-semibold">matriz</strong> para clasificar la información según su origen (interno o externo) y su impacto (positivo o negativo).
+                    </p>
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-600 p-5 rounded-r-xl">
+                        <p class="text-slate-800 font-semibold text-base sm:text-lg">
+                            El FODA es una fotografía estratégica del negocio y de su entorno que ayuda a tomar decisiones sobre qué aprovechar, qué mejorar, qué enfrentar y qué prevenir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Four Elements Matrix with External Axis Labels -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <span>Analiza cuatro elementos (Matriz FODA):</span>
+                    </h3>
+
+                    <!-- MATRIZ CONTAINER WITH AXIS LABELS -->
+                    <div class="bg-slate-100/70 p-4 sm:p-6 rounded-3xl border border-slate-200">
+                        
+                        <!-- Top Axis Label: Interno -->
+                        <div class="text-center pb-3">
+                            <span class="inline-block bg-slate-800 text-white font-extrabold uppercase text-xs sm:text-sm tracking-widest px-6 py-1.5 rounded-full shadow-sm">
+                                Interno
+                            </span>
+                        </div>
+
+                        <!-- Grid Body with Side Labels -->
+                        <div class="flex items-stretch gap-2 sm:gap-4">
+                            
+                            <!-- Left Axis Label: Positivo -->
+                            <div class="flex items-center justify-center shrink-0">
+                                <span class="vertical-text-left bg-emerald-600 text-white font-extrabold uppercase text-xs tracking-widest px-2 py-4 rounded-full shadow-sm h-auto my-auto">
+                                    Positivo
+                                </span>
+                            </div>
+
+                            <!-- 2x2 Matrix Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 flex-grow">
+                                <!-- F - Fortalezas -->
+                                <div class="bg-emerald-500/10 border-2 border-emerald-400/60 rounded-2xl p-5 relative overflow-hidden group hover:shadow-md transition-shadow">
+                                    <!-- Background watermark letter -->
+                                    <div class="absolute -right-2 -bottom-6 text-emerald-500/10 font-black text-9xl select-none pointer-events-none">F</div>
+                                    <div class="flex items-start gap-4 relative z-10">
+                                        <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-md">
+                                            F
+                                        </div>
+                                        <div class="space-y-2">
+                                            <h4 class="text-lg font-bold text-emerald-950">Fortalezas</h4>
+                                            <p class="text-sm sm:text-base text-slate-800 leading-relaxed">
+                                                Características internas que representan una ventaja para el negocio.
+                                            </p>
+                                            <p class="text-xs sm:text-sm text-emerald-900 font-medium bg-white/80 p-2.5 rounded-lg border border-emerald-200">
+                                                <strong class="font-bold">Ejemplo:</strong> una marca reconocida, talento especializado o una ubicación estratégica.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- D - Debilidades -->
+                                <div class="bg-purple-500/10 border-2 border-purple-400/60 rounded-2xl p-5 relative overflow-hidden group hover:shadow-md transition-shadow">
+                                    <!-- Background watermark letter -->
+                                    <div class="absolute -right-2 -bottom-6 text-purple-500/10 font-black text-9xl select-none pointer-events-none">D</div>
+                                    <div class="flex items-start gap-4 relative z-10">
+                                        <div class="w-12 h-12 rounded-xl bg-purple-600 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-md">
+                                            D
+                                        </div>
+                                        <div class="space-y-2">
+                                            <h4 class="text-lg font-bold text-purple-950">Debilidades</h4>
+                                            <p class="text-sm sm:text-base text-slate-800 leading-relaxed">
+                                                Aspectos internos que limitan o dificultan el desempeño del negocio.
+                                            </p>
+                                            <p class="text-xs sm:text-sm text-purple-900 font-medium bg-white/80 p-2.5 rounded-lg border border-purple-200">
+                                                <strong class="font-bold">Ejemplo:</strong> falta de experiencia, pocos recursos económicos o procesos ineficientes.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- O - Oportunidades -->
+                                <div class="bg-amber-500/10 border-2 border-amber-400/60 rounded-2xl p-5 relative overflow-hidden group hover:shadow-md transition-shadow">
+                                    <!-- Background watermark letter -->
+                                    <div class="absolute -right-2 -bottom-6 text-amber-500/10 font-black text-9xl select-none pointer-events-none">O</div>
+                                    <div class="flex items-start gap-4 relative z-10">
+                                        <div class="w-12 h-12 rounded-xl bg-amber-500 text-slate-950 font-black text-2xl flex items-center justify-center shrink-0 shadow-md">
+                                            O
+                                        </div>
+                                        <div class="space-y-2">
+                                            <h4 class="text-lg font-bold text-amber-950">Oportunidades</h4>
+                                            <p class="text-sm sm:text-base text-slate-800 leading-relaxed">
+                                                Factores externos que el negocio puede aprovechar para crecer o mejorar.
+                                            </p>
+                                            <p class="text-xs sm:text-sm text-amber-950 font-medium bg-white/80 p-2.5 rounded-lg border border-amber-200">
+                                                <strong class="font-bold">Ejemplo:</strong> una nueva tendencia de consumo, un mercado en crecimiento o una nueva tecnología.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- A - Amenazas -->
+                                <div class="bg-rose-500/10 border-2 border-rose-400/60 rounded-2xl p-5 relative overflow-hidden group hover:shadow-md transition-shadow">
+                                    <!-- Background watermark letter -->
+                                    <div class="absolute -right-2 -bottom-6 text-rose-500/10 font-black text-9xl select-none pointer-events-none">A</div>
+                                    <div class="flex items-start gap-4 relative z-10">
+                                        <div class="w-12 h-12 rounded-xl bg-rose-600 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-md">
+                                            A
+                                        </div>
+                                        <div class="space-y-2">
+                                            <h4 class="text-lg font-bold text-rose-950">Amenazas</h4>
+                                            <p class="text-sm sm:text-base text-slate-800 leading-relaxed">
+                                                Factores externos que pueden afectar negativamente al negocio.
+                                            </p>
+                                            <p class="text-xs sm:text-sm text-rose-900 font-medium bg-white/80 p-2.5 rounded-lg border border-rose-200">
+                                                <strong class="font-bold">Ejemplo:</strong> nuevos competidores, cambios en las leyes, inflación o cambios en las preferencias de los consumidores.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Axis Label: Negativo -->
+                            <div class="flex items-center justify-center shrink-0">
+                                <span class="vertical-text-right bg-rose-600 text-white font-extrabold uppercase text-xs tracking-widest px-2 py-4 rounded-full shadow-sm h-auto my-auto">
+                                    Negativo
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Axis Label: Externo -->
+                        <div class="text-center pt-3">
+                            <span class="inline-block bg-slate-800 text-white font-extrabold uppercase text-xs sm:text-sm tracking-widest px-6 py-1.5 rounded-full shadow-sm">
+                                Externo
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <!-- Key takeaway -->
+                    <div class="bg-slate-900 text-white p-4 sm:p-5 rounded-xl flex items-center gap-3 mt-4">
+                        <svg class="w-6 h-6 text-amber-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 0121 9z"/></svg>
+                        <p class="text-sm sm:text-base font-medium">
+                            La clave está en que <span class="text-emerald-400 font-bold">Fortalezas y Debilidades pertenecen al interior del negocio</span>, mientras que <span class="text-sky-400 font-bold">Oportunidades y Amenazas provienen del entorno</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ¿Por qué es importante para el líder estratégico? -->
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-3">
+                        <svg class="w-7 h-7 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                        ¿Por qué es importante para el líder estratégico?
+                    </h3>
+                    <div class="text-slate-700 space-y-3 leading-relaxed text-base">
+                        <p>
+                            Para un líder estratégico, el análisis FODA es una herramienta que facilita la toma de decisiones al permitirle comprender la situación actual de una organización y su entorno.
+                        </p>
+                        <p>
+                            Al identificar fortalezas y debilidades internas, así como oportunidades y amenazas externas, el líder puede reconocer qué recursos y capacidades debe aprovechar, qué aspectos necesita mejorar y qué cambios del entorno debe anticipar.
+                        </p>
+                        <p class="font-semibold text-slate-900 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            De esta manera, el FODA contribuye a que el líder no solo responda a los problemas actuales, sino que visualice escenarios, establezca prioridades y diseñe estrategias alineadas con los objetivos de la organización, convirtiendo el análisis de información en acciones concretas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fuentes de consulta -->
+                <div class="pt-4 border-t border-slate-100">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">Fuentes de consulta:</h4>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-1 list-disc list-inside italic">
+                        <li>OpenStax. (2020). Principles of Management. Rice University.</li>
+                        <li>Minsky, L., & Aron, D. (2021). Are You Doing the SWOT Analysis Backwards? Harvard Business Review.</li>
+                    </ul>
+                </div>
+
+                <!-- Volver Button -->
+                <div class="pt-6 border-t border-slate-100 flex justify-center">
+                    <button onclick="scrollToButtons()" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                        Volver arriba
+                    </button>
+                </div>
+            </article>
+
+            <!-- ==================== PESTEL CONTENT ==================== -->
+            <article id="section-pestel" class="hidden fade-in space-y-8 bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-slate-200">
+                <!-- Header -->
+                <div class="border-b border-slate-100 pb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-purple-600 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
+                            Herramienta 02
+                        </span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 mt-2">¿Qué es el análisis PESTEL?</h2>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-2 bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1.5 rounded-lg">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                            Análisis del Macroentorno
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Definition -->
+                <div class="space-y-4">
+                    <p class="text-lg text-slate-700 leading-relaxed">
+                        El análisis PESTEL es una herramienta de análisis estratégico que permite identificar y evaluar los factores externos del entorno que pueden influir en una organización.
+                    </p>
+                    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 border-l-4 border-purple-600 p-5 rounded-r-xl">
+                        <p class="text-slate-800 font-semibold text-base sm:text-lg">
+                            El análisis PESTEL se concentra en el entorno externo. Su uso tiene como objetivo ayudar a identificar cambios y tendencias que podrían representar oportunidades o amenazas para la organización.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Six Acronym Factors -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold text-slate-900">Es un acrónimo que engloba seis factores:</h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <!-- P | Políticos -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-purple-300 transition-colors">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-purple-700 text-white font-black text-xl flex items-center justify-center shrink-0">
+                                    P
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-900">Políticos</h4>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Decisiones y condiciones políticas que pueden afectar al negocio, como políticas gubernamentales, estabilidad política o programas de apoyo.
+                            </p>
+                        </div>
+
+                        <!-- E | Económicos -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-purple-300 transition-colors">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-700 text-white font-black text-xl flex items-center justify-center shrink-0">
+                                    E
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-900">Económicos</h4>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Condiciones de la economía que pueden impactar al negocio, como inflación, tasas de interés, empleo o poder adquisitivo.
+                            </p>
+                        </div>
+
+                        <!-- S | Sociales -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-purple-300 transition-colors">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-blue-700 text-white font-black text-xl flex items-center justify-center shrink-0">
+                                    S
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-900">Sociales</h4>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Cambios en la sociedad, cultura y comportamiento de las personas, como nuevas preferencias de consumo, estilos de vida o cambios demográficos.
+                            </p>
+                        </div>
+
+                        <!-- T | Tecnológicos -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-purple-300 transition-colors">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-cyan-700 text-white font-black text-xl flex items-center justify-center shrink-0">
+                                    T
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-900">Tecnológicos</h4>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Avances tecnológicos que pueden generar oportunidades o transformar la manera de operar y competir.
+                            </p>
+                        </div>
+
+                        <!-- E | Ecológicos o ambientales -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-purple-300 transition-colors">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-700 text-white font-black text-xl flex items-center justify-center shrink-0">
+                                    E
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-900">Ecológicos o ambientales</h4>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Factores relacionados con el medio ambiente, como cambio climático, disponibilidad de recursos o nuevas exigencias de sostenibilidad.
+                            </p>
+                        </div>
+
+                        <!-- L | Legales -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-purple-300 transition-colors">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-10 h-10 rounded-xl bg-amber-700 text-white font-black text-xl flex items-center justify-center shrink-0">
+                                    L
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-900">Legales</h4>
+                            </div>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Leyes, regulaciones y normas que pueden afectar las actividades de la organización.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ¿Por qué es útil para un líder estratégico? -->
+                <div class="space-y-3 pt-4 border-t border-slate-100">
+                    <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-3">
+                        <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        ¿Por qué es útil para un líder estratégico?
+                    </h3>
+                    <div class="text-slate-700 space-y-3 leading-relaxed text-base">
+                        <p>
+                            Para un líder estratégico, el PESTEL permite ampliar la mirada más allá de lo que ocurre dentro de la organización. Analizar los cambios políticos, económicos, sociales, tecnológicos, ambientales y legales ayuda a anticipar escenarios, detectar oportunidades, reconocer riesgos y prepararse para cambios que podrían afectar el futuro del negocio.
+                        </p>
+                        <p class="font-semibold text-slate-900 bg-purple-50/60 p-4 rounded-xl border border-purple-200">
+                            Esto es especialmente importante porque una organización no opera de manera aislada: forma parte de un entorno que cambia constantemente. Un líder estratégico utiliza esta información para cuestionar sus supuestos, tomar decisiones con mayor perspectiva y adaptar la estrategia antes de que los cambios externos se conviertan en problemas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fuentes de consulta -->
+                <div class="pt-4 border-t border-slate-100">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">Fuentes de consulta:</h4>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-1 list-disc list-inside italic">
+                        <li>Kotler P. (2013). Dirección de Marketing, Edición del Milenio. Prentice Hall.</li>
+                    </ul>
+                </div>
+
+                <!-- Volver Button -->
+                <div class="pt-6 border-t border-slate-100 flex justify-center">
+                    <button onclick="scrollToButtons()" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                        Volver arriba
+                    </button>
+                </div>
+            </article>
+
+            <!-- ==================== EJEMPLO EMPRESA REAL CONTENT ==================== -->
+            <article id="section-example" class="hidden fade-in space-y-8 bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-slate-200">
+                <!-- Header -->
+                <div class="border-b border-slate-100 pb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                            Caso Práctico Empresarial
+                        </span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 mt-2">Ejemplo con Empresa Real: Amazon</h2>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-lg">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V10m0 0V5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4"/></svg>
+                            Aplicación Práctica
+                        </span>
+                    </div>
+                </div>
+
+                <p class="text-lg text-slate-700 leading-relaxed">
+                    A continuación se ilustra la aplicación de los análisis <strong class="text-slate-900">FODA</strong> y <strong class="text-slate-900">PESTEL</strong> en un caso empresarial real tomando como referente a la compañía <strong class="text-brand-600">Amazon</strong>.
+                </p>
+
+                <!-- Images Container -->
+                <div class="space-y-10">
+                    <!-- Image 1: FODA Amazon -->
+                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 space-y-4 shadow-sm">
+                        <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                            <span class="w-3 h-3 rounded-full bg-blue-600"></span>
+                            <h3 class="text-xl font-bold text-slate-900">Análisis FODA de Amazon</h3>
+                        </div>
+                        <div class="overflow-hidden rounded-xl bg-white border border-slate-200 p-2 shadow-inner">
+                            <img src="https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/analisis-foda-amazon.png" 
+                                 alt="Análisis FODA de Amazon" 
+                                 class="w-full h-auto object-contain rounded-lg max-h-[600px] mx-auto"
+                                 loading="lazy"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x500/f8fafc/334155?text=Imagen+Analisis+FODA+Amazon';">
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-600 bg-white p-3.5 rounded-xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                            <span class="font-medium text-slate-700">📌 Referencia / Crédito de la imagen:</span>
+                            <a href="https://boardmix.com/es/articles/swot-analysis-examples/" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="text-brand-600 hover:text-brand-800 font-semibold underline inline-flex items-center gap-1">
+                                Obtenido de Boardmix (Ejemplos de análisis FODA)
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Image 2: PESTEL -->
+                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 space-y-4 shadow-sm">
+                        <div class="flex items-center gap-3 border-b border-slate-200 pb-3">
+                            <span class="w-3 h-3 rounded-full bg-purple-600"></span>
+                            <h3 class="text-xl font-bold text-slate-900">Análisis PESTEL</h3>
+                        </div>
+                        <div class="overflow-hidden rounded-xl bg-white border border-slate-200 p-2 shadow-inner">
+                            <img src="https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/analisispestel.webp" 
+                                 alt="Análisis PESTEL" 
+                                 class="w-full h-auto object-contain rounded-lg max-h-[600px] mx-auto"
+                                 loading="lazy"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x500/f8fafc/334155?text=Imagen+Analisis+PESTEL';">
+                        </div>
+                        <div class="text-xs sm:text-sm text-slate-600 bg-white p-3.5 rounded-xl border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                            <span class="font-medium text-slate-700">📌 Referencia / Crédito de la imagen:</span>
+                            <a href="https://grandespymes.ar/2022/01/30/analisis-pestel-que-es-como-se-hace-y-ejemplos-utiles/" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="text-purple-600 hover:text-purple-800 font-semibold underline inline-flex items-center gap-1">
+                                Obtenido de Grandes Pymes (Análisis PESTEL)
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volver Button -->
+                <div class="pt-6 border-t border-slate-100 flex justify-center">
+                    <button onclick="scrollToButtons()" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                        Volver arriba
+                    </button>
+                </div>
+            </article>
+
+            <!-- ==================== POP QUIZ CONTENT ==================== -->
+            <article id="section-quiz" class="hidden fade-in space-y-8 bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-slate-200">
+                <!-- Header -->
+                <div class="border-b border-slate-100 pb-6 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+                            Evaluación Interactiva
+                        </span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 mt-2">POP QUIZ: Demuestra tu aprendizaje</h2>
+                    </div>
+                    <div id="quiz-score-badge" class="shrink-0 bg-slate-100 text-slate-700 px-4 py-2 rounded-xl text-sm font-bold border border-slate-200">
+                        Progreso: <span id="quiz-progress-text">0 / 5</span>
+                    </div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-body" class="space-y-6">
+                    <!-- Dynamic Question Area -->
+                    <div id="quiz-questions-list" class="space-y-8">
+                        <!-- Questions injected via JS -->
+                    </div>
+
+                    <!-- Quiz Score Summary Footer (Initially Hidden) -->
+                    <div id="quiz-results" class="hidden bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-8 rounded-2xl text-center space-y-4">
+                        <div class="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center mx-auto text-slate-900 font-extrabold text-2xl">
+                            🏆
+                        </div>
+                        <h3 class="text-2xl font-bold">¡Has completado el Pop Quiz!</h3>
+                        <p class="text-lg text-slate-300">
+                            Tu puntuación es <span id="final-score" class="text-amber-400 font-extrabold text-2xl">0/5</span>
+                        </p>
+                        <p id="quiz-feedback-msg" class="text-sm text-slate-400 max-w-lg mx-auto"></p>
+                        <button onclick="resetQuiz()" class="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl shadow-md transition-all">
+                            Reiniciar Quiz
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Volver Button -->
+                <div class="pt-6 border-t border-slate-100 flex justify-center">
+                    <button onclick="scrollToButtons()" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                        Volver arriba
+                    </button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12 text-center text-sm">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p class="font-semibold text-slate-300">Materia: Cómo ser el GOAT de los negocios - Habilidades de los grandes líderes</p>
+            <p>Profesora: Fabiola Chávez Romero</p>
+            <p class="text-xs text-slate-500">Recurso educativo para Canvas LTD • Infografía interactiva estratégica</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Quiz Questions Data (strictly strictly aligned with document wording)
+        const quizQuestions = [
+            {
+                id: 1,
+                question: "1. ¿Cuál es la clave fundamental que diferencia los elementos del análisis FODA?",
+                options: [
+                    "Fortalezas y Debilidades pertenecen al interior del negocio, mientras que Oportunidades y Amenazas provienen del entorno.",
+                    "Fortalezas y Oportunidades pertenecen al macroentorno, mientras que Debilidades y Amenazas provienen de los competidores.",
+                    "Todas pertenecen únicamente al entorno externo que rodea a la organización.",
+                    "Fortalezas y Amenazas son factores financieros, mientras que Debilidades y Oportunidades son legales."
+                ],
+                correct: 0,
+                explanation: "Correcto. El documento señala explícitamente: 'La clave está en que Fortalezas y Debilidades pertenecen al interior del negocio, mientras que Oportunidades y Amenazas provienen del entorno.'"
+            },
+            {
+                id: 2,
+                question: "2. ¿En qué se concentra principalmente el análisis PESTEL y cuál es su objetivo?",
+                options: [
+                    "Se concentra en comparar actividades internas de valor con los competidores.",
+                    "Se concentra en el entorno externo. Su uso tiene como objetivo ayudar a identificar cambios y tendencias que podrían representar oportunidades o amenazas.",
+                    "Se concentra en evaluar el portafolio de productos y unidades de negocio.",
+                    "Se concentra en responder la pregunta del modelo de negocio sobre cómo se captura valor."
+                ],
+                correct: 1,
+                explanation: "¡Muy bien! PESTEL evalúa el macroentorno externo (Político, Económico, Social, Tecnológico, Ecológico y Legal)."
+            },
+            {
+                id: 3,
+                question: "3. ¿Qué herramienta de análisis estratégico ayuda a responder a la pregunta: '¿En qué actividades generamos valor y dónde podemos mejorar?'?",
+                options: [
+                    "Matriz BCG",
+                    "Business Model Canvas",
+                    "Cadena de valor de Porter",
+                    "Benchmarking"
+                ],
+                correct: 2,
+                explanation: "Exacto. Según la tabla de principales herramientas, la Cadena de valor de Porter analiza las 'Actividades internas' para responder esa pregunta."
+            },
+            {
+                id: 4,
+                question: "4. En el análisis PESTEL, ¿a qué factor corresponden 'las nuevas preferencias de consumo, estilos de vida o cambios demográficos'?",
+                options: [
+                    "Políticos",
+                    "Sociales",
+                    "Ecológicos o ambientales",
+                    "Económicos"
+                ],
+                correct: 1,
+                explanation: "¡Correcto! El factor Social (S) engloba cambios en la sociedad, cultura y comportamiento de las personas."
+            },
+            {
+                id: 5,
+                question: "5. ¿Por qué el análisis FODA es importante para un líder estratégico?",
+                options: [
+                    "Porque le ayuda a eliminar completamente la competencia en el mercado.",
+                    "Porque le facilita la toma de decisiones al permitirle comprender la situación actual, visualizar escenarios, establecer prioridades y diseñar estrategias concretas.",
+                    "Porque sustituye a todas las demás herramientas de análisis como PESTEL y Benchmarking.",
+                    "Porque sirve únicamente para responder a problemas del pasado sin mirar al futuro."
+                ],
+                correct: 1,
+                explanation: "Excelente. El FODA permite comprender la situación actual y su entorno para convertir el análisis de información en acciones concretas."
+            }
+        ];
+
+        let userAnswers = {};
+
+        // Tab Switching Logic
+        function showSection(section) {
+            // Hide all articles
+            document.getElementById('section-foda').classList.add('hidden');
+            document.getElementById('section-pestel').classList.add('hidden');
+            document.getElementById('section-example').classList.add('hidden');
+            document.getElementById('section-quiz').classList.add('hidden');
+
+            // Reset buttons styling
+            const btnFoda = document.getElementById('btn-foda');
+            const btnPestel = document.getElementById('btn-pestel');
+            const btnExample = document.getElementById('btn-example');
+            const btnQuiz = document.getElementById('btn-quiz');
+
+            const defaultBtnClass = "tab-btn px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-slate-800 text-slate-300 hover:text-white shadow-md flex items-center gap-2.5 border border-slate-700 hover:bg-slate-700";
+
+            btnFoda.className = defaultBtnClass;
+            btnPestel.className = defaultBtnClass;
+            btnExample.className = defaultBtnClass;
+            btnQuiz.className = defaultBtnClass;
+
+            // Activate chosen section & button
+            if (section === 'foda') {
+                document.getElementById('section-foda').classList.remove('hidden');
+                btnFoda.className = "tab-btn active px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg flex items-center gap-2.5 border border-blue-400/30 hover:brightness-110";
+            } else if (section === 'pestel') {
+                document.getElementById('section-pestel').classList.remove('hidden');
+                btnPestel.className = "tab-btn active px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg flex items-center gap-2.5 border border-purple-400/30 hover:brightness-110";
+            } else if (section === 'example') {
+                document.getElementById('section-example').classList.remove('hidden');
+                btnExample.className = "tab-btn active px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg flex items-center gap-2.5 border border-emerald-400/30 hover:brightness-110";
+            } else if (section === 'quiz') {
+                document.getElementById('section-quiz').classList.remove('hidden');
+                btnQuiz.className = "tab-btn active px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold text-base sm:text-lg bg-amber-500 text-slate-900 shadow-lg flex items-center gap-2.5 border border-amber-300 hover:bg-amber-400";
+            }
+        }
+
+        // Smooth scroll to control buttons
+        function scrollToButtons() {
+            const buttonsSection = document.getElementById('interactive-buttons');
+            buttonsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Render Quiz Questions
+        function renderQuiz() {
+            const listContainer = document.getElementById('quiz-questions-list');
+            listContainer.innerHTML = '';
+
+            quizQuestions.forEach((q, qIndex) => {
+                const qCard = document.createElement('div');
+                qCard.className = "bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm";
+
+                let optionsHTML = '';
+                q.options.forEach((opt, optIndex) => {
+                    optionsHTML += `
+                        <label onclick="selectAnswer(${qIndex}, ${optIndex})" id="opt-${qIndex}-${optIndex}" class="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:bg-blue-50/50 cursor-pointer transition-colors text-slate-700 text-sm sm:text-base">
+                            <input type="radio" name="q-${qIndex}" value="${optIndex}" class="mt-1 text-brand-600 focus:ring-brand-500">
+                            <span>${opt}</span>
+                        </label>
+                    `;
+                });
+
+                qCard.innerHTML = `
+                    <h4 class="text-base sm:text-lg font-bold text-slate-900">${q.question}</h4>
+                    <div class="space-y-2.5">
+                        ${optionsHTML}
+                    </div>
+                    <div id="feedback-${qIndex}" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+                `;
+
+                listContainer.appendChild(qCard);
+            });
+        }
+
+        // Handle Quiz Option Selection
+        function selectAnswer(qIndex, optIndex) {
+            userAnswers[qIndex] = optIndex;
+            const q = quizQuestions[qIndex];
+            const feedbackBox = document.getElementById(`feedback-${qIndex}`);
+
+            // Clear previous option styles for this question
+            q.options.forEach((_, idx) => {
+                const optElem = document.getElementById(`opt-${qIndex}-${idx}`);
+                optElem.className = "flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-white cursor-pointer transition-colors text-slate-700 text-sm sm:text-base";
+            });
+
+            // Highlight selected option
+            const selectedOptElem = document.getElementById(`opt-${qIndex}-${optIndex}`);
+
+            if (optIndex === q.correct) {
+                selectedOptElem.className = "flex items-start gap-3 p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 font-medium text-emerald-950 text-sm sm:text-base";
+                feedbackBox.className = "p-4 rounded-xl text-sm font-medium bg-emerald-100 text-emerald-900 border border-emerald-200 block";
+                feedbackBox.innerHTML = `<strong>¡Correcto!</strong> ${q.explanation}`;
+            } else {
+                selectedOptElem.className = "flex items-start gap-3 p-3.5 rounded-xl border-2 border-rose-400 bg-rose-50/80 font-medium text-rose-950 text-sm sm:text-base";
+                feedbackBox.className = "p-4 rounded-xl text-sm font-medium bg-rose-100 text-rose-900 border border-rose-200 block";
+                feedbackBox.innerHTML = `<strong>Respuesta incorrecta.</strong> ${q.explanation}`;
+            }
+
+            updateQuizProgress();
+        }
+
+        function updateQuizProgress() {
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('quiz-progress-text').innerText = `${answeredCount} / ${quizQuestions.length}`;
+
+            if (answeredCount === quizQuestions.length) {
+                calculateResults();
+            }
+        }
+
+        function calculateResults() {
+            let score = 0;
+            quizQuestions.forEach((q, idx) => {
+                if (userAnswers[idx] === q.correct) {
+                    score++;
+                }
+            });
+
+            const resultsBox = document.getElementById('quiz-results');
+            const scoreText = document.getElementById('final-score');
+            const feedbackMsg = document.getElementById('quiz-feedback-msg');
+
+            scoreText.innerText = `${score} / ${quizQuestions.length}`;
+
+            if (score === quizQuestions.length) {
+                feedbackMsg.innerText = "¡Felicidades! Has dominado a la perfección los conceptos de FODA, PESTEL y herramientas estratégicas. Estás listo para ser el GOAT de los negocios.";
+            } else if (score >= 3) {
+                feedbackMsg.innerText = "¡Buen trabajo! Tienes un entendimiento sólido de las herramientas clave. Revisa los detalles de FODA y PESTEL arriba para afianzar tus conocimientos.";
+            } else {
+                feedbackMsg.innerText = "Te recomendamos repasar nuevamente la explicación de FODA y PESTEL con los botones superiores y volver a intentar el Pop Quiz.";
+            }
+
+            resultsBox.classList.remove('hidden');
+            resultsBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function resetQuiz() {
+            userAnswers = {};
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-progress-text').innerText = `0 / ${quizQuestions.length}`;
+            renderQuiz();
+        }
+
+        // Initial setup on load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderQuiz();
+        });
+    </script>
+</body>
+</html>
