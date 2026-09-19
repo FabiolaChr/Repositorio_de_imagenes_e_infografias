@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso de Nave Espacial</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Orbitron y Rajdhani para estética Sci-Fi -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: #030712;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(3, 7, 18, 0.95)),
+        url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .font-orbitron {
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Grid Sci-Fi overlay */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+    }
+
+    /* Efectos Glowing de Neón */
+    .glow-cyan {
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4), inset 0 0 15px rgba(6, 182, 212, 0.2);
+      border-color: rgba(6, 182, 212, 0.6);
+    }
+    
+    .glow-cyan-text {
+      text-shadow: 0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.4);
+    }
+
+    .glow-green {
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.6), inset 0 0 15px rgba(16, 185, 129, 0.3);
+      border-color: rgba(16, 185, 129, 0.8);
+    }
+
+    .glow-red {
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.6), inset 0 0 15px rgba(239, 68, 68, 0.3);
+      border-color: rgba(239, 68, 68, 0.8);
+    }
+
+    /* Linea de Escaneo HUD */
+    .scanline {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 243, 255, 0.08) 50%,
+        rgba(0, 243, 255, 0.08)
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+    }
+
+    /* Animación de Parpadeo */
+    @keyframes pulse-fast {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    .animate-pulse-fast {
+      animation: pulse-fast 1s infinite;
+    }
+
+    /* Clip Path para bordes cortados Sci-Fi */
+    .clip-corner {
+      clip-path: polygon(
+        0 15px, 
+        15px 0, 
+        calc(100% - 15px) 0, 
+        100% 15px, 
+        100% calc(100% - 15px), 
+        calc(100% - 15px) 100%, 
+        15px 100%, 
+        0 calc(100% - 15px)
+      );
+    }
+
+    .clip-button {
+      clip-path: polygon(
+        0 10px, 
+        10px 0, 
+        100% 0, 
+        100% calc(100% - 10px), 
+        calc(100% - 10px) 100%, 
+        0 100%
+      );
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 relative overflow-x-hidden bg-grid">
+
+  <!-- Escaneo Visual -->
+  <div class="scanline"></div>
+
+  <!-- Contenedor Principal Sci-Fi -->
+  <div class="w-full max-w-md bg-slate-950/80 backdrop-blur-md border-2 border-cyan-500/40 rounded-2xl p-6 shadow-2xl relative z-10 glow-cyan transition-all duration-500">
+    
+    <!-- Elementos decorativos de la nave -->
+    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-900 border border-cyan-500/50 px-6 py-1 clip-corner text-[10px] font-orbitron tracking-widest text-cyan-400 uppercase">
+      SISTEMA DE SEGURIDAD v4.05
+    </div>
+    <div class="absolute top-2 left-3 w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+    <div class="absolute top-2 right-3 w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+
+    <!-- Encabezado -->
+    <div class="text-center mt-3 mb-6">
+      <div class="inline-flex items-center justify-center p-3 bg-cyan-950/50 border border-cyan-500/30 rounded-full mb-3 text-cyan-400">
+        <i data-lucide="shield-check" class="w-8 h-8"></i>
+      </div>
+      <h1 class="text-2xl font-orbitron font-extrabold tracking-wider text-white glow-cyan-text">
+        CONTROL DE ACCESO
+      </h1>
+      <p id="instruction-text" class="text-cyan-300 font-semibold text-lg tracking-widest uppercase mt-1 animate-pulse-fast">
+        INGRESA LA CLAVE
+      </p>
+    </div>
+
+    <!-- PANTALLA DE ESTADO / REPRODUCTOR -->
+    <div id="screen-container" class="relative w-full h-56 bg-slate-900/90 border border-cyan-500/30 rounded-xl overflow-hidden mb-6 flex flex-col items-center justify-center p-2 transition-all duration-300">
+      
+      <!-- Indicadores HUD decorativos en la pantalla -->
+      <div class="absolute top-2 left-2 text-[10px] font-orbitron text-cyan-500/60 flex items-center gap-1 z-10">
+        <span class="w-1.5 h-1.5 bg-cyan-500 inline-block rounded-full"></span> CAM_01
+      </div>
+      <div class="absolute top-2 right-2 text-[10px] font-orbitron text-cyan-500/60 z-10">
+        ESTADO: <span id="status-tag" class="text-cyan-400">ESPERA</span>
+      </div>
+
+      <!-- Vista por Defecto: Display de Contraseña -->
+      <div id="pin-display-view" class="flex flex-col items-center justify-center w-full h-full">
+        <div class="flex justify-center gap-3 my-4">
+          <div class="pin-digit w-12 h-14 border-2 border-cyan-500/50 bg-slate-950/80 rounded-lg flex items-center justify-center text-3xl font-orbitron text-cyan-300 shadow-inner"></div>
+          <div class="pin-digit w-12 h-14 border-2 border-cyan-500/50 bg-slate-950/80 rounded-lg flex items-center justify-center text-3xl font-orbitron text-cyan-300 shadow-inner"></div>
+          <div class="pin-digit w-12 h-14 border-2 border-cyan-500/50 bg-slate-950/80 rounded-lg flex items-center justify-center text-3xl font-orbitron text-cyan-300 shadow-inner"></div>
+          <div class="pin-digit w-12 h-14 border-2 border-cyan-500/50 bg-slate-950/80 rounded-lg flex items-center justify-center text-3xl font-orbitron text-cyan-300 shadow-inner"></div>
+        </div>
+        <p id="message-text" class="text-sm font-orbitron text-cyan-400/80 tracking-widest min-h-[20px] text-center">
+          ESPERANDO PINES DE ACCESO...
+        </p>
+      </div>
+
+      <!-- Vista de Reproductor de Video MP4 (Oculto por defecto) -->
+      <div id="media-view" class="hidden absolute inset-0 bg-black flex flex-col items-center justify-center p-1">
+        <video id="status-video" class="max-h-full max-w-full object-contain rounded-lg" autoplay loop muted playsinline>
+          <source id="video-source" src="" type="video/mp4">
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
+
+    </div>
+
+    <!-- TECLADO NUMÉRICO FUTURISTA -->
+    <div id="keypad" class="grid grid-cols-3 gap-3">
+      <button onclick="pressKey('1')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">1</button>
+      <button onclick="pressKey('2')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">2</button>
+      <button onclick="pressKey('3')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">3</button>
+      <button onclick="pressKey('4')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">4</button>
+      <button onclick="pressKey('5')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">5</button>
+      <button onclick="pressKey('6')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">6</button>
+      <button onclick="pressKey('7')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">7</button>
+      <button onclick="pressKey('8')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">8</button>
+      <button onclick="pressKey('9')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">9</button>
+      
+      <button onclick="clearPin()" class="bg-amber-950/40 hover:bg-amber-900/60 text-amber-400 border border-amber-500/40 p-3 rounded-lg font-orbitron text-xs font-bold transition-all active:scale-95 flex items-center justify-center gap-1 clip-button">
+        <i data-lucide="delete" class="w-4 h-4"></i> BORRAR
+      </button>
+      <button onclick="pressKey('0')" class="key-btn bg-slate-900/80 hover:bg-cyan-950 text-cyan-300 border border-cyan-500/30 p-3 rounded-lg font-orbitron text-xl font-bold transition-all active:scale-95 clip-button">0</button>
+      <button onclick="resetApp()" class="bg-cyan-950/40 hover:bg-cyan-900/60 text-cyan-400 border border-cyan-500/40 p-3 rounded-lg font-orbitron text-xs font-bold transition-all active:scale-95 flex items-center justify-center gap-1 clip-button">
+        <i data-lucide="refresh-cw" class="w-4 h-4"></i> REINICIAR
+      </button>
+    </div>
+
+    <!-- Footer decorativo -->
+    <div class="mt-6 text-center text-[11px] font-orbitron text-slate-500 tracking-wider flex items-center justify-between border-t border-slate-800 pt-3">
+      <span>ORDENADOR CENTRAL: ACTIVO</span>
+      <span class="text-cyan-500/80">SECTOR 07</span>
+    </div>
+
+  </div>
+
+  <script>
+    // Inicializar Iconos de Lucide
+    lucide.createIcons();
+
+    // Constantes de Configuración
+    const CORRECT_PIN = "3435";
+    const VIDEO_CORRECT = "https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/M2 CALIB COMPLETADA Ximis.mp4";
+    const VIDEO_INCORRECT = "https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/M2 CALIB RECHAZADA Ximis.mp4";
+
+    // Variables de Estado
+    let currentPin = "";
+    let isLocked = false;
+
+    // Referencias DOM
+    const pinDigits = document.querySelectorAll('.pin-digit');
+    const instructionText = document.getElementById('instruction-text');
+    const messageText = document.getElementById('message-text');
+    const screenContainer = document.getElementById('screen-container');
+    const pinDisplayView = document.getElementById('pin-display-view');
+    const mediaView = document.getElementById('media-view');
+    const statusVideo = document.getElementById('status-video');
+    const videoSource = document.getElementById('video-source');
+    const statusTag = document.getElementById('status-tag');
+    const containerCard = document.querySelector('.max-w-md');
+
+    // Manejar ingreso de dígitos
+    function pressKey(num) {
+      if (isLocked || currentPin.length >= 4) return;
+
+      currentPin += num;
+      updateDisplay();
+
+      if (currentPin.length === 4) {
+        verifyPin();
+      }
+    }
+
+    // Borrar PIN ingresado
+    function clearPin() {
+      if (isLocked) return;
+      currentPin = "";
+      updateDisplay();
+      messageText.textContent = "ESPERANDO PINES DE ACCESO...";
+      messageText.className = "text-sm font-orbitron text-cyan-400/80 tracking-widest min-h-[20px] text-center";
+    }
+
+    // Actualizar pantalla de dígitos (Mostrando los números explícitamente)
+    function updateDisplay() {
+      pinDigits.forEach((digitEl, index) => {
+        if (index < currentPin.length) {
+          digitEl.textContent = currentPin[index];
+          digitEl.classList.add('border-cyan-400', 'text-cyan-300', 'bg-cyan-950/30');
+          digitEl.classList.remove('border-cyan-500/50');
+        } else {
+          digitEl.textContent = "";
+          digitEl.classList.remove('border-cyan-400', 'text-cyan-300', 'bg-cyan-950/30');
+          digitEl.classList.add('border-cyan-500/50');
+        }
+      });
+    }
+
+    // Verificar la Contraseña
+    function verifyPin() {
+      isLocked = true;
+
+      if (currentPin === CORRECT_PIN) {
+        // ACCESO CORRECTO
+        messageText.textContent = "¡ACCESO CONCEDIDO!";
+        messageText.className = "text-sm font-orbitron text-emerald-400 font-bold tracking-widest min-h-[20px] text-center";
+        statusTag.textContent = "PERMITIDO";
+        statusTag.className = "text-emerald-400 font-bold";
+
+        // Estilos Neón Verde
+        containerCard.classList.remove('glow-cyan');
+        containerCard.classList.add('glow-green');
+
+        setTimeout(() => {
+          showMedia(VIDEO_CORRECT);
+        }, 600);
+
+      } else {
+        // ACCESO INCORRECTO
+        messageText.textContent = "¡DENEGADO! CLAVE ERRÓNEA";
+        messageText.className = "text-sm font-orbitron text-red-500 font-bold tracking-widest min-h-[20px] text-center animate-bounce";
+        statusTag.textContent = "ALERTA";
+        statusTag.className = "text-red-500 font-bold";
+
+        // Estilos Neón Rojo
+        containerCard.classList.remove('glow-cyan');
+        containerCard.classList.add('glow-red');
+
+        // Efecto visual de error
+        pinDigits.forEach(el => {
+          el.classList.add('border-red-500', 'text-red-500', 'bg-red-950/40');
+        });
+
+        setTimeout(() => {
+          showMedia(VIDEO_INCORRECT);
+        }, 600);
+      }
+    }
+
+    // Mostrar el Video MP4 resultante
+    function showMedia(url) {
+      videoSource.src = url;
+      statusVideo.load();
+      statusVideo.play().catch(e => console.log("Error al reproducir video:", e));
+
+      pinDisplayView.classList.add('hidden');
+      mediaView.classList.remove('hidden');
+    }
+
+    // Reiniciar la App al estado inicial
+    function resetApp() {
+      currentPin = "";
+      isLocked = false;
+
+      // Detener video
+      statusVideo.pause();
+      videoSource.src = "";
+
+      // Resetear interfaz
+      pinDisplayView.classList.remove('hidden');
+      mediaView.classList.add('hidden');
+
+      statusTag.textContent = "ESPERA";
+      statusTag.className = "text-cyan-400";
+
+      messageText.textContent = "ESPERANDO PINES DE ACCESO...";
+      messageText.className = "text-sm font-orbitron text-cyan-400/80 tracking-widest min-h-[20px] text-center";
+
+      containerCard.classList.remove('glow-green', 'glow-red');
+      containerCard.classList.add('glow-cyan');
+
+      updateDisplay();
+    }
+
+    // Soporte para Teclado Físico (Teclas 0-9, Backspace, Escape)
+    document.addEventListener('keydown', (e) => {
+      if (e.key >= '0' && e.key <= '9') {
+        pressKey(e.key);
+      } else if (e.key === 'Backspace') {
+        clearPin();
+      } else if (e.key === 'Escape') {
+        resetApp();
+      }
+    });
+  </script>
+</body>
+</html>
