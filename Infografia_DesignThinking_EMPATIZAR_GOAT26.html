@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESIGN THINKING - EMPATIZAR</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .card-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-transition:hover {
+            transform: translateY(-4px);
+        }
+        .active-tab {
+            border-bottom: 4px solid #ea580c;
+            color: #9a3412;
+            background-color: #fff7ed;
+        }
+    </style>
+</head>
+<body class="bg-amber-50/40 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 text-white py-8 px-4 shadow-lg border-b-4 border-orange-400">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="inline-block bg-orange-800/60 text-orange-100 text-sm px-4 py-1.5 rounded-full uppercase tracking-widest font-semibold mb-3 border border-orange-400/30">
+                Metodología Design Thinking
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2">
+                PASO 1 - EMPATIZAR 👥
+            </h1>
+            <p class="text-xl md:text-2xl text-orange-100 font-medium max-w-2xl mx-auto">
+                Comprender a las personas antes de diseñar una solución.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
+
+        <!-- Prominent Intro Section / Large Highlight Box -->
+        <section class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border-2 border-orange-200 mb-10 transform transition hover:shadow-2xl">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                <div class="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-7 rounded-2xl text-5xl flex items-center justify-center shrink-0 shadow-lg border-4 border-orange-100">
+                    <i class="fa-solid fa-users-viewfinder"></i>
+                </div>
+                <div class="space-y-5 text-slate-800">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-orange-950 border-b-2 border-orange-100 pb-3">
+                        Design Thinking - EMPATIZAR 👥
+                    </h2>
+                    <p class="text-lg md:text-xl leading-relaxed text-slate-700 font-medium">
+                        El Design Thinking es una metodología que nos ayuda a comprender a las personas y transformar sus necesidades en ideas de productos y servicios que aporten valor.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed text-slate-700">
+                        El proceso comienza con el paso Empatizar, donde investigamos y comprendemos las experiencias, problemas y necesidades de los usuarios.
+                    </p>
+                    <p class="text-lg md:text-xl leading-relaxed text-orange-950 bg-orange-50 p-6 rounded-2xl border-l-8 border-orange-500 shadow-inner font-medium">
+                        En esta etapa buscamos conocer a nuestros usuarios: qué hacen, qué piensan, qué necesitan y qué problemas enfrentan. Esto nos permitirá más adelante identifica una necesidad que vamos a buscar resolver.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Goal Message Before Methods -->
+        <section class="mb-10 bg-gradient-to-r from-orange-600 to-amber-600 text-white rounded-2xl p-6 md:p-8 text-center shadow-lg border border-orange-400">
+            <p class="font-bold text-lg md:text-2xl leading-relaxed tracking-wide">
+                "La meta no es encontrar una solución inmediatamente, sino comprender la necesidad que existe detrás del problema."
+            </p>
+        </section>
+
+        <!-- Section Title -->
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900">
+                Para lograrlo podemos utilizar diferentes métodos:
+            </h2>
+            <p class="text-amber-800/80 text-sm mt-1">Selecciona o navega por cada método para explorar las herramientas</p>
+        </div>
+
+        <!-- Interactive Grid / Navigation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <!-- Card 1 -->
+            <button onclick="showTab(1)" id="btn-1" class="tab-btn active-tab bg-white p-5 rounded-xl border border-orange-200 text-left card-transition shadow-sm flex flex-col justify-between h-full">
+                <div>
+                    <div class="text-3xl mb-2">👀</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">1. OBSERVAR</h3>
+                    <p class="text-xs text-slate-500">Observación directa en situaciones reales</p>
+                </div>
+                <span class="mt-4 text-xs font-semibold text-orange-600 flex items-center gap-1">
+                    Ver detalle <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </span>
+            </button>
+
+            <!-- Card 2 -->
+            <button onclick="showTab(2)" id="btn-2" class="tab-btn bg-white p-5 rounded-xl border border-orange-200 text-left card-transition shadow-sm flex flex-col justify-between h-full">
+                <div>
+                    <div class="text-3xl mb-2">🗣️</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">2. PREGUNTAR</h3>
+                    <p class="text-xs text-slate-500">Entrevistas uno a uno</p>
+                </div>
+                <span class="mt-4 text-xs font-semibold text-orange-600 flex items-center gap-1">
+                    Ver detalle <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </span>
+            </button>
+
+            <!-- Card 3 -->
+            <button onclick="showTab(3)" id="btn-3" class="tab-btn bg-white p-5 rounded-xl border border-orange-200 text-left card-transition shadow-sm flex flex-col justify-between h-full">
+                <div>
+                    <div class="text-3xl mb-2">📊</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">3. OBTENER Y ANALIZAR DATOS</h3>
+                    <p class="text-xs text-slate-500">Encuestas cuantificables</p>
+                </div>
+                <span class="mt-4 text-xs font-semibold text-orange-600 flex items-center gap-1">
+                    Ver detalle <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </span>
+            </button>
+
+            <!-- Card 4 -->
+            <button onclick="showTab(4)" id="btn-4" class="tab-btn bg-white p-5 rounded-xl border border-orange-200 text-left card-transition shadow-sm flex flex-col justify-between h-full">
+                <div>
+                    <div class="text-3xl mb-2">🔎</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-1">4. INVESTIGAR</h3>
+                    <p class="text-xs text-slate-500">Los 5 porqués</p>
+                </div>
+                <span class="mt-4 text-xs font-semibold text-orange-600 flex items-center gap-1">
+                    Ver detalle <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </span>
+            </button>
+        </div>
+
+        <!-- Detail Display Panels -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-orange-200">
+            
+            <!-- Panel 1: OBSERVAR -->
+            <div id="content-1" class="tab-content space-y-6">
+                <div class="flex items-center gap-3 border-b border-orange-100 pb-4">
+                    <span class="text-4xl">👀</span>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">1. OBSERVAR</h3>
+                    </div>
+                </div>
+                <p class="text-slate-700 text-lg leading-relaxed">
+                    Observaremos cómo los usuarios interactúan con un producto, servicio o entorno en situaciones reales. Esto permite detectar problemas, comportamientos y necesidades que quizá no expresan verbalmente.
+                </p>
+                <div class="bg-orange-50 border-l-4 border-orange-500 p-5 rounded-r-xl space-y-3">
+                    <p class="text-orange-950 font-bold text-lg mb-1">
+                        Herramienta: Observación directa
+                    </p>
+                    <p class="text-slate-800 font-medium">
+                        Observa qué hace la persona, qué dificultades encuentra, qué repite, qué evita y cómo resuelve actualmente el problema.
+                    </p>
+                    <p class="text-slate-700">
+                        Por ejemplo: Cuando una persona improvisa una solución, puede estar mostrando una necesidad no resuelta.
+                    </p>
+                    <div class="bg-white p-4 rounded-lg border border-orange-200 shadow-sm mt-2">
+                        <p class="text-slate-700">
+                            Imagina que notas que una persona usa una liga y cinta para mantener organizado su cargador del celular. La necesidad no resuelta podría ser “mantener sus cables organizados y evitar que se enreden o se pierdan”.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 2: PREGUNTAR -->
+            <div id="content-2" class="tab-content hidden space-y-6">
+                <div class="flex items-center gap-3 border-b border-orange-100 pb-4">
+                    <span class="text-4xl">🗣️</span>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">2. PREGUNTAR</h3>
+                    </div>
+                </div>
+                <p class="text-slate-700 text-lg leading-relaxed">
+                    Hablar directamente con el público objetivo para conocer sus opiniones, experiencias, frustraciones y deseos.
+                </p>
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl space-y-3">
+                    <p class="text-amber-950 font-bold text-lg mb-1">
+                        Herramienta: Entrevista
+                    </p>
+                    <p class="text-slate-800 font-medium leading-relaxed">
+                        Realiza conversaciones uno a uno con preguntas abiertas que permitan al usuario contar experiencias reales. Evita buscar que confirme tu idea y enfócate en descubrir lo que aún no sabes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Panel 3: OBTENER Y ANALIZAR DATOS -->
+            <div id="content-3" class="tab-content hidden space-y-6">
+                <div class="flex items-center gap-3 border-b border-orange-100 pb-4">
+                    <span class="text-4xl">📊</span>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">3. OBTENER Y ANALIZAR DATOS</h3>
+                    </div>
+                </div>
+                <p class="text-slate-700 text-lg leading-relaxed">
+                    Recopilar datos de un grupo más amplio de personas para identificar patrones, tendencias y qué tan frecuente es un problema.
+                </p>
+                <div class="bg-orange-50 border-l-4 border-orange-600 p-5 rounded-r-xl space-y-3">
+                    <p class="text-orange-950 font-bold text-lg mb-1">
+                        Herramienta: Encuesta.
+                    </p>
+                    <p class="text-slate-800 leading-relaxed">
+                        Se utilizan preguntas cerradas para recopilar respuestas de varias personas y convertir sus opiniones o comportamientos en datos que puedas comparar y analizar. A diferencia de una entrevista, las encuestas se pueden aplicar rápidamente a un gran número de personas, lo cual permite obtener una gran cantidad de datos medibles y cuantificables.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Panel 4: INVESTIGAR -->
+            <div id="content-4" class="tab-content hidden space-y-6">
+                <div class="flex items-center gap-3 border-b border-orange-100 pb-4">
+                    <span class="text-4xl">🔎</span>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">4. INVESTIGAR</h3>
+                    </div>
+                </div>
+                <p class="text-slate-700 text-lg leading-relaxed">
+                    Analizar información que ya existe para comprender mejor el contexto, las soluciones actuales y los problemas que otras personas ya han identificado.
+                </p>
+                <div class="bg-amber-50 border-l-4 border-amber-600 p-5 rounded-r-xl space-y-4">
+                    <p class="text-amber-950 font-bold text-lg mb-1">
+                        Herramienta: Los 5 porqués
+                    </p>
+                    <p class="text-slate-800 font-medium">
+                        Ante un problema, pregunta “¿por qué?” varias veces para llegar de un síntoma superficial a una causa o necesidad más profunda.
+                    </p>
+                    <div class="bg-white p-4 rounded-lg border border-amber-200 shadow-sm space-y-2">
+                        <p class="font-semibold text-slate-900">Problema: Los estudiantes llegan tarde.</p>
+                        <ul class="space-y-1 text-slate-700 pl-2">
+                            <li><span class="font-bold text-orange-600">¿Por qué?</span> → No tienen listas sus cosas.</li>
+                            <li><span class="font-bold text-orange-600">¿Por qué?</span> → Las preparan por la mañana.</li>
+                            <li><span class="font-bold text-orange-600">¿Por qué?</span> → Les resulta difícil organizarse la noche anterior.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-amber-950 text-amber-200/80 py-6 text-center text-sm border-t border-amber-900 mt-12">
+        <p>Infografía Interactiva | Design Thinking - Empatizar</p>
+        <p class="mt-1 font-semibold text-orange-300">Creada por la prof. Fabiola Chávez Romero</p>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        function showTab(tabIndex) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Reset all tab button styles
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active-tab');
+            });
+
+            // Show current tab content
+            document.getElementById(`content-${tabIndex}`).classList.remove('hidden');
+
+            // Highlight active tab button
+            document.getElementById(`btn-${tabIndex}`).classList.add('active-tab');
+        }
+    </script>
+</body>
+</html>
