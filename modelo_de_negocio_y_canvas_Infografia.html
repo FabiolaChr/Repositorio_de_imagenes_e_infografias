@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Interactiva: Modelo de Negocio & Business Model Canvas</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        area: {
+                            cliente: '#0284c7', // Sky blue
+                            oferta: '#16a34a',  // Green (Canvas center)
+                            infra: '#d97706',   // Amber
+                            finanzas: '#7c3aed' // Violet
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Rigid canvas proportions layout across all screens */
+        .canvas-grid-container {
+            display: grid;
+            grid-template-columns: repeat(10, minmax(0, 1fr));
+            grid-template-rows: repeat(2, minmax(130px, auto)) minmax(100px, auto);
+            gap: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .canvas-grid-container {
+                gap: 12px;
+                grid-template-rows: repeat(2, minmax(170px, auto)) minmax(120px, auto);
+            }
+        }
+
+        .zoom-img {
+            cursor: zoom-in;
+            transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        }
+        .zoom-img:hover {
+            opacity: 0.92;
+            transform: scale(1.01);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Header & Navigation Bar -->
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 font-bold text-lg text-slate-900 cursor-pointer" onclick="switchScreen(1)">
+                <span class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md">B</span>
+                <span>Emprende<span class="text-brand-600">Canvas</span></span>
+            </div>
+            
+            <!-- 3 Main Buttons Nav -->
+            <nav class="hidden md:flex items-center gap-2 text-sm font-semibold">
+                <button id="nav-btn-1" onclick="switchScreen(1)" class="nav-tab px-4 py-2 rounded-xl text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition duration-200">
+                    Modelo de Negocio
+                </button>
+                <button id="nav-btn-2" onclick="switchScreen(2)" class="nav-tab px-4 py-2 rounded-xl text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition duration-200">
+                    Business Model Canvas
+                </button>
+                <button id="nav-btn-3" onclick="switchScreen(3)" class="nav-tab px-4 py-2 rounded-xl text-slate-600 hover:text-brand-600 hover:bg-slate-100 transition duration-200">
+                    Ejercicio de Práctica
+                </button>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <button onclick="switchScreen(1); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-100">Modelo de Negocio</button>
+            <button onclick="switchScreen(2); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-100">Business Model Canvas</button>
+            <button onclick="switchScreen(3); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-100">Ejercicio de Práctica</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 w-full flex-grow">
+
+        <!-- ========================================== -->
+        <!-- PANTALLA 1: MODELO DE NEGOCIO -->
+        <!-- ========================================== -->
+        <div id="screen-1" class="screen-content space-y-16">
+            
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden bg-gradient-to-r from-emerald-900 via-slate-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+                <div class="max-w-3xl space-y-4">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold border border-emerald-500/30">
+                        🚀 Módulo 1: Fundamentos de Emprendimiento
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                        Modelo de Negocio
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Aprende la estructura esencial para convertir cualquier idea en un proyecto real, sostenible y generador de valor.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sección: ¿Qué es un modelo de negocio? -->
+            <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
+                    <span class="text-2xl">💡</span> ¿Qué es un modelo de negocio?
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                            Un <strong class="text-slate-900">modelo de negocio</strong> es el plano o arquitectura estratégica que explica cómo una empresa <span class="text-brand-600 font-bold">crea, entrega y captura valor</span>.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            No se trata solo de vender un producto, sino de definir claramente a quién ayudas, cómo respondes a sus necesidades y de qué manera garantizas la rentabilidad de tu negocio.
+                        </p>
+                        
+                        <div class="bg-emerald-50/70 border-l-4 border-brand-500 p-4 rounded-r-xl space-y-2">
+                            <h3 class="font-bold text-slate-800 text-xs uppercase tracking-wider">Preguntas Clave que Responde:</h3>
+                            <ul class="space-y-1.5 text-slate-700 text-sm">
+                                <li class="flex items-center gap-2">🎯 <strong>¿Qué?</strong> Propuesta de valor entregada.</li>
+                                <li class="flex items-center gap-2">👥 <strong>¿A quién?</strong> Segmento de clientes atendido.</li>
+                                <li class="flex items-center gap-2">⚙️ <strong>¿Cómo?</strong> Recursos y actividades operativas.</li>
+                                <li class="flex items-center gap-2">💰 <strong>¿Cuánto?</strong> Estructura de costos e ingresos.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Main Image for Section 1 -->
+                    <div class="flex flex-col items-center bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                        <div class="relative group w-full flex justify-center">
+                            <img 
+                                src="https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/modeloDeNegocios_img1.png" 
+                                alt="Modelo de Negocio Explicativo" 
+                                class="zoom-img rounded-xl shadow-md max-w-full h-auto object-cover"
+                                onclick="openImageModal(this.src, this.alt)"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Modelo+de+Negocio';"
+                            />
+                            <span class="absolute bottom-2 right-2 bg-slate-900/80 text-white text-[10px] px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition">🔍 Clic para agrandar</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-3 text-center">Componentes principales de la arquitectura de un negocio. (Haz clic para ampliar)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Ejemplos de modelos de negocio -->
+            <section class="space-y-6">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                        <span class="text-2xl">🏢</span> Ejemplos de Modelos de Negocio
+                    </h2>
+                    <p class="text-slate-600 mt-2">
+                        Existen diferentes formas de estructurar un negocio según el tipo de producto, servicio o mercado objetivo.
+                    </p>
+                </div>
+
+                <!-- NON-COLLAPSIBLE Cards for Marketplace, Suscripción, Freemium FIRST -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    
+                    <!-- Marketplace Card -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-blue-300 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-4 font-bold">
+                                🛒
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Marketplace</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Plataforma digital que conecta directamente a compradores y vendedores de productos o servicios sin necesidad de ser propietario del inventario.
+                            </p>
+                        </div>
+                        <div class="p-4 bg-blue-50/70 rounded-xl text-xs text-slate-700 space-y-2 border border-blue-100">
+                            <p><strong>Ejemplos populares:</strong> Amazon, Mercado Libre, Airbnb.</p>
+                            <p><strong>Generación de ingresos:</strong> Comisiones fijas o porcentaje por cada transacción realizada.</p>
+                        </div>
+                    </div>
+
+                    <!-- Suscripción Card -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-purple-300 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-4 font-bold">
+                                🔄
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Suscripción</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                El cliente paga un monto periódico (mensual o anual) a cambio del acceso continuo a una plataforma, contenido o servicio recurrente.
+                            </p>
+                        </div>
+                        <div class="p-4 bg-purple-50/70 rounded-xl text-xs text-slate-700 space-y-2 border border-purple-100">
+                            <p><strong>Ejemplos populares:</strong> Netflix, Spotify, Xbox Game Pass.</p>
+                            <p><strong>Generación de ingresos:</strong> Pagos automáticos periódicos y predecibles.</p>
+                        </div>
+                    </div>
+
+                    <!-- Freemium Card -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:border-emerald-300 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-4 font-bold">
+                                ⭐
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Freemium</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Ofrece funciones o contenido básico sin costo alguno para atraer una gran audiencia, cobrando únicamente por características premium.
+                            </p>
+                        </div>
+                        <div class="p-4 bg-emerald-50/70 rounded-xl text-xs text-slate-700 space-y-2 border border-emerald-100">
+                            <p><strong>Ejemplos populares:</strong> Canva, Duolingo, Spotify Gratis.</p>
+                            <p><strong>Generación de ingresos:</strong> Conversión de un % de usuarios gratuitos a planes de pago.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CERTUS Image placed BELOW the 3 cards -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col items-center">
+                    <div class="relative group w-full flex justify-center">
+                        <img 
+                            src="https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/tipos-modelo-negocio_CERTUS_img.png" 
+                            alt="Tipos de Modelo de Negocio - CERTUS" 
+                            class="zoom-img rounded-xl shadow-sm max-w-full h-auto object-cover max-h-[440px]"
+                            onclick="openImageModal(this.src, this.alt)"
+                            onerror="this.onerror=null; this.src='https://placehold.co/700x350/1e293b/ffffff?text=Tipos+de+Modelos+de+Negocio';"
+                        />
+                        <span class="absolute bottom-2 right-2 bg-slate-900/80 text-white text-[10px] px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition">🔍 Clic para agrandar</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 text-center">Panorama general de los tipos de modelos de negocio más utilizados. (Haz clic para ampliar)</p>
+                </div>
+
+            </section>
+
+            <!-- Sección: Beneficios de tener un modelo de negocio definido -->
+            <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                    <span class="text-2xl">🌟</span> Beneficios de tener un Modelo de Negocio Definido
+                </h2>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-sm hover:translate-y-[-2px] transition">
+                        <div class="text-3xl mb-3">🧩</div>
+                        <h3 class="font-bold text-base mb-1">Claridad Estratégica</h3>
+                        <p class="text-xs text-slate-300">Permite entender exactamente cómo funciona tu proyecto de principio a fin.</p>
+                    </div>
+
+                    <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-sm hover:translate-y-[-2px] transition">
+                        <div class="text-3xl mb-3">💡</div>
+                        <h3 class="font-bold text-base mb-1">Validación Rápida</h3>
+                        <p class="text-xs text-slate-300">Facilita probar tus hipótesis con clientes reales antes de invertir grandes recursos.</p>
+                    </div>
+
+                    <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-sm hover:translate-y-[-2px] transition">
+                        <div class="text-3xl mb-3">📈</div>
+                        <h3 class="font-bold text-base mb-1">Viabilidad Financiera</h3>
+                        <p class="text-xs text-slate-300">Asegura que los ingresos proyectados superen con claridad los costos operativos.</p>
+                    </div>
+
+                    <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-sm hover:translate-y-[-2px] transition">
+                        <div class="text-3xl mb-3">🔄</div>
+                        <h3 class="font-bold text-base mb-1">Adaptabilidad</h3>
+                        <p class="text-xs text-slate-300">Permite hacer ajustes estratégicos ágiles cuando el mercado o los usuarios cambian.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Screen Navigation Button -->
+            <div class="pt-6 flex justify-end">
+                <button onclick="switchScreen(2)" class="px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-bold text-base rounded-2xl shadow-lg hover:shadow-brand-500/30 transition-all flex items-center gap-3">
+                    <span>Ir a Business Model Canvas</span>
+                    <span class="text-xl">➔</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PANTALLA 2: BUSINESS MODEL CANVAS -->
+        <!-- ========================================== -->
+        <div id="screen-2" class="screen-content space-y-16 hidden">
+            
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden bg-gradient-to-r from-teal-900 via-slate-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+                <div class="max-w-3xl space-y-4">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-semibold border border-teal-500/30">
+                        📊 Módulo 2: Herramienta de Diseño Estratégico
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                        Business Model Canvas
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Visualiza, analiza y diseña la estructura de tu idea emprendedora en una sola plantilla de 9 bloques.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sección: ¿Qué es el Business Model Canvas? -->
+            <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                    <span class="text-2xl">📋</span> ¿Qué es el Business Model Canvas?
+                </h2>
+
+                <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+                    Creado por <strong class="text-slate-900">Alexander Osterwalder</strong>, el <em>Business Model Canvas</em> (Lienzo de Modelo de Negocio) es un formato visual de gestión estratégica dividido en <strong>9 bloques interconectados</strong>.
+                </p>
+
+                <!-- BMC Image -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col items-center">
+                    <div class="relative group w-full flex justify-center">
+                        <img 
+                            src="https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/BMC_img.jpg" 
+                            alt="Estructura del Business Model Canvas" 
+                            class="zoom-img rounded-xl shadow-md max-w-full h-auto object-cover max-h-[420px]"
+                            onclick="openImageModal(this.src, this.alt)"
+                            onerror="this.onerror=null; this.src='https://placehold.co/700x380/1e293b/ffffff?text=Business+Model+Canvas';"
+                        />
+                        <span class="absolute bottom-2 right-2 bg-slate-900/80 text-white text-[10px] px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition">🔍 Clic para agrandar</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-2 text-center">Distribución general del lienzo Business Model Canvas. (Haz clic para ampliar)</p>
+                </div>
+
+                <!-- 4 Areas Overview -->
+                <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wider pt-2">Las 4 Grandes Áreas del Modelo:</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-4 rounded-xl bg-sky-50 border-l-4 border-area-cliente">
+                        <span class="text-xs font-bold text-area-cliente uppercase tracking-wider">Área 1</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">Clientes</h4>
+                        <p class="text-xs text-slate-600 mt-1">Segmentos, Canales y Relaciones</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-emerald-50 border-l-4 border-area-oferta">
+                        <span class="text-xs font-bold text-area-oferta uppercase tracking-wider">Área 2</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">Oferta de Valor</h4>
+                        <p class="text-xs text-slate-600 mt-1">La propuesta central del negocio</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-amber-50 border-l-4 border-area-infra">
+                        <span class="text-xs font-bold text-area-infra uppercase tracking-wider">Área 3</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">Infraestructura</h4>
+                        <p class="text-xs text-slate-600 mt-1">Socios, Actividades y Recursos</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-purple-50 border-l-4 border-area-finanzas">
+                        <span class="text-xs font-bold text-area-finanzas uppercase tracking-wider">Área 4</span>
+                        <h4 class="font-bold text-slate-900 text-sm mt-1">Viabilidad Económica</h4>
+                        <p class="text-xs text-slate-600 mt-1">Estructura de Costos e Ingresos</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Los nueve bloques del Business Model Canvas -->
+            <section class="space-y-6">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                        <span class="text-2xl">🔍</span> Los Bloques del Business Model Canvas
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-1">
+                        Haz clic en cualquier bloque para consultar su explicación y pregunta guía. El lienzo conserva sus proporciones originales en cualquier dispositivo.
+                    </p>
+                </div>
+
+                <!-- CANVAS CONTAINER WRAPPER: MAINTAINS STRICT PROPORTION ON ALL SCREENS -->
+                <div class="bg-slate-900 p-3 sm:p-6 rounded-3xl shadow-xl border border-slate-800 overflow-x-auto">
+                    <div class="canvas-grid-container min-w-[580px] sm:min-w-0 text-slate-800">
+                        
+                        <!-- BLOCK 8: Socios Clave (Col 1-2, Row 1-2) -->
+                        <div onclick="openBlockModal(8)" class="col-span-2 row-span-2 bg-white hover:bg-amber-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-amber-200 hover:border-amber-400 transition-all flex flex-col justify-between group shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">8</span>
+                                <span class="text-[9px] sm:text-xs bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full font-bold">Infraestructura</span>
+                            </div>
+                            <div class="my-2 sm:my-4 text-center">
+                                <div class="text-2xl sm:text-4xl mx-auto mb-1 text-brand-600 group-hover:scale-110 transition-transform">🔗</div>
+                                <h3 class="font-bold text-[11px] sm:text-sm text-slate-900 leading-tight">Socios clave</h3>
+                            </div>
+                            <span class="text-[9px] sm:text-[11px] text-slate-500 text-center font-medium">Ver detalle ➔</span>
+                        </div>
+
+                        <!-- BLOCK 7: Actividades Clave (Col 3-4, Row 1) -->
+                        <div onclick="openBlockModal(7)" class="col-span-2 row-span-1 bg-white hover:bg-amber-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-amber-200 hover:border-amber-400 transition-all flex flex-col justify-between group shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">7</span>
+                                <span class="text-[9px] sm:text-xs bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full font-bold">Infraestructura</span>
+                            </div>
+                            <div class="my-1 text-center">
+                                <div class="text-xl sm:text-2xl text-brand-600 group-hover:scale-110 transition-transform">🎯</div>
+                                <h3 class="font-bold text-[10px] sm:text-xs text-slate-900 leading-tight">Actividades Clave</h3>
+                            </div>
+                            <span class="text-[9px] sm:text-[11px] text-slate-500 text-center font-medium">Ver detalle ➔</span>
+                        </div>
+
+                        <!-- BLOCK 2: Propuesta de Valor (Col 5-6, Row 1-2) -->
+                        <div onclick="openBlockModal(2)" class="col-span-2 row-span-2 bg-white hover:bg-emerald-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-emerald-300 hover:border-emerald-500 transition-all flex flex-col justify-between group shadow-md ring-2 ring-emerald-400/20">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">2</span>
+                                <span class="text-[9px] sm:text-xs bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-full font-bold">Oferta</span>
+                            </div>
+                            <div class="my-2 sm:my-4 text-center">
+                                <div class="text-3xl sm:text-5xl mx-auto mb-1 text-brand-600 group-hover:scale-110 transition-transform">🎁</div>
+                                <h3 class="font-bold text-xs sm:text-base text-slate-900 leading-tight">Propuesta de Valor</h3>
+                            </div>
+                            <span class="text-[9px] sm:text-[11px] text-emerald-600 text-center font-bold">Corazón del negocio ➔</span>
+                        </div>
+
+                        <!-- BLOCK 4: Relaciones del cliente (Col 7-8, Row 1) -->
+                        <div onclick="openBlockModal(4)" class="col-span-2 row-span-1 bg-white hover:bg-sky-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-sky-200 hover:border-sky-400 transition-all flex flex-col justify-between group shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">4</span>
+                                <span class="text-[9px] sm:text-xs bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded-full font-bold">Clientes</span>
+                            </div>
+                            <div class="my-1 text-center">
+                                <div class="text-xl sm:text-2xl text-brand-600 group-hover:scale-110 transition-transform">💚</div>
+                                <h3 class="font-bold text-[10px] sm:text-xs text-slate-900 leading-tight">Relaciones del cliente</h3>
+                            </div>
+                            <span class="text-[9px] sm:text-[11px] text-slate-500 text-center font-medium">Ver detalle ➔</span>
+                        </div>
+
+                        <!-- BLOCK 1: Segmentos de Mercado (Col 9-10, Row 1-2) -->
+                        <div onclick="openBlockModal(1)" class="col-span-2 row-span-2 bg-white hover:bg-sky-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-sky-200 hover:border-sky-400 transition-all flex flex-col justify-between group shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">1</span>
+                                <span class="text-[9px] sm:text-xs bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded-full font-bold">Clientes</span>
+                            </div>
+                            <div class="my-2 sm:my-4 text-center">
+                                <div class="text-2xl sm:text-4xl mx-auto mb-1 text-brand-600 group-hover:scale-110 transition-transform">👥</div>
+                                <h3 class="font-bold text-[11px] sm:text-sm text-slate-900 leading-tight">Segmentos de Mercado</h3>
+                            </div>
+                            <span class="text-[9px] sm:text-[11px] text-slate-500 text-center font-medium">Ver detalle ➔</span>
+                        </div>
+
+                        <!-- BLOCK 6: Recursos clave (Col 3-4, Row 2) -->
+                        <div onclick="openBlockModal(6)" class="col-span-2 row-span-1 bg-white hover:bg-amber-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-amber-200 hover:border-amber-400 transition-all flex flex-col justify-between group shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">6</span>
+                                <span class="text-[9px] sm:text-xs bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full font-bold">Infraestructura</span>
+                            </div>
+                            <div class="my-1 text-center">
+                                <div class="text-xl sm:text-2xl text-brand-600 group-hover:scale-110 transition-transform">⚙️</div>
+                                <h3 class="font-bold text-[10px] sm:text-xs text-slate-900 leading-tight">Recursos clave</h3>
+                            </div>
+                            <span class="text-[9px] sm:text-[11px] text-slate-500 text-center font-medium">Ver detalle ➔</span>
+                        </div>
+
+                        <!-- BLOCK 3: Canales de Distribución (Col 7-8, Row 2) -->
+                        <div onclick="openBlockModal(3)" class="col-span-2 row-span-1 bg-white hover:bg-sky-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-sky-200 hover:border-sky-400 transition-all flex flex-col justify-between group shadow-sm">
+                            <div class="flex justify-between items-start">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">3</span>
+                                <span class="text-[9px] sm:text-xs bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded-full font-bold">Clientes</span>
+                            </div>
+                            <div class="my-1 text-center">
+                                <div class="text-xl sm:text-2xl text-brand-600 group-hover:scale-110 transition-transform">🚚</div>
+                                <h3 class="font-bold text-[10px] sm:text-xs text-slate-900 leading-tight">Canales de Distribución</h3>
+                            </div>
+                            <span class="text-[9px] sm:text-[11px] text-slate-500 text-center font-medium">Ver detalle ➔</span>
+                        </div>
+
+                        <!-- BLOCK 9: Estructura de costos (Col 1-5, Row 3) -->
+                        <div onclick="openBlockModal(9)" class="col-span-5 row-span-1 bg-white hover:bg-purple-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-purple-200 hover:border-purple-400 transition-all flex justify-between items-center group shadow-sm">
+                            <div class="flex items-center gap-2 sm:gap-3">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">9</span>
+                                <div class="text-left">
+                                    <h3 class="font-bold text-xs sm:text-base text-slate-900 leading-tight">Estructura de costos</h3>
+                                    <span class="text-[9px] sm:text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded-full font-bold">Viabilidad Económica</span>
+                                </div>
+                            </div>
+                            <div class="text-2xl sm:text-3xl text-brand-600 group-hover:scale-110 transition-transform">🧮</div>
+                        </div>
+
+                        <!-- BLOCK 5: Flujos de ingresos (Col 6-10, Row 3) -->
+                        <div onclick="openBlockModal(5)" class="col-span-5 row-span-1 bg-white hover:bg-purple-50 rounded-2xl p-2.5 sm:p-4 cursor-pointer border-2 border-purple-200 hover:border-purple-400 transition-all flex justify-between items-center group shadow-sm">
+                            <div class="flex items-center gap-2 sm:gap-3">
+                                <span class="text-xl sm:text-3xl font-extrabold text-brand-600">5</span>
+                                <div class="text-left">
+                                    <h3 class="font-bold text-xs sm:text-base text-slate-900 leading-tight">Flujos de ingresos</h3>
+                                    <span class="text-[9px] sm:text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded-full font-bold">Viabilidad Económica</span>
+                                </div>
+                            </div>
+                            <div class="text-2xl sm:text-3xl text-brand-600 group-hover:scale-110 transition-transform">💵</div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: ¿Cómo elaborar tu Business Model Canvas? -->
+            <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                    <span class="text-2xl">🛠️</span> ¿Cómo Elaborar tu Business Model Canvas?
+                </h2>
+                <p class="text-slate-600">Secuencia lógica recomendada para completar tu lienzo por primera vez:</p>
+
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-sky-600 uppercase">Paso Inicial</span>
+                        <h3 class="font-bold text-slate-900 mt-1">1. Segmentos de Mercado</h3>
+                        <p class="text-xs text-slate-600 mt-1">Identifica claramente a quién sirves y quiénes son tus clientes principales.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-emerald-600 uppercase">Paso Core</span>
+                        <h3 class="font-bold text-slate-900 mt-1">2. Propuesta de Valor</h3>
+                        <p class="text-xs text-slate-600 mt-1">Define la solución o beneficio distintivo que ofrecerás a tus usuarios.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-sky-600 uppercase">Paso Distribución</span>
+                        <h3 class="font-bold text-slate-900 mt-1">3. Canales</h3>
+                        <p class="text-xs text-slate-600 mt-1">Establece los medios para comunicar, vender y entregar la propuesta.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-sky-600 uppercase">Paso Relación</span>
+                        <h3 class="font-bold text-slate-900 mt-1">4. Relaciones con el Cliente</h3>
+                        <p class="text-xs text-slate-600 mt-1">Determina el tipo de interacción y fidelización con el usuario.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-purple-600 uppercase">Paso Monetización</span>
+                        <h3 class="font-bold text-slate-900 mt-1">5. Flujos de Ingresos</h3>
+                        <p class="text-xs text-slate-600 mt-1">Define los mecanismos y fuentes para recibir ingresos financieros.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-amber-600 uppercase">Paso Operativo</span>
+                        <h3 class="font-bold text-slate-900 mt-1">6. Recursos Clave</h3>
+                        <p class="text-xs text-slate-600 mt-1">Determina los activos físicos, humanos o tecnológicos indispensables.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-amber-600 uppercase">Paso Operativo</span>
+                        <h3 class="font-bold text-slate-900 mt-1">7. Actividades Clave</h3>
+                        <p class="text-xs text-slate-600 mt-1">Menciona las tareas esenciales que debe ejecutar la empresa a diario.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-amber-600 uppercase">Paso Alianzas</span>
+                        <h3 class="font-bold text-slate-900 mt-1">8. Socios Clave</h3>
+                        <p class="text-xs text-slate-600 mt-1">Identifica proveedores estratégicos y aliados comerciales.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="text-xs font-bold text-purple-600 uppercase">Paso Financiero</span>
+                        <h3 class="font-bold text-slate-900 mt-1">9. Estructura de Costos</h3>
+                        <p class="text-xs text-slate-600 mt-1">Calcula los gastos fijos y variables necesarios para operar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nueva Sección: Ejemplo Real - Costco Business Model Canvas -->
+            <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                    <span class="text-2xl">🏬</span> Ejemplo Práctico: Business Model Canvas de Costco
+                </h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Observa cómo se aplican los 9 bloques del Canvas en un caso real de éxito empresarial internacional como Costco:
+                </p>
+
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col items-center">
+                    <div class="relative group w-full flex justify-center">
+                        <img 
+                            src="https://fabiolachr.github.io/Repositorio_de_imagenes_e_infografias/costco-business-model-canvas.webp" 
+                            alt="Ejemplo de Business Model Canvas de Costco" 
+                            class="zoom-img rounded-xl shadow-md max-w-full h-auto object-cover max-h-[500px]"
+                            onclick="openImageModal(this.src, this.alt)"
+                            onerror="this.onerror=null; this.src='https://placehold.co/800x450/1e293b/ffffff?text=Costco+Business+Model+Canvas';"
+                        />
+                        <span class="absolute bottom-2 right-2 bg-slate-900/80 text-white text-[10px] px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition">🔍 Clic para agrandar</span>
+                    </div>
+                    
+                    <p class="text-[11px] text-slate-500 mt-3 text-center">
+                        Fuente de referencia: 
+                        <a href="https://www.garyfox.co/costco-business-model/" target="_blank" rel="noopener noreferrer" class="text-brand-600 underline hover:text-brand-700 font-medium">
+                            https://www.garyfox.co/costco-business-model/
+                        </a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Sección: Ventajas del Business Model Canvas -->
+            <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 space-y-6">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                    <span class="text-2xl">⚡</span> Ventajas del Business Model Canvas
+                </h2>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 shrink-0 flex items-center justify-center text-xl">👁️</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1 text-sm">Visión Holística</h3>
+                            <p class="text-xs text-slate-600">Permite observar toda la empresa de un solo vistazo en una sola página.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 shrink-0 flex items-center justify-center text-xl">🚀</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1 text-sm">Agilidad y Pivoteo</h3>
+                            <p class="text-xs text-slate-600">Facilita hacer ajustes ágiles sin redactar extensos documentos iniciales.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 shrink-0 flex items-center justify-center text-xl">🤝</div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 mb-1 text-sm">Trabajo Colaborativo</h3>
+                            <p class="text-xs text-slate-600">Ideal para construir en equipo mediante dinámicas visuales y participativas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección: Fuentes de consulta -->
+            <section class="pt-6 border-t border-slate-200">
+                <h3 class="text-base font-bold text-slate-900 mb-3">Fuentes de Consulta</h3>
+                <ul class="space-y-2 text-xs text-slate-600">
+                    <li class="flex items-start gap-2">
+                        <span>📚</span>
+                        <span><strong>Osterwalder, A., & Pigneur, Y. (2010).</strong> <em>Business Model Generation: A Handbook for Visionaries, Game Changers, and Challengers</em>. John Wiley & Sons.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span>🌐</span>
+                        <span><strong>Strategyzer.</strong> <em>The Business Model Canvas</em>. Disponible en línea en strategyzer.com.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span>📷</span>
+                        <span><strong>CERTUS.</strong> <em>Tipos y modelos de negocio en el entorno actual</em>. Repositorio educativo.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span>🛒</span>
+                        <span><strong>Gary Fox.</strong> <em>Costco Business Model Canvas Case Study</em>. <a href="https://www.garyfox.co/costco-business-model/" target="_blank" rel="noopener noreferrer" class="text-brand-600 underline">https://www.garyfox.co/costco-business-model/</a></span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Bottom Screen Navigation Button -->
+            <div class="pt-6 flex justify-end">
+                <button onclick="switchScreen(3)" class="px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-bold text-base rounded-2xl shadow-lg hover:shadow-brand-500/30 transition-all flex items-center gap-3">
+                    <span>Ir a Ejercicio de Práctica</span>
+                    <span class="text-xl">🚀</span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PANTALLA 3: EJERCICIO DE PRÁCTICA (JUEGO) -->
+        <!-- ========================================== -->
+        <div id="screen-3" class="screen-content space-y-8 hidden">
+            
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden bg-gradient-to-r from-purple-900 via-slate-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+                <div class="max-w-3xl space-y-4">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-semibold border border-purple-500/30">
+                        🎮 Módulo Práctico: Desafío interactivo
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                        Ejercicio de Práctica
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg">
+                        Pon a prueba tus conocimientos sobre Modelos de Negocio y el Business Model Canvas en este reto interactivo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Game Box -->
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-200">
+                <div id="game-container">
+                    
+                    <!-- Progress & Score Bar -->
+                    <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold uppercase text-slate-400">Progreso</span>
+                            <span id="game-progress-text" class="text-sm font-extrabold text-brand-600">Pregunta 1 de 5</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200">
+                            <span class="text-base">🏆</span>
+                            <span class="text-xs font-bold text-emerald-800">Puntaje: <span id="game-score">0</span> pts</span>
+                        </div>
+                    </div>
+
+                    <!-- Question Content Area -->
+                    <div id="question-card" class="space-y-6">
+                        <div class="space-y-2">
+                            <span id="question-category" class="text-xs font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-3 py-1 rounded-full">Categoría</span>
+                            <h3 id="question-text" class="text-xl sm:text-2xl font-bold text-slate-900 leading-snug">Texto de la pregunta...</h3>
+                        </div>
+
+                        <!-- Options Container -->
+                        <div id="options-container" class="grid grid-cols-1 gap-3">
+                            <!-- Populated via JavaScript -->
+                        </div>
+
+                        <!-- Feedback Box -->
+                        <div id="feedback-box" class="hidden p-4 rounded-2xl text-sm font-medium border space-y-1">
+                            <h4 id="feedback-title" class="font-bold text-base"></h4>
+                            <p id="feedback-text" class="text-xs leading-relaxed"></p>
+                        </div>
+
+                        <!-- Next Button -->
+                        <div class="flex justify-end pt-4">
+                            <button id="next-btn" onclick="nextQuestion()" class="hidden px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm rounded-xl transition">
+                                Siguiente pregunta ➔
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- End Game Summary Screen -->
+                    <div id="results-card" class="hidden text-center space-y-6 py-8">
+                        <div class="w-20 h-20 bg-emerald-100 text-brand-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">
+                            🎉
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">¡Desafío Completado!</h3>
+                        <p class="text-slate-600 max-w-md mx-auto text-sm sm:text-base">
+                            Has terminado el ejercicio práctico sobre Modelo de Negocio y Business Model Canvas.
+                        </p>
+                        
+                        <div class="inline-block bg-slate-50 p-6 rounded-2xl border border-slate-200 min-w-[240px]">
+                            <span class="text-xs font-bold uppercase text-slate-400">Tu Puntaje Final</span>
+                            <div class="text-4xl font-extrabold text-brand-600 mt-1" id="final-score">0 / 5</div>
+                            <p id="final-feedback" class="text-xs font-semibold text-slate-600 mt-2"></p>
+                        </div>
+
+                        <div class="pt-4 flex justify-center gap-4">
+                            <button onclick="restartGame()" class="px-6 py-3 bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm rounded-xl shadow-md transition">
+                                Intentar de nuevo 🔄
+                            </button>
+                            <button onclick="switchScreen(1)" class="px-6 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-sm rounded-xl transition">
+                                Volver al inicio 🏠
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER WITH PROFESSOR CREDIT -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-16 text-center">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p class="text-sm font-semibold text-slate-200">Creado por la Profesora Fabiola Chávez Romero</p>
+            <p>© Recurso Educativo Digital - Formación de Emprendimiento para Preparatoria</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX IMAGE MODAL -->
+    <div id="image-modal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300">
+        <!-- Close button "X" -->
+        <button onclick="closeImageModal()" class="absolute top-5 right-5 z-50 text-white bg-slate-800/90 hover:bg-slate-700 w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold shadow-2xl transition border border-slate-600" title="Cerrar (Esc)">
+            ✕
+        </button>
+        <div class="relative max-w-full max-h-full flex flex-col items-center justify-center p-2">
+            <img id="modal-image-src" src="" alt="" class="max-w-[94vw] max-h-[85vh] object-contain rounded-2xl shadow-2xl border border-slate-700">
+            <p id="modal-image-caption" class="text-slate-300 text-xs sm:text-sm mt-3 text-center bg-slate-900/90 px-5 py-2 rounded-full border border-slate-700 max-w-2xl"></p>
+        </div>
+    </div>
+
+    <!-- MODAL FOR CANVAS BLOCKS DETAIL -->
+    <div id="block-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100">
+            <button onclick="closeBlockModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition">
+                ✕
+            </button>
+            
+            <div class="flex items-center gap-3 mb-4">
+                <span id="modal-number" class="w-10 h-10 rounded-xl bg-brand-600 text-white font-extrabold flex items-center justify-center text-xl shadow-md">1</span>
+                <div>
+                    <span id="modal-area" class="text-xs font-bold uppercase tracking-wider text-slate-500">Área</span>
+                    <h3 id="modal-title" class="text-xl font-extrabold text-slate-900 leading-tight">Nombre del Bloque</h3>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Descripción</h4>
+                    <p id="modal-desc" class="text-slate-700 text-sm leading-relaxed">Explicación breve del bloque...</p>
+                </div>
+
+                <div class="p-4 bg-emerald-50 border-l-4 border-emerald-500 rounded-r-xl">
+                    <h4 class="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1 mb-1">
+                        💡 Pregunta Guía
+                    </h4>
+                    <p id="modal-question" class="text-slate-800 text-sm italic font-medium">¿Cuál es la pregunta orientadora?</p>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Ejemplo práctico</h4>
+                    <p id="modal-example" class="text-slate-600 text-xs">Ejemplo para estudiantes...</p>
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-end">
+                <button onclick="closeBlockModal()" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl transition">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button onclick="window.scrollTo({top:0, behavior:'smooth'})" id="back-to-top" class="fixed bottom-6 right-6 z-30 hidden p-3 rounded-full bg-brand-600 hover:bg-brand-500 text-white shadow-xl transition-all duration-300 hover:scale-110">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+    </button>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. SCREEN SWITCHING SYSTEM
+        function switchScreen(screenNum) {
+            document.querySelectorAll('.screen-content').forEach(screen => {
+                screen.classList.add('hidden');
+            });
+
+            const targetScreen = document.getElementById(`screen-${screenNum}`);
+            if (targetScreen) {
+                targetScreen.classList.remove('hidden');
+            }
+
+            [1, 2, 3].forEach(num => {
+                const btn = document.getElementById(`nav-btn-${num}`);
+                if (btn) {
+                    if (num === screenNum) {
+                        btn.classList.add('bg-brand-600', 'text-white', 'hover:bg-brand-500', 'hover:text-white');
+                        btn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+                    } else {
+                        btn.classList.remove('bg-brand-600', 'text-white', 'hover:bg-brand-500', 'hover:text-white');
+                        btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+                    }
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            switchScreen(1);
+            loadQuestion();
+        });
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // 2. IMAGE LIGHTBOX MODAL
+        function openImageModal(src, alt) {
+            const modal = document.getElementById('image-modal');
+            document.getElementById('modal-image-src').src = src;
+            document.getElementById('modal-image-src').alt = alt || 'Imagen ampliada';
+            document.getElementById('modal-image-caption').innerText = alt || '';
+            modal.classList.remove('hidden');
+        }
+
+        function closeImageModal() {
+            document.getElementById('image-modal').classList.add('hidden');
+        }
+
+        document.getElementById('image-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeImageModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeImageModal();
+        });
+
+        // 3. CANVAS BLOCKS MODAL DATA
+        const canvasBlocksData = {
+            1: {
+                number: 1,
+                name: "Segmentos de Mercado",
+                area: "Clientes",
+                desc: "Los diferentes grupos de personas u organizaciones a los que tu empresa pretende alcanzar y servir.",
+                question: "¿Para quién estamos creando valor? ¿Quiénes son nuestros clientes o usuarios más importantes?",
+                example: "Jóvenes de preparatoria entre 15 y 18 años apasionados por los videojuegos y el deporte."
+            },
+            2: {
+                number: 2,
+                name: "Propuesta de Valor",
+                area: "Oferta de Valor",
+                desc: "El conjunto de productos o servicios que solucionan un problema específico o satisfacen una necesidad de tus clientes.",
+                question: "¿Qué valor entregamos al cliente? ¿Qué problema estamos ayudando a resolver?",
+                example: "Un snack nutritivo, económico y con empaque 100% ecológico para consumir entre clases."
+            },
+            3: {
+                number: 3,
+                name: "Canales de Distribución",
+                area: "Clientes",
+                desc: "Los medios a través de los cuales la empresa comunica, vende y entrega su propuesta de valor.",
+                question: "¿A través de qué medios prefieren ser contactados nuestros clientes? ¿Cómo les entregamos la oferta?",
+                example: "Redes sociales (Instagram, TikTok), tienda en línea y entregas en la cafetería escolar."
+            },
+            4: {
+                number: 4,
+                name: "Relaciones del cliente",
+                area: "Clientes",
+                desc: "Los tipos de vínculos que se establecen con cada segmento de clientes (atención personalizada, autoservicio, comunidad).",
+                question: "¿Qué tipo de relación espera cada segmento de clientes que mantengamos con ellos?",
+                example: "Atención amigable en redes sociales, soporte rápido por WhatsApp y programa de recompensas."
+            },
+            5: {
+                number: 5,
+                name: "Flujos de ingresos",
+                area: "Viabilidad Económica",
+                desc: "Las fuentes y mecanismos por los cuales el negocio genera ingresos monetarios a partir de sus clientes.",
+                question: "¿Por qué valor están dispuestos a pagar los clientes? ¿Cómo prefieren realizar el pago?",
+                example: "Venta directa de productos, cobros en efectivo y transferencias digitales mediante código QR."
+            },
+            6: {
+                number: 6,
+                name: "Recursos clave",
+                area: "Infraestructura",
+                desc: "Los activos indispensables (físicos, intelectuales, humanos o financieros) para operarlo.",
+                question: "¿Qué recursos clave requiere nuestra propuesta de valor, canales y relaciones con clientes?",
+                example: "Horno pastelero, equipo de 3 estudiantes, recetas exclusivas y cuenta verificada en redes."
+            },
+            7: {
+                number: 7,
+                name: "Actividades Clave",
+                area: "Infraestructura",
+                desc: "Las tareas críticas más importantes que debe ejecutar la empresa para que el modelo funcione.",
+                question: "¿Qué actividades clave se requieren para crear y entregar nuestra propuesta de valor?",
+                example: "Elaboración diaria de alimentos, control de calidad, marketing digital y gestión de pedidos."
+            },
+            8: {
+                number: 8,
+                name: "Socios clave",
+                area: "Infraestructura",
+                desc: "Red de proveedores, aliados estratégicos y asesores necesarios para complementar la operación.",
+                question: "¿Quiénes son nuestros proveedores y socios clave? ¿Qué actividades realizan ellos por nosotros?",
+                example: "Distribuidor local de frutas frescas, cafetería escolar asociada y profesor asesor."
+            },
+            9: {
+                number: 9,
+                name: "Estructura de costos",
+                area: "Viabilidad Económica",
+                desc: "Todos los costos e inversión financiera requeridos para sostener y operar el negocio.",
+                question: "¿Cuáles son los costos más importantes inherentes a nuestro modelo de negocio?",
+                example: "Compra de materia prima, empaques biodegradables, servicios de internet y publicidad."
+            }
+        };
+
+        function openBlockModal(blockNumber) {
+            const block = canvasBlocksData[blockNumber];
+            if (!block) return;
+
+            document.getElementById('modal-number').innerText = block.number;
+            document.getElementById('modal-title').innerText = block.name;
+            document.getElementById('modal-area').innerText = block.area;
+            document.getElementById('modal-desc').innerText = block.desc;
+            document.getElementById('modal-question').innerText = `"${block.question}"`;
+            document.getElementById('modal-example').innerText = block.example;
+
+            document.getElementById('block-modal').classList.remove('hidden');
+        }
+
+        function closeBlockModal() {
+            document.getElementById('block-modal').classList.add('hidden');
+        }
+
+        document.getElementById('block-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeBlockModal();
+        });
+
+        // 4. INTERACTIVE PRACTICE GAME LOGIC
+        const quizQuestions = [
+            {
+                category: "Modelo de Negocio",
+                question: "¿Cuál es la definición principal de un Modelo de Negocio?",
+                options: [
+                    "Es un documento formal para pedir préstamos al banco únicamente.",
+                    "Es la estructura estratégica que explica cómo una empresa crea, entrega y captura valor.",
+                    "Es un logotipo comercial acompañado del nombre de la marca.",
+                    "Es un programa de computadora para contar inventarios de ventas."
+                ],
+                correct: 1,
+                explanation: "¡Correcto! El modelo de negocio explica cómo la empresa crea, entrega y captura valor económico y social."
+            },
+            {
+                category: "Ejemplos de Modelos",
+                question: "Si una empresa como Netflix o Spotify te cobra una cuota fija cada mes por acceder a su catálogo, ¿qué modelo utiliza?",
+                options: [
+                    "Marketplace",
+                    "Modelo Freemium",
+                    "Modelo de Suscripción",
+                    "Venta directa tradicional"
+                ],
+                correct: 2,
+                explanation: "¡Muy bien! El modelo de suscripción se basa en pagos periódicos (mensuales/anuales) a cambio del acceso continuo al servicio."
+            },
+            {
+                category: "Business Model Canvas",
+                question: "¿Qué representa el bloque 'Propuesta de Valor' en el lienzo Canvas?",
+                options: [
+                    "El precio total que le cobraremos al cliente por la compra.",
+                    "El conjunto de productos o servicios que solucionan un problema o satisfacen una necesidad del cliente.",
+                    "El costo de fabricación del producto en el taller.",
+                    "El banco donde la empresa guarda sus ganancias."
+                ],
+                correct: 1,
+                explanation: "¡Excelente! La propuesta de valor es la solución o beneficio único que ofreces y que te diferencia de la competencia."
+            },
+            {
+                category: "Bloques del Canvas",
+                question: "Si tu emprendimiento vende snacks mediante Instagram y entregas en la cafetería escolar, ¿en qué bloque registras estos medios?",
+                options: [
+                    "Socios Clave",
+                    "Estructura de Costos",
+                    "Canales de Distribución",
+                    "Flujos de Ingresos"
+                ],
+                correct: 2,
+                explanation: "¡Exacto! Los canales de distribución describen cómo te comunicas, vendes y entregas tu producto a los clientes."
+            },
+            {
+                category: "Viabilidad Económica",
+                question: "¿Cuáles son los dos bloques del Canvas que evalúan directamente la viabilidad económica del proyecto?",
+                options: [
+                    "Propuesta de valor y Segmentos de mercado",
+                    "Estructura de costos y Flujos de ingresos",
+                    "Socios clave y Recursos clave",
+                    "Actividades clave y Relaciones con clientes"
+                ],
+                correct: 1,
+                explanation: "¡Correcto! La estructura de costos (lo que gastas) e ingresos (lo que ganas) conforman la viabilidad económica."
+            },
+            {
+                category: "Socios Clave",
+                question: "¿Por qué son fundamentales los 'Socios Clave' en un modelo de negocio?",
+                options: [
+                    "Porque realizan todas las ventas directamente con el consumidor final.",
+                    "Porque ayudan a optimizar operaciones, reducir riesgos o adquirir recursos que la empresa no posee por sí misma.",
+                    "Porque son los únicos encargados de diseñar la publicidad del negocio.",
+                    "Porque financian el 100% de la empresa sin pedir nada a cambio."
+                ],
+                correct: 1,
+                explanation: "¡Excelente! Los socios clave permiten complementar capacidades, compartir riesgos y optimizar la estructura operativa del negocio."
+            },
+            {
+                category: "Recursos Clave",
+                question: "¿Cuál de las siguientes opciones describe un ejemplo de 'Recurso Clave' de tipo físico o tecnológico?",
+                options: [
+                    "Las comisiones que se pagan a los vendedores al final del mes.",
+                    "Una app móvil propia, maquinaria de producción o patentes exclusivas.",
+                    "Los comentarios de recomendación que dejan los clientes en redes.",
+                    "Las ofertas de descuento que se publican durante el fin de semana."
+                ],
+                correct: 1,
+                explanation: "¡Correcto! Los recursos clave son los activos físicos, intelectuales, tecnológicos o humanos indispensables para que el negocio funcione."
+            },
+            {
+                category: "Ejemplos de Modelos",
+                question: "¿Cuál es la característica principal del modelo de negocio 'Freemium'?",
+                options: [
+                    "Obliga a todos los usuarios a pagar desde el primer día para poder entrar.",
+                    "Ofrece una versión básica gratuita para atraer usuarios y cobra por funciones avanzadas o premium.",
+                    "Vende únicamente productos físicos de segunda mano mediante subastas.",
+                    "Regala absolutamente todos los productos y servicios sin generar ingresos jamás."
+                ],
+                correct: 1,
+                explanation: "¡Muy bien! El modelo freemium atrae masivamente a usuarios con una versión gratuita y monetiza a través de un porcentaje que adquiere la versión premium."
+            },
+            {
+                category: "Viabilidad Económica",
+                question: "¿Qué elementos se deben analizar en el bloque 'Estructura de Costos'?",
+                options: [
+                    "Los sueldos de los empleados, alquiler, insumos y todos los gastos necesarios para operar.",
+                    "El dinero acumulado que los socios retirarán como ganancias personales al final del año.",
+                    "Los precios máximos que la competencia cobra por productos similares.",
+                    "El monto total de impuestos pagados al gobierno en años anteriores."
+                ],
+                correct: 0,
+                explanation: "¡Exacto! La estructura de costos abarca todos los gastos fijos y variables necesarios para crear, promocionar y entregar la propuesta de valor."
+            },
+            {
+                category: "Elaboración del Canvas",
+                question: "Al comenzar a diseñar un Business Model Canvas por primera vez, ¿cuáles son los dos bloques sugeridos para iniciar?",
+                options: [
+                    "Estructura de costos y Socios clave.",
+                    "Segmentos de Mercado y Propuesta de Valor.",
+                    "Canales de Distribución y Recursos clave.",
+                    "Flujos de Ingresos y Actividades clave."
+                ],
+                correct: 1,
+                explanation: "¡Fantástico! Se recomienda comenzar identificando a quién sirves (Segmentos de Mercado) y qué beneficio les ofreces (Propuesta de Valor)."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const q = quizQuestions[currentQuestionIndex];
+            
+            document.getElementById('game-progress-text').innerText = `Pregunta ${currentQuestionIndex + 1} de ${quizQuestions.length}`;
+            document.getElementById('question-category').innerText = q.category;
+            document.getElementById('question-text').innerText = q.question;
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            document.getElementById('feedback-box').classList.add('hidden');
+            document.getElementById('next-btn').classList.add('hidden');
+
+            q.options.forEach((optText, index) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border border-slate-200 hover:border-brand-500 hover:bg-emerald-50/50 transition duration-200 text-sm font-medium text-slate-800 flex items-center justify-between group";
+                btn.innerHTML = `
+                    <span>${optText}</span>
+                    <span class="w-6 h-6 rounded-full border border-slate-300 group-hover:border-brand-500 flex items-center justify-center text-xs font-bold text-slate-400 group-hover:text-brand-600">${String.fromCharCode(65 + index)}</span>
+                `;
+                btn.onclick = () => selectOption(index);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedIndex) {
+            if (answered) return;
+            answered = true;
+
+            const q = quizQuestions[currentQuestionIndex];
+            const optionsButtons = document.getElementById('options-container').children;
+            const feedbackBox = document.getElementById('feedback-box');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackText = document.getElementById('feedback-text');
+
+            if (selectedIndex === q.correct) {
+                score += 10;
+                document.getElementById('game-score').innerText = score;
+                optionsButtons[selectedIndex].classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+                
+                feedbackBox.className = "p-4 rounded-2xl text-sm font-medium border space-y-1 bg-emerald-50 border-emerald-300 text-emerald-900";
+                feedbackTitle.innerText = "¡Respuesta Correcta! 🎉";
+            } else {
+                optionsButtons[selectedIndex].classList.add('bg-rose-100', 'border-rose-400', 'text-rose-900');
+                optionsButtons[q.correct].classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+                
+                feedbackBox.className = "p-4 rounded-2xl text-sm font-medium border space-y-1 bg-rose-50 border-rose-300 text-rose-900";
+                feedbackTitle.innerText = "Respuesta Incorrecta 😅";
+            }
+
+            feedbackText.innerText = q.explanation;
+            feedbackBox.classList.remove('hidden');
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizQuestions.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-card').classList.add('hidden');
+            const resultsCard = document.getElementById('results-card');
+            resultsCard.classList.remove('hidden');
+            
+            document.getElementById('final-score').innerText = `${score} / 100 pts`;
+
+            const feedbackMsg = document.getElementById('final-feedback');
+            if (score >= 80) {
+                feedbackMsg.innerText = "¡Excelente trabajo! Dominas perfectamente los conceptos del Modelo de Negocio y Canvas.";
+            } else if (score >= 60) {
+                feedbackMsg.innerText = "¡Buen esfuerzo! Tienes bases sólidas, repasa algunos bloques del Canvas para perfeccionar.";
+            } else {
+                feedbackMsg.innerText = "¡Sigue practicando! Te recomendamos repasar los conceptos en las secciones 1 y 2.";
+            }
+        }
+
+        function restartGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('game-score').innerText = 0;
+            document.getElementById('results-card').classList.add('hidden');
+            document.getElementById('question-card').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        // Back to top button logic
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
