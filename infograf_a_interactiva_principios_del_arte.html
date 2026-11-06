@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Interactiva: Principios del Arte</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        art: {
+                            purple: '#6d28d9',
+                            pink: '#db2777',
+                            amber: '#d97706',
+                            emerald: '#059669',
+                            cyan: '#0891b2',
+                            dark: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+        }
+        .dark-glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .principle-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .principle-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-purple-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white shadow-md shadow-purple-200">
+                    <i class="fa-solid me-0 fa-palette text-lg"></i>
+                </div>
+                <span class="font-serif font-bold text-xl tracking-tight text-slate-900">Arte<span class="gradient-text">Visual</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                <a href="#introduccion" class="hover:text-purple-600 transition-colors">HOLAAAAAAAAAAAAAAAAA</a>
+                <a href="#principios" class="hover:text-purple-600 transition-colors">Los 9 Principios</a>
+                <a href="#laboratorio" class="hover:text-purple-600 transition-colors">Lab Interactivo</a>
+                <a href="#cuestionario" class="hover:text-purple-600 transition-colors">Cuestionario</a>
+            </nav>
+            <a href="#cuestionario" class="px-4 py-2 rounded-full bg-slate-900 text-white text-xs font-semibold hover:bg-purple-700 transition-all shadow-md">
+                Poner a prueba
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="introduccion" class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-slate-100 via-purple-50/30 to-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-block py-1 px-3.5 rounded-full bg-purple-100 text-purple-700 text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm border border-purple-200">
+                Guía Visual Interactiva
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-serif font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
+                Los Principios del <span class="gradient-text">Arte Visual</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg text-slate-600 leading-relaxed mb-8">
+                Mientras que los <i>elementos del arte</i> son los ingredientes (línea, color, forma), los <b>principios del arte</b> son las fórmulas para organizarlos y crear obras impactantes con armonía y mensaje.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#principios" class="px-6 py-3 rounded-xl bg-purple-600 text-white font-semibold shadow-lg shadow-purple-200 hover:bg-purple-700 hover:shadow-xl transition-all">
+                    Explorar Principios <i class="fa-solid fa-arrow-down ml-2 text-sm"></i>
+                </a>
+                <a href="#laboratorio" class="px-6 py-3 rounded-xl bg-white text-slate-700 font-semibold border border-slate-200 hover:bg-slate-50 shadow-sm transition-all">
+                    Probar el Lab Interactivo <i class="fa-solid fa-flask ml-2 text-purple-500"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Decorative background shapes -->
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+    </section>
+
+    <!-- Interactive Infographic Grid -->
+    <section id="principios" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-serif font-bold text-slate-900 mb-3">Los 9 Principios Fundamentales</h2>
+            <p class="text-slate-600 max-w-xl mx-auto">Haz clic en cualquier tarjeta para profundizar o activa los demostradores visuales.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1: Equilibrio -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-purple-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <span class="text-xs font-bold text-indigo-600 tracking-widest uppercase">1. Estructura</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Equilibrio (Balance)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Distribución del peso visual de los elementos (formas, colores, texturas) en la composición para crear estabilidad.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-indigo-500 mr-2"></i> <b>Simétrico:</b> Mismo peso en ambos lados.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-indigo-500 mr-2"></i> <b>Asimétrico:</b> Pesos diferentes que se compensan.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-indigo-500 mr-2"></i> <b>Radial:</b> Elementos distribuidos desde un centro.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('equilibrio')" class="w-full py-2.5 px-4 rounded-xl bg-indigo-50 text-indigo-700 text-xs font-bold hover:bg-indigo-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+            <!-- Card 2: Contraste -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-pink-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                    </div>
+                    <span class="text-xs font-bold text-pink-600 tracking-widest uppercase">2. Impacto</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Contraste</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Disposición de elementos opuestos (claro/oscuro, grande/pequeño, rugoso/suave) para generar tensión dramática y captar la atención.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-pink-500 mr-2"></i> Destaca diferencias entre elementos.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-pink-500 mr-2"></i> Evita la monotonía visual.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-pink-500 mr-2"></i> Guía la jerarquía de lectura.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('contraste')" class="w-full py-2.5 px-4 rounded-xl bg-pink-50 text-pink-700 text-xs font-bold hover:bg-pink-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+            <!-- Card 3: Énfasis -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-amber-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <span class="text-xs font-bold text-amber-600 tracking-widest uppercase">3. Atencion</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Énfasis (Punto Focal)</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        La parte de la obra que atrae la mirada primero. Es el centro de interés diseñado por el artista para destacar sobre el resto.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i> Creado con color atípico o escala mayor.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i> Ubicación estratégica (Regla de tercios).</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i> Concentración de detalles.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('enfasis')" class="w-full py-2.5 px-4 rounded-xl bg-amber-50 text-amber-700 text-xs font-bold hover:bg-amber-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+            <!-- Card 4: Movimiento -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-cyan-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <span class="text-xs font-bold text-cyan-600 tracking-widest uppercase">4. Flujo</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Movimiento</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        El recorrido o la trayectoria que sigue el ojo del espectador al navegar a través de la obra hacia las áreas de interés.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-cyan-500 mr-2"></i> Guiado por líneas implícitas o curvas.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-cyan-500 mr-2"></i> Transición fluida entre formas.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-cyan-500 mr-2"></i> Sensación de ilusión dinámica.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('movimiento')" class="w-full py-2.5 px-4 rounded-xl bg-cyan-50 text-cyan-700 text-xs font-bold hover:bg-cyan-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+            <!-- Card 5: Ritmo y Repetición -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-emerald-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-wave-square"></i>
+                    </div>
+                    <span class="text-xs font-bold text-emerald-600 tracking-widest uppercase">5. Cadencia</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Ritmo y Repetición</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Uso de elementos recurrentes (colores, líneas, formas) para crear una musicalidad visual o tiempo dentro del espacio.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i> <b>Ritmo Regular:</b> Patrones uniformes.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i> <b>Ritmo Progresivo:</b> Elementos cambian gradualmente.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i> <b>Ritmo Fluido:</b> Curvas suaves repetidas.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('ritmo')" class="w-full py-2.5 px-4 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-bold hover:bg-emerald-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+            <!-- Card 6: Patrón -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-purple-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-border-all"></i>
+                    </div>
+                    <span class="text-xs font-bold text-purple-600 tracking-widest uppercase">6. Orden</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Patrón</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        La repetición uniforme y consistente de un motivo visual específico sobre una superficie o lienzo.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-purple-500 mr-2"></i> Crea textura y coherencia de fondo.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-purple-500 mr-2"></i> Utiliza módulos o motivos geométricos.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-purple-500 mr-2"></i> Aplicación común en diseño textil y mosaicos.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('patron')" class="w-full py-2.5 px-4 rounded-xl bg-purple-50 text-purple-700 text-xs font-bold hover:bg-purple-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+            <!-- Card 7: Proporción y Escala -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-rose-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-[#1e293b] fa-up-right-and-down-left-from-center"></i>
+                    </div>
+                    <span class="text-xs font-bold text-rose-600 tracking-widest uppercase">7. Dimensiones</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Proporción y Escala</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Relación de tamaño entre las partes de un objeto entre sí, o en comparación con un estándar de referencia.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-rose-500 mr-2"></i> <b>Proporción áurea:</b> Armonía matemática.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-rose-500 mr-2"></i> <b>Escala Jerárquica:</b> El tamaño denota importancia.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-rose-500 mr-2"></i> Alteración intencionada para surrealismo.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('proporcion')" class="w-full py-2.5 px-4 rounded-xl bg-rose-50 text-rose-700 text-xs font-bold hover:bg-rose-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+            <!-- Card 8: Variedad -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-teal-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-shapes"></i>
+                    </div>
+                    <span class="text-xs font-bold text-teal-600 tracking-widest uppercase">8. Diversidad</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Variedad</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        La combinación de diversos elementos visuales para aportar dinamismo, complejidad y evitar el aburrimiento del ojo.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-teal-500 mr-2"></i> Mezcla de texturas, tonos y formas.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-teal-500 mr-2"></i> Mantiene activo el interés visual.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-teal-500 mr-2"></i> Debe equilibrarse con la unidad.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('variedad')" class="w-full py-2.5 px-4 rounded-xl bg-teal-50 text-teal-700 text-xs font-bold hover:bg-teal-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+            <!-- Card 9: Unidad y Armonía -->
+            <div class="principle-card bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:border-violet-300 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center mb-4 text-xl font-bold">
+                        <i class="fa-solid fa-puzzle-piece"></i>
+                    </div>
+                    <span class="text-xs font-bold text-violet-600 tracking-widest uppercase">9. Totalidad</span>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mt-1 mb-3">Unidad y Armonía</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        La sensación de que todos los elementos pertenecientes a la obra trabajan juntos para formar un todo coherente e integrado.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-1.5 mb-6">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-violet-500 mr-2"></i> Cohesión de paleta cromática.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-violet-500 mr-2"></i> Tema estético consistente.</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-violet-500 mr-2"></i> Sensación de obra completa y terminada.</li>
+                    </ul>
+                </div>
+                <button onclick="openDemo('unidad')" class="w-full py-2.5 px-4 rounded-xl bg-violet-50 text-violet-700 text-xs font-bold hover:bg-violet-100 transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-eye"></i> Ver Demostración
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Canvas & Playground Section -->
+    <section id="laboratorio" class="py-16 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                
+                <!-- Left Control Column -->
+                <div class="w-full lg:w-5/12 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30 text-xs font-medium">
+                        <i class="fa-solid fa-sliders"></i> <span>Laboratorio Visual Vivo</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold tracking-tight">Experimenta los Principios en Tiempo Real</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Selecciona un principio a continuación y ajusta los controles para observar cómo la teoría transforma visualmente la composición digital.
+                    </p>
+
+                    <!-- Selector Buttons -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-2">
+                        <button onclick="setLabPrinciple('equilibrio')" id="btn-equilibrio" class="lab-btn py-2 px-3 text-xs rounded-lg bg-slate-800 border border-slate-700 hover:border-purple-500 font-medium transition-all text-left flex items-center gap-2">
+                            <i class="fa-solid fa-scale-balanced text-indigo-400"></i> Equilibrio
+                        </button>
+                        <button onclick="setLabPrinciple('contraste')" id="btn-contraste" class="lab-btn py-2 px-3 text-xs rounded-lg bg-slate-800 border border-slate-700 hover:border-purple-500 font-medium transition-all text-left flex items-center gap-2">
+                            <i class="fa-solid fa-circle-half-stroke text-pink-400"></i> Contraste
+                        </button>
+                        <button onclick="setLabPrinciple('enfasis')" id="btn-enfasis" class="lab-btn py-2 px-3 text-xs rounded-lg bg-slate-800 border border-slate-700 hover:border-purple-500 font-medium transition-all text-left flex items-center gap-2">
+                            <i class="fa-solid fa-bullseye text-amber-400"></i> Énfasis
+                        </button>
+                        <button onclick="setLabPrinciple('movimiento')" id="btn-movimiento" class="lab-btn py-2 px-3 text-xs rounded-lg bg-slate-800 border border-slate-700 hover:border-purple-500 font-medium transition-all text-left flex items-center gap-2">
+                            <i class="fa-solid fa-wind text-cyan-400"></i> Movimiento
+                        </button>
+                        <button onclick="setLabPrinciple('ritmo')" id="btn-ritmo" class="lab-btn py-2 px-3 text-xs rounded-lg bg-slate-800 border border-slate-700 hover:border-purple-500 font-medium transition-all text-left flex items-center gap-2">
+                            <i class="fa-solid fa-wave-square text-emerald-400"></i> Ritmo
+                        </button>
+                        <button onclick="setLabPrinciple('proporcion')" id="btn-proporcion" class="lab-btn py-2 px-3 text-xs rounded-lg bg-slate-800 border border-slate-700 hover:border-purple-500 font-medium transition-all text-left flex items-center gap-2">
+                            <i class="fa-solid fa-up-right-and-down-left-from-center text-rose-400"></i> Escala
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Slider / Controls Box -->
+                    <div id="lab-controls" class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700 space-y-4">
+                        <!-- Dynamic controls generated by JS -->
+                    </div>
+                </div>
+
+                <!-- Right Canvas Stage -->
+                <div class="w-full lg:w-7/12 flex flex-col items-center">
+                    <div class="w-full aspect-square max-w-[480px] bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl relative overflow-hidden flex items-center justify-center p-4">
+                        <canvas id="artCanvas" class="w-full h-full rounded-xl bg-slate-900 cursor-pointer"></canvas>
+                        
+                        <!-- Overlay helper badge -->
+                        <div class="absolute top-4 left-4 bg-slate-900/80 backdrop-filter blur px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-mono text-purple-300 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span id="canvas-status">Lienzo Interactivo Activo</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-3 flex items-center gap-1">
+                        <i class="fa-solid fa-hand-pointer text-slate-500"></i> Puedes interactuar directamente con el lienzo usando tu cursor o toque.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section id="cuestionario" class="py-20 bg-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold text-purple-600 tracking-widest uppercase bg-purple-100 px-3 py-1 rounded-full">
+                    Ponte a prueba
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-900 mt-3">Cuestionario de Evaluación</h2>
+                <p class="text-slate-600 mt-2">Comprueba tus conocimientos sobre los principios del arte visual.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-200/80 relative overflow-hidden">
+                
+                <!-- Quiz Progress Bar -->
+                <div class="mb-8">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 mb-2">
+                        <span id="quiz-progress-text">Pregunta 1 de 6</span>
+                        <span id="quiz-score-text">Puntuación: 0 pts</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-purple-600 to-pink-500 w-1/6 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-container">
+                    <!-- Question Title -->
+                    <h3 id="quiz-question" class="text-xl font-bold text-slate-900 mb-6 leading-snug">
+                        Cargando pregunta...
+                    </h3>
+
+                    <!-- Options Grid -->
+                    <div id="quiz-options" class="space-y-3 mb-6">
+                        <!-- Options generated dynamically -->
+                    </div>
+
+                    <!-- Feedback Box -->
+                    <div id="quiz-feedback" class="hidden p-4 rounded-xl text-sm font-medium mb-6 transition-all"></div>
+
+                    <!-- Action Button -->
+                    <div class="flex justify-end">
+                        <button id="quiz-next-btn" onclick="nextQuestion()" class="px-6 py-3 rounded-xl bg-purple-600 text-white font-bold text-sm hover:bg-purple-700 transition-all shadow-md hidden">
+                            Siguiente Pregunta <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Screen (Hidden by Default) -->
+                <div id="quiz-results" class="hidden text-center py-8">
+                    <div id="quiz-result-icon" class="w-20 h-20 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-6 text-3xl">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 id="quiz-result-title" class="text-3xl font-serif font-bold text-slate-900 mb-2">¡Excelente trabajo!</h3>
+                    <p id="quiz-result-desc" class="text-slate-600 mb-6 max-w-md mx-auto">Has completado con éxito la evaluación de los principios del arte.</p>
+                    
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 inline-block mb-8 px-8">
+                        <span class="text-xs uppercase tracking-wider text-slate-500 font-bold block mb-1">Tu Resultado Final</span>
+                        <span id="quiz-final-score" class="text-4xl font-extrabold text-purple-600">6 / 6</span>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="restartQuiz()" class="px-6 py-3 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 transition-all shadow-md">
+                            <i class="fa-solid fa-rotate-right mr-2"></i> Repetir Cuestionario
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Detailed Principle Viewing -->
+    <div id="demoModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative border border-slate-100 transform scale-95 transition-transform duration-300" id="modalCard">
+            <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Content inserted via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
+                    <i class="fa-solid fa-palette"></i>
+                </div>
+                <span class="font-serif font-bold text-lg text-white">ArteVisual</span>
+            </div>
+            <p class="text-xs text-center sm:text-right">
+                Infografía Educativa e Interactiva sobre Teoría del Arte. <br>
+                Diseñada para la apreciación visual y el aprendizaje activo.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // =========================================================================
+        // LAB CANVAS & PRINCIPLE INTERACTIVE ENGINE
+        // =========================================================================
+        const canvas = document.getElementById('artCanvas');
+        const ctx = canvas.getContext('2d');
+        let currentPrinciple = 'equilibrio';
+        let animationFrameId = null;
+
+        // Lab parameters
+        let labParams = {
+            symmetry: 'symmetric', // symmetric, asymmetric
+            contrastVal: 80, // 0 to 100
+            emphasisX: 0.5, // 0 to 1
+            emphasisY: 0.5,
+            flowSpeed: 2,
+            rhythmCount: 6,
+            scaleVal: 1
+        };
+
+        function initCanvas() {
+            // High DPI Canvas Scaling
+            const rect = canvas.getBoundingClientRect();
+            canvas.width = rect.width * window.devicePixelRatio;
+            canvas.height = rect.height * window.devicePixelRatio;
+            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            renderCanvas();
+        }
+
+        window.addEventListener('resize', () => {
+            initCanvas();
+        });
+
+        // Interactive mouse click on canvas for Emphasis
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+            if (currentPrinciple === 'enfasis') {
+                labParams.emphasisX = x;
+                labParams.emphasisY = y;
+            }
+        });
+
+        function setLabPrinciple(principle) {
+            currentPrinciple = principle;
+            
+            // Highlight active button
+            document.querySelectorAll('.lab-btn').forEach(btn => {
+                btn.classList.remove('bg-purple-600', 'text-white', 'border-purple-500');
+                btn.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+            });
+            const activeBtn = document.getElementById(`btn-${principle}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+                activeBtn.classList.add('bg-purple-600', 'text-white', 'border-purple-500');
+            }
+
+            // Render Control UI
+            renderControlsUI();
+
+            // Render Canvas Animation Frame
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            animateCanvas();
+        }
+
+        function renderControlsUI() {
+            const container = document.getElementById('lab-controls');
+            let html = '';
+
+            if (currentPrinciple === 'equilibrio') {
+                html = `
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Tipo de Equilibrio</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="labParams.symmetry='symmetric'; setLabPrinciple('equilibrio');" class="py-2 px-3 text-xs font-bold rounded-lg ${labParams.symmetry === 'symmetric' ? 'bg-purple-600 text-white' : 'bg-slate-700 text-slate-300'}">Simétrico</button>
+                        <button onclick="labParams.symmetry='asymmetric'; setLabPrinciple('equilibrio');" class="py-2 px-3 text-xs font-bold rounded-lg ${labParams.symmetry === 'asymmetric' ? 'bg-purple-600 text-white' : 'bg-slate-700 text-slate-300'}">Asimétrico</button>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">Observa cómo se distribuye el peso visual a ambos lados del eje central.</p>
+                `;
+            } else if (currentPrinciple === 'contraste') {
+                html = `
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Nivel de Contraste (${labParams.contrastVal}%)</label>
+                    <input type="range" min="0" max="100" value="${labParams.contrastVal}" oninput="labParams.contrastVal=this.value; renderControlsUI();" class="w-full accent-pink-500">
+                    <p class="text-xs text-slate-400 mt-2">Un alto contraste intensifica la diferencia entre tonos y formas para captar el interés.</p>
+                `;
+            } else if (currentPrinciple === 'enfasis') {
+                html = `
+                    <p class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Punto Focal Activo</p>
+                    <p class="text-xs text-slate-300">Haz clic en cualquier punto del lienzo negro para recolocar la figura focal de alto énfasis.</p>
+                `;
+            } else if (currentPrinciple === 'movimiento') {
+                html = `
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Velocidad del Flujo Visual</label>
+                    <input type="range" min="1" max="5" value="${labParams.flowSpeed}" oninput="labParams.flowSpeed=Number(this.value);" class="w-full accent-cyan-400">
+                    <p class="text-xs text-slate-400 mt-2">Las líneas vectoriales dinámicas guían la mirada del espectador por la obra.</p>
+                `;
+            } else if (currentPrinciple === 'ritmo') {
+                html = `
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Frecuencia de Repetición (${labParams.rhythmCount})</label>
+                    <input type="range" min="3" max="12" value="${labParams.rhythmCount}" oninput="labParams.rhythmCount=Number(this.value); renderControlsUI();" class="w-full accent-emerald-400">
+                    <p class="text-xs text-slate-400 mt-2">Crea una secuencia cadenciosa que aporta pulso y armonía temporal.</p>
+                `;
+            } else if (currentPrinciple === 'proporcion') {
+                html = `
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Factor de Escala (${labParams.scaleVal}x)</label>
+                    <input type="range" min="0.5" max="2.5" step="0.1" value="${labParams.scaleVal}" oninput="labParams.scaleVal=Number(this.value); renderControlsUI();" class="w-full accent-rose-400">
+                    <p class="text-xs text-slate-400 mt-2">Compara la escala de la figura central respecto a los elementos envolventes.</p>
+                `;
+            }
+
+            container.innerHTML = html;
+        }
+
+        // Particle system for Movement demo
+        let particles = Array.from({length: 40}, () => ({
+            x: Math.random(),
+            y: Math.random(),
+            speed: 0.002 + Math.random() * 0.003
+        }));
+
+        let time = 0;
+
+        function animateCanvas() {
+            renderCanvas();
+            time += 0.03;
+            animationFrameId = requestAnimationFrame(animateCanvas);
+        }
+
+        function renderCanvas() {
+            const w = canvas.getBoundingClientRect().width;
+            const h = canvas.getBoundingClientRect().height;
+
+            ctx.clearRect(0, 0, w, h);
+
+            // Canvas Background
+            ctx.fillStyle = '#0f172a';
+            ctx.fillRect(0, 0, w, h);
+
+            if (currentPrinciple === 'equilibrio') {
+                // Central axis
+                ctx.strokeStyle = '#334155';
+                ctx.setLineDash([4, 4]);
+                ctx.beginPath();
+                ctx.moveTo(w / 2, 0); ctx.lineTo(w / 2, h);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                if (labParams.symmetry === 'symmetric') {
+                    // Symmetrical balance
+                    ctx.fillStyle = '#6366f1';
+                    ctx.beginPath(); ctx.arc(w * 0.25, h / 2, 35, 0, Math.PI * 2); ctx.fill();
+                    ctx.beginPath(); ctx.arc(w * 0.75, h / 2, 35, 0, Math.PI * 2); ctx.fill();
+                    
+                    ctx.fillStyle = '#ec4899';
+                    ctx.fillRect(w * 0.25 - 15, h / 2 - 80, 30, 30);
+                    ctx.fillRect(w * 0.75 - 15, h / 2 - 80, 30, 30);
+                } else {
+                    // Asymmetrical balance (1 big shape balances with multiple smaller ones)
+                    ctx.fillStyle = '#6366f1';
+                    ctx.beginPath(); ctx.arc(w * 0.25, h / 2, 55, 0, Math.PI * 2); ctx.fill();
+
+                    ctx.fillStyle = '#ec4899';
+                    ctx.beginPath(); ctx.arc(w * 0.75, h / 2 - 30, 22, 0, Math.PI * 2); ctx.fill();
+                    ctx.beginPath(); ctx.arc(w * 0.85, h / 2 + 30, 26, 0, Math.PI * 2); ctx.fill();
+                    ctx.beginPath(); ctx.arc(w * 0.65, h / 2 + 40, 18, 0, Math.PI * 2); ctx.fill();
+                }
+            } 
+            else if (currentPrinciple === 'contraste') {
+                const alpha = labParams.contrastVal / 100;
+                // Background split
+                ctx.fillStyle = '#1e293b';
+                ctx.fillRect(0, 0, w, h);
+
+                // Contrast shapes
+                const darkColor = `rgba(15, 23, 42, ${alpha})`;
+                const lightColor = `rgba(248, 250, 252, ${alpha})`;
+
+                ctx.fillStyle = lightColor;
+                ctx.fillRect(w * 0.15, h * 0.2, w * 0.35, h * 0.6);
+
+                ctx.fillStyle = darkColor;
+                ctx.beginPath(); ctx.arc(w * 0.325, h * 0.5, 40, 0, Math.PI * 2); ctx.fill();
+
+                ctx.fillStyle = darkColor;
+                ctx.fillRect(w * 0.55, h * 0.2, w * 0.35, h * 0.6);
+
+                ctx.fillStyle = lightColor;
+                ctx.beginPath(); ctx.arc(w * 0.725, h * 0.5, 40, 0, Math.PI * 2); ctx.fill();
+            }
+            else if (currentPrinciple === 'enfasis') {
+                // Dim uniform background elements
+                ctx.fillStyle = '#334155';
+                for (let i = 0; i < 5; i++) {
+                    for (let j = 0; j < 5; j++) {
+                        const px = (i + 1) * (w / 6);
+                        const py = (j + 1) * (h / 6);
+                        ctx.beginPath(); ctx.arc(px, py, 10, 0, Math.PI * 2); ctx.fill();
+                    }
+                }
+
+                // Interactive Focal Point with glowing effect
+                const fx = labParams.emphasisX * w;
+                const fy = labParams.emphasisY * h;
+
+                // Pulsing glow
+                const glowSize = 35 + Math.sin(time * 3) * 8;
+                ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
+                ctx.beginPath(); ctx.arc(fx, fy, glowSize + 15, 0, Math.PI * 2); ctx.fill();
+
+                // Bright focal star/burst
+                ctx.fillStyle = '#f59e0b';
+                ctx.beginPath(); ctx.arc(fx, fy, 22, 0, Math.PI * 2); ctx.fill();
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath(); ctx.arc(fx, fy, 8, 0, Math.PI * 2); ctx.fill();
+            }
+            else if (currentPrinciple === 'movimiento') {
+                // Curved path
+                ctx.strokeStyle = 'rgba(6, 182, 212, 0.3)';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(w * 0.1, h * 0.8);
+                ctx.bezierCurveTo(w * 0.4, h * 0.1, w * 0.6, h * 0.9, w * 0.9, h * 0.2);
+                ctx.stroke();
+
+                // Particle flow along curve
+                particles.forEach(p => {
+                    p.x += p.speed * labParams.flowSpeed;
+                    if (p.x > 1) p.x = 0;
+
+                    // Compute bezier position
+                    const t = p.x;
+                    const bx = Math.pow(1-t, 3)*(w*0.1) + 3*Math.pow(1-t,2)*t*(w*0.4) + 3*(1-t)*Math.pow(t,2)*(w*0.6) + Math.pow(t,3)*(w*0.9);
+                    const by = Math.pow(1-t, 3)*(h*0.8) + 3*Math.pow(1-t,2)*t*(h*0.1) + 3*(1-t)*Math.pow(t,2)*(h*0.9) + Math.pow(t,3)*(h*0.2);
+
+                    ctx.fillStyle = '#22d3ee';
+                    ctx.beginPath(); ctx.arc(bx, by, 4 + t * 4, 0, Math.PI * 2); ctx.fill();
+                });
+            }
+            else if (currentPrinciple === 'ritmo') {
+                // Rhythmic pulse along a line
+                const count = labParams.rhythmCount;
+                const step = w / (count + 1);
+
+                for (let i = 1; i <= count; i++) {
+                    const cx = i * step;
+                    const offset = Math.sin(time * 3 + i * 0.8) * 20;
+                    const size = 15 + Math.cos(time * 2 + i) * 6;
+
+                    ctx.fillStyle = '#10b981';
+                    ctx.beginPath();
+                    ctx.arc(cx, h / 2 + offset, Math.max(4, size), 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.strokeStyle = 'rgba(16, 185, 129, 0.2)';
+                    ctx.beginPath();
+                    ctx.arc(cx, h / 2, 25, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+            else if (currentPrinciple === 'proporcion') {
+                // Standard human scale reference (silhouette mockup)
+                ctx.fillStyle = '#475569';
+                ctx.fillRect(w * 0.2 - 10, h * 0.6, 20, 60); // body
+                ctx.beginPath(); ctx.arc(w * 0.2, h * 0.6 - 12, 10, 0, Math.PI * 2); ctx.fill(); // head
+                ctx.font = '10px sans-serif';
+                ctx.fillText('Referencia', w * 0.2 - 22, h * 0.6 + 80);
+
+                // Scalable sculpture element
+                const scale = labParams.scaleVal;
+                ctx.fillStyle = '#f43f5e';
+                ctx.save();
+                ctx.translate(w * 0.65, h * 0.6);
+                ctx.scale(scale, scale);
+                
+                // Draw decorative object
+                ctx.beginPath();
+                ctx.moveTo(0, -40);
+                ctx.lineTo(30, 20);
+                ctx.lineTo(-30, 20);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.restore();
+            }
+        }
+
+        // =========================================================================
+        // PRINCIPLE DETAILS MODAL SYSTEM
+        // =========================================================================
+        const modalData = {
+            equilibrio: {
+                title: "Equilibrio (Balance)",
+                tag: "Estructura Visual",
+                color: "indigo",
+                desc: "El equilibrio es la distribución del peso visual de los elementos en una composición. Los ojos del espectador buscan la estabilidad natural.",
+                details: [
+                    "<b>Simétrico:</b> Da una sensación de orden, formalidad y serenidad (ej. Arquitectura clásica).",
+                    "<b>Asimétrico:</b> Genera dinamismo, tensión e interés visual sin perder la estabilidad general.",
+                    "<b>Radial:</b> Los elementos giran en torno a un punto central focal (ej. Mosaicos o rosetones)."
+                ]
+            },
+            contraste: {
+                title: "Contraste",
+                tag: "Tensión e Impacto",
+                color: "pink",
+                desc: "Ocurre cuando dos elementos opuestos se colocan juntos. Es vital para romper la monotonía y captar la atención de inmediato.",
+                details: [
+                    "<b>Contraste de Color:</b> Colores complementarios (rojo/verde, azul/naranja).",
+                    "<b>Contraste de Escala:</b> Elementos gigantes junto a detalles minúsculos.",
+                    "<b>Contraste de Forma:</b> Formas orgánicas e irregulares frente a figuras geométricas rígidas."
+                ]
+            },
+            enfasis: {
+                title: "Énfasis (Punto Focal)",
+                tag: "Jerarquía de Lectura",
+                color: "amber",
+                desc: "El centro de interés de la obra. Es el elemento dominante que comunica el mensaje principal al espectador.",
+                details: [
+                    "Permite controlar qué parte de la historia observa el espectador en primer lugar.",
+                    "Se logra rompiendo el patrón visual reinante.",
+                    "El aislamiento de un objeto incrementa significativamente su peso focal."
+                ]
+            },
+            movimiento: {
+                title: "Movimiento",
+                tag: "Dirección y Dinamismo",
+                color: "cyan",
+                desc: "En el arte bidimensional estático, el movimiento es la ilusión de acción y la dirección con la que se guía la mirada.",
+                details: [
+                    "Las líneas diagonales sugieren velocidad e inestabilidad dinámica.",
+                    "Las miradas o gestos de los personajes dirigen el ojo del observador.",
+                    "Permite narrar un suceso temporal dentro de una sola imagen."
+                ]
+            },
+            ritmo: {
+                title: "Ritmo y Repetición",
+                tag: "Cadencia Visual",
+                color: "emerald",
+                desc: "Es la repetición metódica de elementos para otorgar un pulso o sensación musical a la obra de arte.",
+                details: [
+                    "<b>Ritmo Alternado:</b> Se intercalan dos o más elementos de forma consistente.",
+                    "<b>Ritmo Progresivo:</b> Muestra una evolución en tamaño o tonalidad.",
+                    "<b>Ritmo Ondulatorio:</b> Transmite calma a través de curvas fluidas."
+                ]
+            },
+            patron: {
+                title: "Patrón",
+                tag: "Textura y Repetición",
+                color: "purple",
+                desc: "Un diseño regular donde una unidad gráfica o motivo se repite sin variaciones significativas en toda la superficie.",
+                details: [
+                    "Proporciona textura visual y estructura de fondo sólida.",
+                    "Muy usado en diseño ornamental, papel tapiz y textiles tradicionales.",
+                    "Refuerza la consistencia espacial."
+                ]
+            },
+            proporcion: {
+                title: "Proporción y Escala",
+                tag: "Relaciones de Tamaño",
+                color: "rose",
+                desc: "La proporción examina la relación entre las partes de un objeto; la escala compara el objeto completo con su entorno.",
+                details: [
+                    "<b>Proporción Humana:</b> Referencia canónica usada desde el Renacimiento.",
+                    "<b>Desproporción Intencionada:</b> Herramienta surrealista para transmitir extrañeza o poderío.",
+                    "<b>Escala Jerárquica:</b> Usada en el arte egipcio donde los reyes eran retratados más grandes."
+                ]
+            },
+            variedad: {
+                title: "Variedad",
+                tag: "Diversidad Visual",
+                color: "teal",
+                desc: "El uso de múltiples elementos contrastantes para mantener la fascinación del observador.",
+                details: [
+                    "Complemento directo de la unidad.",
+                    "Previene la monotonía aburrida en composiciones extensas.",
+                    "Crea riqueza visual a través de matices y sorpresas."
+                ]
+            },
+            unidad: {
+                title: "Unidad y Armonía",
+                tag: "Cohesión Global",
+                color: "violet",
+                desc: "Ocurre cuando todos los componentes de la obra de arte se integran armónicamente para transmitir una única idea sólida.",
+                details: [
+                    "Ninguna parte parece fuera de lugar o innecesaria.",
+                    "Se logra mediante paletas cromáticas coherentes y proximidad visual.",
+                    "Sello característico de una obra terminada y equilibrada."
+                ]
+            }
+        };
+
+        function openDemo(principleKey) {
+            const data = modalData[principleKey];
+            if(!data) return;
+
+            const modal = document.getElementById('demoModal');
+            const card = document.getElementById('modalCard');
+            const content = document.getElementById('modalContent');
+
+            content.innerHTML = `
+                <div class="inline-block px-3 py-1 rounded-full bg-${data.color}-100 text-${data.color}-700 text-xs font-bold uppercase tracking-wider mb-3">
+                    ${data.tag}
+                </div>
+                <h3 class="text-3xl font-serif font-bold text-slate-900 mb-3">${data.title}</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">${data.desc}</p>
+                
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 mb-6">
+                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Aspectos Clave:</h4>
+                    <ul class="space-y-2 text-xs text-slate-600">
+                        ${data.details.map(item => `<li class="flex items-start"><i class="fa-solid fa-circle-dot text-${data.color}-500 mt-0.5 mr-2"></i><span>${item}</span></li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="flex justify-end">
+                    <button onclick="closeModal(); setLabPrinciple('${principleKey}'); location.href='#laboratorio';" class="px-5 py-2.5 rounded-xl bg-purple-600 text-white font-bold text-xs hover:bg-purple-700 transition-all">
+                        Probar en Lab Interactivo <i class="fa-solid fa-flask ml-1"></i>
+                    </button>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('demoModal');
+            const card = document.getElementById('modalCard');
+            modal.classList.add('opacity-0');
+            card.classList.remove('scale-100');
+            card.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // =========================================================================
+        // QUIZ ENGINE
+        // =========================================================================
+        const quizData = [
+            {
+                question: "¿Qué principio del arte se logra cuando los elementos a ambos lados de un eje central tienen el mismo peso visual?",
+                options: [
+                    "Equilibrio Simétrico",
+                    "Ritmo Progresivo",
+                    "Contraste de Color",
+                    "Escala Jerárquica"
+                ],
+                correct: 0,
+                explanation: "El equilibrio simétrico distribuye partes idénticas o muy similares a ambos lados de un eje central."
+            },
+            {
+                question: "Si un artista pinta una manzana roja brillante sobre un fondo monocromático gris, ¿qué principio está aplicando principalmente?",
+                options: [
+                    "Patrón continuo",
+                    "Énfasis / Punto Focal",
+                    "Proporción Aúrea",
+                    "Equilibrio Radial"
+                ],
+                correct: 1,
+                explanation: "El contraste de color aísla la manzana convirtiéndola en el punto focal principal (Énfasis)."
+            },
+            {
+                question: "¿Cuál es la diferencia fundamental entre Patrón y Ritmo?",
+                options: [
+                    "El patrón usa solo colores fríos.",
+                    "El ritmo es estático y el patrón se mueve.",
+                    "El patrón es una repetición exacta uniforme; el ritmo implica cadencia o tiempo visual.",
+                    "No existe ninguna diferencia entre ambos."
+                ],
+                correct: 2,
+                explanation: "El patrón consiste en un motivo repetido idéntico, mientras que el ritmo genera un flujo dinámico o tempo."
+            },
+            {
+                question: "¿Qué principio asegura que una obra de arte se sienta completa y que todas sus partes trabajen juntas en armonía?",
+                options: [
+                    "Variedad",
+                    "Unidad",
+                    "Asimetría",
+                    "Escala"
+                ],
+                correct: 1,
+                explanation: "La Unidad es la sensación de coherencia global donde todos los elementos pertenecen al mismo todo."
+            },
+            {
+                question: "En el arte del antiguo Egipto, los faraones se dibujaban mucho más grandes que sus siervos. ¿Qué principio ilustra esto?",
+                options: [
+                    "Escala Jerárquica",
+                    "Movimiento Fluido",
+                    "Ritmo Ondulatorio",
+                    "Contraste Textural"
+                ],
+                correct: 0,
+                explanation: "La escala jerárquica utiliza las proporciones de tamaño para denotar importancia social o espiritual."
+            },
+            {
+                question: "¿Qué elemento genera la ilusión de movimiento en una pintura bidimensional estática?",
+                options: [
+                    "Líneas diagonales y curvas de dirección",
+                    "Un marco dorado",
+                    "El uso exclusivo de sombras negras",
+                    "La simetría exacta"
+                ],
+                correct: 0,
+                explanation: "Las líneas fluidas y diagonales guían el ojo del espectador creando una trayectoria visual de movimiento."
+            }
+        ];
+
+        let currentQuestionIdx = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const q = quizData[currentQuestionIdx];
+            
+            // Progress Bar & Texts
+            document.getElementById('quiz-progress-text').innerText = `Pregunta ${currentQuestionIdx + 1} de ${quizData.length}`;
+            document.getElementById('quiz-score-text').innerText = `Puntuación: ${score} pts`;
+            document.getElementById('quiz-progress-bar').style.width = `${((currentQuestionIdx + 1) / quizData.length) * 100}%`;
+
+            // Question & Options
+            document.getElementById('quiz-question').innerText = q.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-purple-50 hover:border-purple-300 font-medium text-sm text-slate-800 transition-all flex items-center justify-between group`;
+                btn.onclick = () => selectOption(idx);
+                btn.innerHTML = `
+                    <span>${opt}</span>
+                    <span class="w-6 h-6 rounded-full border border-slate-300 group-hover:border-purple-500 flex items-center justify-center text-xs text-transparent group-hover:text-purple-500">
+                        <i class="fa-solid fa-check"></i>
+                    </span>
+                `;
+                optionsContainer.appendChild(btn);
+            });
+
+            // Hide feedback and next btn
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-next-btn').classList.add('hidden');
+        }
+
+        function selectOption(optionIdx) {
+            if (answered) return;
+            answered = true;
+
+            const q = quizData[currentQuestionIdx];
+            const optionsBtns = document.getElementById('quiz-options').children;
+            const feedbackBox = document.getElementById('quiz-feedback');
+
+            if (optionIdx === q.correct) {
+                score += 10;
+                optionsBtns[optionIdx].className = "w-full text-left p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-sm flex items-center justify-between";
+                feedbackBox.className = "p-4 rounded-xl text-sm font-medium mb-6 bg-emerald-100 text-emerald-800 border border-emerald-200";
+                feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> <b>¡Correcto!</b> ${q.explanation}`;
+            } else {
+                optionsBtns[optionIdx].className = "w-full text-left p-4 rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-900 font-bold text-sm flex items-center justify-between";
+                optionsBtns[q.correct].className = "w-full text-left p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-sm flex items-center justify-between";
+                feedbackBox.className = "p-4 rounded-xl text-sm font-medium mb-6 bg-rose-100 text-rose-800 border border-rose-200";
+                feedbackBox.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> <b>Incorrecto.</b> ${q.explanation}`;
+            }
+
+            feedbackBox.classList.remove('hidden');
+            document.getElementById('quiz-score-text').innerText = `Puntuación: ${score} pts`;
+            document.getElementById('quiz-next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            const resultsScreen = document.getElementById('quiz-results');
+            resultsScreen.classList.remove('hidden');
+
+            const totalMax = quizData.length * 10;
+            document.getElementById('quiz-final-score').innerText = `${score} / ${totalMax} pts`;
+
+            const resultTitle = document.getElementById('quiz-result-title');
+            const resultDesc = document.getElementById('quiz-result-desc');
+
+            if (score === totalMax) {
+                resultTitle.innerText = "¡Maestro de la Teoría del Arte! 🎨";
+                resultDesc.innerText = "Has demostrado un dominio impecable de todos los principios del arte visual.";
+            } else if (score >= totalMax * 0.6) {
+                resultTitle.innerText = "¡Muy Buen Trabajo! 👏";
+                resultDesc.innerText = "Tienes una base sólida sobre la composición visual y los principios del arte.";
+            } else {
+                resultTitle.innerText = "¡Sigue Explorando! 💡";
+                resultDesc.innerText = "Te recomendamos repasar la infografía y experimentar en el laboratorio visual para afianzar tus conocimientos.";
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestionIdx = 0;
+            score = 0;
+            document.getElementById('quiz-results').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        // Initialize App on window load
+        window.onload = function() {
+            initCanvas();
+            setLabPrinciple('equilibrio');
+            loadQuestion();
+        };
+    </script>
+</body>
+</html>
